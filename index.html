@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Monero (XMR) Mining Pool - MONEROMINEco</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#efefef" />
+<meta name="description" content="Welcome to MONEROMINEco XMR Mining Pool & Public Node!">
+<!--<link rel="preload" href="assets/font/GothamCondensed-Medium.woff2" as="font" crossorigin="anonymous">-->
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="manifest" href="assets/site.webmanifest">
+<link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#603cba">
+<meta name="msapplication-TileColor" content="#603cba">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="stylesheet" href="assets/css/main.css" />
+<style>
+	.miner {
+		display:none;
+	}
+	.coin-marquee-header-signature {
+		display:none;
+	}
+	.coin-marquee-wrapper--dark {
+		border:none !important;
+	}
+	#coinmarketcap-widget-marquee {
+		float:right;
+		width:400px;
+		margin:0 220px 0 0;
+		padding-top:30px;
+	}
+	.coin-marquee-wrapper coin-marquee-wrapper--dark coin-marquee-wrapper--transparent {
+	
+	}
+	.coin-marquee-item {
+		min-width:150px !important;
+	}
+	.coin-marquee-item-inner {
+		border:none !important;
+	}
+	#News {
+		display:none !important;
+	}
+	.MinerMsg {
+		display:none !important;
+	}
+	.select-point {
+		display:none !important;
+	}
+	#MinerSetupScripts {
+		display:none !important;
+	}
+	#WebMinerBtn {
+		display:none !important;
+	}
+</style>
+</head>
+
+<body class="C0bkl">
+<div id="page-wrapper">
+<header>
+	<script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"></script>
+	<div id="coinmarketcap-widget-marquee" coins="1,328,1027,2" currency="USD" theme="dark" transparent="true" show-symbol-logo="true"></div>
+	<!--<div id="HeadLogo" class="txtmed hov nav noselect" data-tar="home">MONEROMINEco</div>-->
+	<div id="HeadMenu"><select class="txtmed"></select><div class="select-point C1fl rot90"></div></div>
+	<div id="TogMode" class="C1fl hov" style="display:none;"></div>
+	<div id="Timer" class="hov">
+		<div id="TimerPie" class="C1bk">
+			<div id="TimerDisc" class="C0bkl"></div>
+			<div id="TimerText" class="txttny noselect"></div>
+		</div>
+		<div id="TimerRefresh" class="C2fl hide"></div>
+		<div id="TimerLoader" class="C1fl preload hide"></div>
+	</div>
+</header>
+
+<!-- Banner -->
+<section id="banner">
+	<div class="inner">
+		<div class="logo"><i class="fas fa-meteor fa-3x"></i></div>
+		<a href="https://moneromine.co"><h2>MoneroMine<span style="font-size:14px;">co</span></h2></a>
+		<p>A Monero Mining Pool & Public Node <span style="color:red;font-weight:bold;">(Under Construction)</span></p>
+
+<!-- Wrapper -->
+<div id="NetStats">
+	<div class="">
+		<table class="">
+		  <tr>
+			<td width="16%" class="center"><span id="WorldHash" class="txtbig">--</span><div class="pbar"></div>Global Hashrate</td>
+			<td width="16%" class="center"><span id="PoolHash" class="txtbig">--</span><div class="pbar"></div>Pool Hashrate</td>
+			<td width="16%" class="center"><span id="CurrEffort" class="txtbig">--</span><div class="pbar"></div>Block Effort</td>
+			<td width="16%" class="center"><span id="BlockCount" class="txtbig">--</span><div class="pbar"></div>Blocks Found</td>
+			<td width="16%" class="center"><span id="AccountCount" class="txtbig">--</span><div class="pbar"></div>Accounts Connected</td>
+			<td width="16%" class="center"><span id="PaymentsMade" class="txtbig">--</span><div class="pbar"></div>Payments Made</td>
+		  </tr>
+		</table>
+	</div>
+</div>
+<div id="Addr" class="">
+	<div class="">
+		<table class="C3l"><tr>
+			<td class="hide"><div id="AddrRecent"><select class="txttny"></select><div class="select-point C1fl rot90"></div></div></td>
+			<td class="hide"><div id="AddrDelete" class="Btn16 C1fl"></div></td>
+			<td width="100%"><div class="hbar"></div><div id="DashAddrCell"><input id="AddrField" type="text" class="FLDl txt" autofocus></div><div class="hbar"></div></td>
+		</tr></table>
+	</div>
+	<div class="">
+		<table class=""><tr>
+			<td width="40%"><span id="DashPending" class="txtbig">--</span><div class="pbar"></div><span id="DashPendingLbl" class="txttny noselect">--</span></td>
+			<td width="20%"><div id="DashPayBtn" class="nopoint" title="Miner options"><div class="Loader C1fl"></div></div></td>
+			<td width="40%"><span id="DashPaid" class="txtbig">--</span><div class="pbar"></div><span id="DashPaidLbl" class="txttny noselect">--</span></td>
+		</tr></table>
+	</div>
+</div>
+<div id="Stage" class="StageFade"></div>
+
+	</div>
+</section>
+
+
+<section id="wrapper">
+<!-- One -->
+	<section id="one" class="wrapper spotlight style1">
+		<div class="inner">
+			<a href="#one" class="image"><img src="images/monero.webp" alt="Monero XMR Mining" /></a>
+			<div class="content">
+				<h2 class="major">Start Mining</h2>
+				<h3 style="text-align:center">us1.moneromine.co</h3>
+				<table>
+					<tr><th>Port</th><th>Starting Difficulty</th><th>Description</th></tr>
+					<tr><td>3333</td><td>64000</td><td>Old CPU/GPUs</td></tr>
+					<tr><td>4444</td><td>128000</td><td>SSL/TLS </td></tr>
+					<tr><td>5555</td><td>128000</td><td>Modern CPU/GPUs</td></tr>
+					<tr><td>7777</td><td>4096000</td><td>Farm Grade Hardware (Nicehash, proxy, etc)</td></tr>
+					<tr><td>9999</td><td>128000</td><td>Solo</td></tr>
+					<tr><td>8080</td><td>8000</td><td>Firewall Bypass</td></tr>
+				</table>
+				<p style="text-align:center;"><b>Current Fee: 1%</b><br /><span style="font-size:14px !important"><i>Fee includes direct donations to the Monero Core Devs. 1% is the highest the fee will ever be here, and MONEROMINE's portion should decrease as the pool hashrate climbs (thus lowering the overall fee).</i></span></p>
+				<!--<section class="features">
+				<article>
+					<h3 class="major">Getting Started</h3>
+					<p>If you're new to XMR mining or mining in general, check out the link below for a guide on how to get started!</p>
+					<a href="mining.html" class="special" target="_blank">Learn More</a>
+				</article>
+				<article>
+					<h3 class="major">FAQ</h3>
+					<p>Questions? Hopefully we have answers! Hit the link below for further information about our pool.</p>
+					<a href="faq.html" class="special" target="_blank">Learn More</a>
+				</article>
+			</section>-->
+			</div>
+		</div>
+	</section>
+
+<!-- Two -->
+	<section id="two" class="wrapper alt spotlight style2">
+		<div class="inner">
+			<a href="#two" class="image"><img src="images/blockchain.webp" alt="Monero XMR Public Node" /></a>
+			<div class="content">
+				<h2 class="major">Public Node</h2>
+				<p>The <a href="https://getmonero.org/downloads/" target="_blank">Official Monero Wallet</a> requires a connection to the Monero blockchain. Makes sense. Our node allows folks to sync their wallets without having to download the entire blockchain.</p>
+				<table>
+				<tr><td><b>Address</b></td><td><b>Port</b></td></tr>
+				<tr><td>node.moneromine.co</td><td>18089</td></tr>
+				</table>
+				<p><b>NOTE:</b><br />
+				It is <i>strongly</i> recommended that you host your own (local) copy of the blockchain. This is the only way to ensure nothing has been tampered with, with the added benefit of helping the network. We promise we're not malicious, but please only use our node if you cannot host your own copy.</p> 
+				<a href="https://getmonero.org/resources/user-guides/remote_node_gui.html" class="special" target="_blank">Learn more</a>
+			</div>
+		</div>
+	</section>
+
+<section id="footer">
+	<div class="inner">
+		<ul class="copyright">
+			<li>&copy; MONEROMINEco. All rights reserved.</li>
+			<li>Frontend: <a href="https://github.com/MoneroOcean/moneroocean-gui" target="_blank">MoneroOcean</a>/<a href="https://html5up.net" target="_blank">HTML5 UP</a></li>
+			<li>Backend: <a href="https://github.com/MoneroOcean/nodejs-pool" target="_blank">MoneroOcean</a>/<a href="https://github.com/Snipa22/nodejs-pool" target="_blank">Snipa22</a></li>
+		</ul>
+	</div>
+</section>
+
+<!--old footer display none-->
+<div class="footer C0bkgrdl" style="display:none;">
+	<div class="hbar"></div>
+	<div id="FootL" class="C2">
+		<a href="https://twitter.com/MoneroOcean" target="_blank"><img src="assets/twitter.svg" width="40px" height="40px" title="Subscribe to our Twitter to get updates about new blocks and other info!"></a>
+		&nbsp;
+  	        <a href="https://discordapp.com/invite/jXaR2kA" target="_blank"><img src="assets/discord.svg" width="40px" height="40px" title="Support on pool dedicated Discord chat channel"></a>
+		&nbsp;
+  	        <a href="http://minerbox.witplex.com/" target="_blank"><img src="assets/minerbox.png" width="40px" height="40px" title="Phone app to track mining stats"></a>
+	</div>
+	<div id="FootR" class="txtmed C2 right"></div>
+	<div class="shim10"></div>
+</div>
+</div>
+<script type="application/ld+json">
+{
+	  "@context": "http://schema.org",
+	  "@type": "product",
+	  "name": "MONEROMINEco",
+	  "url": "https://moneromine.co",
+	  "logo": "https://moneromine.co/assets/logo.png",
+	  "category": "monero mining pool",
+	  "audience": "miners"
+}
+</script>
+</body>
+<script type="text/javascript" src="script.js"></script>
+<script>
+	init();
+</script>
+</html>
