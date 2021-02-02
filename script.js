@@ -148,12 +148,13 @@ var	mde = 'l',
 			{ q:	'What are the available pool ports?',
 			  a:	'This pool supports a few ports with varying difficulty. Please select them based on your miner speed, or add a starting difficulty to your miner startup script.'+
 				'<ul>'+
-					'<li><b>8080</b> (Firewall): 8000 diff (150-300 h/s)</li>'+
-					'<li><b>3333</b>: 64000 diff (1000-2000 h/s)</li>'+
-					'<li><b>4444</b> (SSL/TLS): 128000 diff (2000-4000 h/s)</li>'+
-					'<li><b>5555</b>: 128000 diff (2000-4000 h/s)</li>'+
-					'<li><b>7777</b>: 4096000 diff (80000-160000 h/s)</li>'+
-					'<li><b>9999</b> (Solo): 128000 diff (2000-4000 h/s)</li>'+
+//					'<li><b>8080</b> (Firewall): 8000 diff (150-300 h/s)</li>'+
+//					'<li><b>3333</b>: 64000 diff (1000-2000 h/s)</li>'+
+//					'<li><b>4444</b> (SSL/TLS): 128000 diff (2000-4000 h/s)</li>'+
+//					'<li><b>5555</b>: 128000 diff (2000-4000 h/s)</li>'+
+//					'<li><b>7777</b>: 4096000 diff (80000-160000 h/s)</li>'+
+//					'<li><b>9999</b> (Solo): 128000 diff (2000-4000 h/s)</li>'+
+					'<li>Please see the <a href="#one">Start Mining</a> section for available ports.</li>'+
 				'</ul>'
 			},
 
@@ -1009,7 +1010,7 @@ function Dash_init(){
 		ins = '<div id="News" class="hide"><div id="NewsCard" class="LR85 C0bk'+mde+' C3'+mde+' shimtop20"></div></div>'+
 		'<div id="MinerPayments"></div>'+
 		'<div id="MinerGraph" class="clearfix"></div>'+
-		'<div id="MinerDash" class="LR85 txtbig C3'+mde+' hide"></div>'+
+		'<div id="MinerDash" class="LR85 txttny C3'+mde+' hide"></div>'+
 		'<div id="WorkerList" class="LR85 shimtop20 hide"></div>';
 
 	miner_setup_open = false;
@@ -1026,7 +1027,7 @@ function Dash_init(){
 				ins += '<div class="Spl">'+
 					'<div id="'+k+'">--</div>'+
 					'<div class="hbar shim4 o8"></div>'+
-					'<div class="C2 txtbig">'+sts[k]+'</div>'+
+					'<div class="C2 txtmed">'+sts[k]+'</div>'+
 				'</div>';
 			}
 			i++;
@@ -1695,18 +1696,18 @@ function dta_Help(){
 			'<div class="helpteaser">Select a pool server and port and configure you miner.</div>'+
 			'<div class="helpcontent hide">'+
 				'<p>Each mining software will have it&#039;s own config, but they will all ask for the same information:</p>'+
-				'<p><b>Your Monero Address</b><br>Often this will be labeled username, but check the instructions.</p>'+
-				'<p><b>Pool Address</b><br>The miner will want a url and a port, like this: us1.moneromine.co:5555</p>'+
-				'<p><table class="txtsmall C3'+mde+'"><tr>'+
-					'<td>'+
-						'<p>Port descriptions:</p>'+
-						'<ul><li><b>3333</b>: Old CPU/GPU</li><li><b>5555</b>: Modern CPU/GPU</li><li><b>7777</b>: CPU/GPU Farm</li><li><b>9999</b>: SSL/TLS</li></ul>'+
-					'</td>'+
-					'<td>'+
-						'<p>If you can&#039;t get through firewall, try this<!--<br>(specify +128000 difficulty after your Monero Address)-->:</p>'+
-						'<ul><li><b>8080</b>: Firewall bypass</li><!--<li><b>443</b>: Firewall bypass w/SSL/TLS</li>--></ul>'+
-					'</td>'+
-				'</tr></table></p>'+
+				'<p><b>Your Monero Address</b><br>This will often be labeled username, but check the instructions.</p>'+
+				'<p><b>Pool Address</b><br>The miner will also want a url and a port, like this: us1.moneromine.co:5555<br />(see <a href="#one">Start Mining</a> section for list of available ports)</p>'+
+//				'<p><table class="txtsmall C3'+mde+'"><tr>'+
+//					'<td>'+
+//						'<p>Port descriptions:</p>'+
+//						'<ul><li><b>3333</b>: Old CPU/GPU</li><li><b>5555</b>: Modern CPU/GPU</li><li><b>7777</b>: CPU/GPU Farm</li><li><b>9999</b>: SSL/TLS</li></ul>'+
+//					'</td>'+
+//					'<td>'+
+//						'<p>If you can&#039;t get through firewall, try this<!--<br>(specify +128000 difficulty after your Monero Address)-->:</p>'+
+//						'<ul><li><b>8080</b>: Firewall bypass</li><!--<li><b>443</b>: Firewall bypass w/SSL/TLS</li>--></ul>'+
+//					'</td>'+
+//				'</tr></table></p>'+
 				'<p><b>Optional Fields</b><br>You can also set worker names or fixed difficulty through the configuration.</p>'+
 				'<p>Standard wallet address<br><i>(e.g. xmrig.exe -u 43T...sUW -p <b>worker1</b>)</i></p>'+
 				'<p>Fixed difficulty of 128000 for the worker<br><i>(e.g. xmrig.exe -u 43T...sUW<b>+128000</b> -p worker1)</i></p>'+
@@ -1716,7 +1717,7 @@ function dta_Help(){
 			'<div class="helptitle txtbig">Step 4 - Start Mining<div class="btnback">'+$I.arrow+'</div></div>'+
 			'<div class="helpteaser">Launch the miner and learn more.</div>'+
 			'<div class="helpcontent hide">'+
-				'<p>This pool uses PPLNS to determine payouts. It helps to combat pool hopping and ensures a good payout for miners.</p>'+
+				'<p>This pool uses PPLNS to determine payouts. PPLNS helps to combat pool hopping and ensures a good payout for miners. We also offer Solo Mining for those interested.</p>'+
 				'<p><b>Current: ' + Perc(1) + '</b> Pool Fee</p>'+
 				'<p><b>' + $Q.pay.min_auto + '</b> XMR Minimum Payout</p>'+
 				'<p><b>' + $Q.cur.conf + '</b> Block Confirmation Time</p>'+
