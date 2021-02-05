@@ -44,7 +44,7 @@ var	mde = 'l',
 		},
 		page_sizes: [15, 50, 100],
 		hlp:	{
-			head:	'Welcome to ' + $Q.pool.nme + '!<br />This pool was born out of an obvious interest in blockchain tech, and a true belief that Monero is the best form of crytoCURRENCY. Everything you see here is open source, with credit to the devs in our footer.<br /><br />Pool Features:<br /><ul><li>Fluctuating Pool Fee (max 1%)</li><li>Hashrate Capping (25% of global)</li><li>PPLNS & Solo Mining</li><li>Block Notify</li><li>Email Notifications</li><li>DDoS Protection</li></ul>We try to be as transparent as possible, and hopefully any questions you have about this pool or mining in general can be answered below. Please feel free to shoot us an <a href="mailto:MONEROMINEco@protonmail.com">email</a> with any questions/issues (and be patient for a response)!',
+			head:	'Welcome to ' + $Q.pool.nme + '!<br />This pool was born out of an obvious interest in blockchain tech, and a true belief that Monero is the best form of crytoCURRENCY. Everything you see here is open source, with credit to the devs in our footer.<br /><br />Pool Features:<br /><ul><li>0% Pool Fee</li><li>Hashrate Capping (25% of global)</li><li>PPLNS & Solo Mining</li><li>Block Notify</li><li>Email Notifications</li><li>DDoS Protection</li></ul>We try to be as transparent as possible, and hopefully any questions you have about this pool or mining in general can be answered below. Please feel free to shoot us an <a href="mailto:MONEROMINEco@protonmail.com">email</a> with any questions/issues (and be patient for a response)!',
 			text:	''
 		},
 		msg: {
@@ -268,7 +268,7 @@ var	mde = 'l',
 			// Fees and donations
 
 			{ q:	'How does the pool mining fee work?',
-			  a:	'For every 10 MH/s mining with us, the pool fee will drop by 0.1% (bottoming out at a pool fee of 0.5%). This not only benefits the folks mining here, but also ensures we can still cover our costs (while still donating to the Monero Core Devs). Please note that there is also a withdrawal tx fee (that becomes zero after <b>4.0</b> XMR).'
+			  a:	'There is no pool mining fee! Instead there is a small withdrawal tx fee that becomes zero after <b>4.0</b> XMR.'
 			},
 
 			{ q:	'Can I split/donate the hashrate of my worker between several Monero addresses?',
@@ -280,7 +280,7 @@ var	mde = 'l',
 			},
 
 			{ q:	'Are you accepting donations?',
-			  a:	'No, the pool fee is enough for us to keep things running. If you have some XMR burning a hole in your pocket, please consider donations to the Monero Core Devs or MoneroOcean!' 
+			  a:	'No, the withdrawal fee is enough for us to keep things running. If you have some XMR burning a hole in your pocket, please consider donations to the Monero Core Devs or MoneroOcean!' 
 			},
 		]
 	};
@@ -1255,7 +1255,7 @@ function Workers_init(){		///check this, getting called alot
 				'</div>'+
 			'</div>';
 		}
-		l.innerHTML = ins+'</div><div class="clear"></div><div class="hbar shim10"></div><div id="MinerSetupScripts" class="LR85 center"></div><div class="shim10"></div>';
+		l.innerHTML = ins+'</div><div class="clear"></div><!--<div class="hbar shim10"></div>--><div id="MinerSetupScripts" class="LR85 center"></div><div class="shim10"></div>';
 		MinerSetupScriptsBtn(miner_setup_open);
 		
 		if(numwrk > 0){
@@ -1718,7 +1718,7 @@ function dta_Help(){
 			'<div class="helpteaser">Launch the miner and learn more.</div>'+
 			'<div class="helpcontent hide">'+
 				'<p>This pool uses PPLNS to determine payouts. PPLNS helps to combat pool hopping and ensures a good payout for miners. We also offer Solo Mining for those interested.</p>'+
-				'<p><b>Current: ' + Perc(1) + '</b> Pool Fee</p>'+
+				'<p><b>Pool Fee: ' + Perc(0) + '</b></p>'+
 				'<p><b>' + $Q.pay.min_auto + '</b> XMR Minimum Payout</p>'+
 				'<p><b>' + $Q.cur.conf + '</b> Block Confirmation Time</p>'+
 			'</div>'+
