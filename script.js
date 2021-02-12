@@ -44,7 +44,7 @@ var	mde = 'l',
 		},
 		page_sizes: [15, 50, 100],
 		hlp:	{
-			head:	'Welcome to ' + $Q.pool.nme + '!<br />This pool was born out of an obvious interest in blockchain tech, and a true belief that Monero is the best form of crytoCURRENCY. Everything you see here is open source, with credit to the devs in our footer.<br /><br />Pool Features:<br /><ul><li>0% Pool Fee</li><li>Hashrate Capping (25% of global)</li><li>PPLNS & Solo Mining</li><li>Block Notify</li><li>Email Notifications</li><li>DDoS Protection</li></ul>We try to be as transparent as possible, and hopefully any questions you have about this pool or mining in general can be answered below. Please feel free to shoot us an <a href="mailto:MONEROMINEco@protonmail.com">email</a> with any questions/issues (and be patient for a response)!',
+			head:	'Welcome to ' + $Q.pool.nme + '!<br />This pool was born out of an obvious interest in blockchain tech,<br />and a true belief that Monero is the best form of crytoCURRENCY.<br />Everything you see here is open source,<br />with credit to the devs in our footer.<br /><br />Pool Features:<br /><ul><li>0% Pool Fee (PPLNS)</li><li>0.4% Pool Fee (Solo)</li><li>Hashrate Capping (25% of global)</li><li>Block Notify</li><li>Email Notifications</li><li>DDoS Protection</li></ul>We try to be as transparent as possible, and hopefully any questions<br />you have about this pool or mining in general can be answered below.<br />Please feel free to shoot us an <a href="mailto:support@moneromine.co">email</a> with any questions/issues<br />(and be patient for a response)!',
 			text:	''
 		},
 		msg: {
@@ -68,7 +68,7 @@ var	mde = 'l',
 		sts: function() { return {
 			MinerWorkerCount:	'<div id="WebMinerBtn" class="BtnElem C0'+mde+' txttny C1bk C2bk_hov"></div>',
 			MinerHashes:		'Your <select id="HashSelect"></select> Hashrate',
-			MinerShares:		'Shares (Hashes: <span id="TotalHashes">--</span>)',
+			MinerShares:		'Shares<br /><br />(Hashes: <span id="TotalHashes">--</span>)',
 			MinerCalc: 		'<input type="text" id="MinerCalcHsh" size="3" /><select id="MinerCalcUnit"></select><select id="MinerCalcFld"></select>',
 		}},
 		stsw: function() { return { // For worker
@@ -1010,7 +1010,7 @@ function Dash_init(){
 		ins = '<div id="News" class="hide"><div id="NewsCard" class="LR85 C0bk'+mde+' C3'+mde+' shimtop20"></div></div>'+
 		'<div id="MinerPayments"></div>'+
 		'<div id="MinerGraph" class="clearfix"></div>'+
-		'<div id="MinerDash" class="LR85 txttny C3'+mde+' hide"></div>'+
+		'<div id="MinerDash" class="LR85 txtmed C3'+mde+' hide"></div>'+
 		'<div id="WorkerList" class="LR85 shimtop20 hide"></div>';
 
 	miner_setup_open = false;
@@ -1027,7 +1027,7 @@ function Dash_init(){
 				ins += '<div class="Spl">'+
 					'<div id="'+k+'">--</div>'+
 					'<div class="hbar shim4 o8"></div>'+
-					'<div class="C2 txtmed">'+sts[k]+'</div>'+
+					'<div class="C2 txttny">'+sts[k]+'</div>'+
 				'</div>';
 			}
 			i++;
@@ -1134,8 +1134,8 @@ function Dash_load(typ){
 			'Visit the <u class="nav C1" data-tar="help">help section</u> to get setup, then enter your '+$Q.cur.nme+' address above. ' +
 			'After you&#039;ve submitted a share, your stats will appear here.<br><br>' +
 			'Standalone miner reference setup info:<br>' +
-				'Pool: <b>gulf.moneroocean.stream</b><br>' +
-				'Port: <b>10128</b> or 20128 for SSL (128000 diff)<br><br>' +
+				'Pool: <b>us1.moneromine.co</b><br>' +
+				'Port: <b>5555</b> or 4444 for SSL (128000 diff)<br><br>' +
 				'User: <b>Your XMR wallet address</b><br><br>' +
 				'For top profit algo switching mining use <a href="https://github.com/MoneroOcean/xmrig/releases" class="C1 hov" target="_blank">our version of XMRig miner</a> ' +
 				'and <a href="https://github.com/MoneroOcean/xmrig-proxy/releases" class="C1 hov" target="_blank">algo switching mining proxy</a> if your have many miners.<br>' +
@@ -1649,7 +1649,7 @@ function dta_Blocks(pge){
 				bins += '<option value="' + port + '"' + (port == blocks_port ? " selected" : "") + '>' + coin.name + '</option>';
 			});
 			var blocks_found = blocks_port ? $D.poolstats.altBlocksFound[blocks_port] : $D.poolstats.totalAltBlocksFound;
-			document.getElementById('PageTopL').innerHTML = Num(blocks_found)+' <select id="BlockType" class="FrmElem txttny C0'+mde+' C1bk">' + bins + '</select> Blocks <span id="BlockEffort"></span>';
+			document.getElementById('PageTopL').innerHTML = Num(blocks_found)+' <select id="BlockType" style="width:100px;" class="FrmElem txttny C0'+mde+' C1bk">' + bins + '</select> Blocks <span id="BlockEffort"></span>';
 			document.getElementById('PageBot').innerHTML = $I.load;
 			api('blocks', pge, blocks_page_size).then(function(){
 				Tbl('PageBot', 'blocks', pge, blocks_page_size);
@@ -1685,8 +1685,8 @@ function dta_Help(){
 			'<div class="helpcontent hide">'+
 				'<p>Select the miner that best suits your hardware and follow their installation instructions. <!--If you need help, visit <a href="https://discordapp.com/invite/jXaR2kA" class="C1 hov">Discord</a>.--></p>' +
 					'<!--&nbsp;<a href="https://github.com/MoneroOcean/xmrig/releases" class="C1 hov" target="_blank">MO XMRig</a>: for top profit algo switching mining on CPU and GPU (Nvidia, AMD)<br>-->' +
-					'&nbsp;<a href="https://github.com/xmrig/xmrig/releases" class="C1 hov" target="_blank">XMRig</a>: for mining on CPU and GPU (Nvidia, AMD)<br>' +
-					'&nbsp;<a href="https://github.com/fireice-uk/xmr-stak/releases" class="C1 hov" target="_blank">XMR-Stak/RX</a>: for mining on CPU<br>' +
+					'&nbsp;<a href="https://github.com/xmrig/xmrig/releases" class="C1 hov" target="_blank" style="font-size:20px;">XMRig</a>: for mining on CPU and GPU (Nvidia, AMD)<br>' +
+					'&nbsp;<a href="https://github.com/fireice-uk/xmr-stak/releases" class="C1 hov" target="_blank" style="font-size:20px;">XMR-Stak/RX</a>: for mining on CPU<br>' +
 					'<!--&nbsp;<a href="https://github.com/MoneroOcean/meta-miner" class="C1 hov" target="_blank">mm.js</a>: for algo switching miner wrapper (advanced)<br><br>-->' +
 				'<!--<p>Use <a href="https://github.com/MoneroOcean/xmrig-proxy/releases" class="C1 hov" target="_blank">algo switching mining proxy</a> if you have many miners.</p>-->' +
 			'</div>'+
@@ -2061,10 +2061,10 @@ function Tbl(tar, typ, pge, lim){
 		});
 		pgs = Math.ceil(size / page_size);
 		document.getElementById('PageTopR').innerHTML =
-			'<span class="txtmed C3'+mde+'">Page</span>'+
-			'<input id="TblPagBox" type="text" class="FrmElem txttny C1bk C0'+mde+'" value="'+pge+'" data-func="'+typ+'" autocomplete="off" data-tot="'+pgs+'">'+
-			'<span class="txtmed C3'+mde+'">of '+Num(pgs)+'</span> '+
-			'<span class="txtmed C3'+mde+'">(<select id="PageSize" class="FrmElem txttny C0'+mde+' C1bk">' + ps_ins + '</select> per page)</span>';
+			'<span style="display:inline;" class="txtmed C3'+mde+'">Page</span>'+
+			'<input id="TblPagBox" type="text" style="display:inline;" class="FrmElem txtmed C1bk C0'+mde+'" value="'+pge+'" data-func="'+typ+'" autocomplete="off" data-tot="'+pgs+'">'+
+			'<span style="display:inline;" class="txtmed C3'+mde+'">of '+Num(pgs)+'</span> '+
+			'<span style="display:inline;" class="txtmed C3'+mde+'">(<select id="PageSize" style="display:inline;width:100px;" class="FrmElem txtmed C0'+mde+' C1bk">' + ps_ins + '</select> per page)</span>';
 		PaginationBoxWidth();
 	}
 	if(rows > 0){
@@ -2183,7 +2183,7 @@ function Graph_Miner(){
 			lb_y = yL - 17;
 		}
 		ins += '<text x="'+(right_x + 4)+'" y="'+hs_y+'" class="txtmed C3fl'+mde+'">'+Rnd(hsh.num, 1, 'txt')+' '+hsh.unit+'</text>'+
-		'<text x="'+(right_x + 4)+'" y="'+lb_y+'" class="txttny C3fl'+mde+' o7">Your Hash</text>';
+		'<text x="'+(right_x + 4)+'" y="'+lb_y+'" class="txtmed C3fl'+mde+' o7">Your Hash</text>';
 		
 		//Miner Hash Dots
 		for (var i = 0; i < points.length; i++){
@@ -2201,11 +2201,11 @@ function Graph_Miner(){
 			
 		ins += '<line x1="55" y1="'+avg_y+'" x2="'+right_x+'" y2="'+avg_y+'" class="mineravgline C1st" />'+
 			'<rect x="'+((width / 2) - (txt_w / 2))+'" y="'+(avg_y - 8)+'" width="'+txt_w+'" height="18" rx="3" class="line C0fl'+mde+' C1st" />'+
-			'<text id="MinerGraphAvg" data-hsh="'+avg+'" x="'+(width / 2)+'" y="'+(avg_y + 4)+'" text-anchor="middle" class="C2fl txttny">'+txt+'</text>';
+			'<text id="MinerGraphAvg" data-hsh="'+avg+'" x="'+(width / 2)+'" y="'+(avg_y + 4)+'" text-anchor="middle" class="C2fl txtmed">'+txt+'</text>';
 
 		//Grid Labels
 		ins += GraphLib_Grid('lbl', 5, max, 0, height_pad, width, 'C2');
-		ins += '<text x="5" y="'+height_pad+'" class="txttny C2fl o9">0</text>';
+		ins += '<text x="5" y="'+height_pad+'" class="txtmed C2fl o9">0</text>';
 		
 		//Block Tool Tip
 		ins += GraphLib_ToolTipSetup();
