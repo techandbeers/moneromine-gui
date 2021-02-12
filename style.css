@@ -52,7 +52,7 @@ header,section{margin:0;padding:0}
 .ROW0{background-color:transparent}
 .ROW1{background-color:rgba(5,5,5,0.05)}
 .ROW0:hover,.ROW1:hover{background-color:rgba(5,5,5,0.1)}
-.WingPanel{margin-left:25px;position:relative;width:calc(100% - 50px)}
+.WingPanel{margin-left:35px;position:relative;width:calc(100% - 70px)}
 .WingPanel table td{padding:5px 4px;white-space:nowrap;font-size:16px;}
 #WorkerSortName,#WorkerSortRate,.WingBtnL,.WingBtnR,.WingLblL{border-radius:50%;box-sizing:border-box;height:24px;left:0;margin-left:-29px;padding:4px;position:absolute;top:3px;width:24px}
 #WorkerSortRate,.WingBtnR{left:100%;margin-left:5px}
@@ -157,7 +157,7 @@ header{height:80px}
 #AddrFieldCell{height:34px;position:relative}
 #DashPending,#DashPaid{min-width:97px}
 #DashPayBtn{border-radius:50%;box-sizing:border-box;display:inline-block;height:45px;padding:8px;position:relative;width:45px}
-#DashPayBtn .Loader,#DashPayBtn .Closer,#TimerText div{box-sizing:border-box;padding:3px}
+#DashPayBtn .Loader,#DashPayBtn .Closer,#TimerText div{box-sizing:border-box;padding:0px}
 #Stage{-moz-transition:opacity .4s ease-in;-ms-transition:opacity .4s ease-in;-o-transition:opacity .4s ease-in;-webkit-transition:opacity .4s ease-in;min-height:calc(100% - 312px);opacity:0;position:relative;transition:opacity .4s ease-in}
 #Stage.short{min-height:calc(100% - 140px)}
 .StageFade{opacity:1!important}
@@ -185,12 +185,12 @@ table.noborder{border-width:0!important}
 .Worker .LblL{width:calc(100% - 75px)}
 .Worker .LblR{text-align:right;width:75px}
 .WorkerChart{height:26px;position:relative}
-#WorkerPop{border-radius:4px;box-sizing:border-box;height:200px;left:0;margin-left:-5px;margin-top:-1px;padding:6px 1px;position:absolute;top:100%;width:calc(100% + 10px);z-index:2}
+#WorkerPop{border-radius:4px;box-sizing:border-box;height:210px;left:0;margin-left:-5px;margin-top:-1px;padding:6px 1px;position:absolute;top:100%;width:calc(100% + 10px);z-index:2}
 .WBlockFewGrid{width:50%!important}
 .clearfix{overflow:hidden}
-#PageTopL,#PageTopR{box-sizing:border-box;display:inline-block;height:220px;padding:14px 0 10px;position:relative;width:calc(100% - 245px)}
-#PageTopL{min-width:300px}
-#PageTopR{float:right;width:8%;}
+#PageTopL,#PageTopR{box-sizing:border-box;display:inline-block;padding:14px 0 10px;position:relative;width:calc(100% - 245px)}
+#PageTopL{width:70%;}
+#PageTopR{float:right;width:30%;}
 #PageBot{min-height:200px}
 .helpgroup{margin-top:20px;padding-bottom:10px;padding-left:25px}
 .helpgroup2{margin-top:10px;padding-bottom:5px;padding-left:50px}
@@ -251,7 +251,7 @@ textarea{resize:none}
 .LR80{left:8%;width:84%}
 .LR85{left:6.5%;width:87%}
 .Split3{padding:6px 0;width:100%!important}
-#MinerPayments.Opened{height:320px}
+#MinerPayments.Opened{height:380px}
 #MinerPayments.OpenedBig{height:620px}
 .Split3L,.Split3R{padding:6px 0;width:50%!important}
 }
@@ -286,7 +286,7 @@ textarea{resize:none}
 .WorkerWrap{width:100%}
 .LR80{left:4%;width:92%}
 .LR85{left:2.5%;width:95%}
-#MinerPayments.Opened{height:400px}
+#MinerPayments.Opened{height:450px}
 #MinerPayments.OpenedBig{height:700px}
 .Split3L,.Split3R{padding:6px 0;width:100%!important}
 }
