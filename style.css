@@ -136,7 +136,7 @@ select,.select-point,.nav,.hov,.C2br_hov,.C2bk_hov,.PagBtn{cursor:pointer}
 #MinerGraph .MinerMsg{padding-top:25px;text-align:center;display:none !important;}
 header{height:80px}
 #HeadLogo{cursor:pointer;height:20px;margin-left:10px;position:absolute;top:15px;width:128px}
-#HeadMenu,#TogMode,#Timer,#TimerRefresh,#TimerLoader{box-sizing:border-box;height:32px;left:100%;padding:5px;position:absolute;top:9px;width:32px}
+#HeadMenu,#TogMode,#Timer,#TimerRefresh,#TimerLoader{box-sizing:border-box;height:35px;left:100%;padding:5px;position:absolute;top:9px;width:35px}
 #HeadMenu{border:0;margin-left:-200px;overflow:hidden;text-align:right;top:9px;width:150px;height:100px;}
 #HeadMenu select{box-sizing:border-box;padding:0 14px 0 5px}
 #TogMode,#Timer,#TimerRefresh,#TimerLoader,#TimerPie,#TimerDisc{border-radius:50%}
@@ -179,12 +179,12 @@ header{height:80px}
 #AutoPayBtn .preload{display:inline-block;height:22px;width:22px}
 #MinerPaymentsStage table{border-color:rgba(0,0,0,.1);border-style:solid;border-width:0 1px;padding:3px}
 table.noborder{border-width:0!important}
-.WorkerWrap{box-sizing:border-box;float:left;height:65px;padding:5px 4px;position:relative;width:20%}
+.WorkerWrap{box-sizing:border-box;float:left;height:65px;padding:5px 4px;margin-bottom:35px;position:relative;width:20%}
 .Worker,#WorkerPop{border-radius:3px;border-style:solid;border-width:1px}
 .Worker .LblL,.Worker .LblR{box-sizing:border-box;display:inline-block;height:30px;padding:2px 3px 4px;text-align:left;width:50%}
 .Worker .LblL{width:calc(100% - 75px)}
 .Worker .LblR{text-align:right;width:75px}
-.WorkerChart{height:26px;position:relative}
+.WorkerChart{height:30px;position:relative}
 #WorkerPop{border-radius:4px;box-sizing:border-box;height:210px;left:0;margin-left:-5px;margin-top:-1px;padding:6px 1px;position:absolute;top:100%;width:calc(100% + 10px);z-index:2}
 .WBlockFewGrid{width:50%!important}
 .clearfix{overflow:hidden}
