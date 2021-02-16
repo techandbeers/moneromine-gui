@@ -235,6 +235,7 @@ textarea{resize:none}
 .txt{font-size:14px}
 }
 @media all and (max-width:900px) {
+.bye{display:none !important;}
 .txtbig{font-size:24px}
 .txtmed{font-size:18px}
 .txtsmall{font-size:12px;line-height:15px}
