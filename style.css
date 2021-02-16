@@ -117,7 +117,7 @@ select,.select-point,.nav,.hov,.C2br_hov,.C2bk_hov,.PagBtn{cursor:pointer}
 @keyframes spin {
 100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
 }
-.hbar,.pbar{background:rgba(0,0,0,.2);background:linear-gradient(90deg,rgba(0,0,0,.01) 0,rgba(0,0,0,.25) 15%,rgba(0,0,0,.35) 50%,rgba(0,0,0,.25) 85%,rgba(0,0,0,.01) 100%);height:1px;position:relative}
+.hbar,.pbar{/*background:rgba(0,0,0,.2);background:linear-gradient(90deg,rgba(0,0,0,.01) 0,rgba(0,0,0,.25) 15%,rgba(0,0,0,.35) 50%,rgba(0,0,0,.25) 85%,rgba(0,0,0,.01) 100%);*/background:grey;height:1px;position:relative}
 .pbar{left:10%;margin-bottom:2px;margin-top:2px;opacity:.6;width:80%}
 #TblPagBox{margin:0 5px;position:relative;top:-3px;width:18px}
 #PageSize,#BlockType{margin:0 1px;position:relative;top:-3px}
@@ -132,7 +132,7 @@ select,.select-point,.nav,.hov,.C2br_hov,.C2bk_hov,.PagBtn{cursor:pointer}
 #GPop.pright{left:55%}
 #GPop table td{text-align:center;width:33%}
 #MinerGraph{position:relative}
-#MinerGraph .mchart{height:150px}
+#MinerGraph .mchart{height:100px}
 #MinerGraph .MinerMsg{padding-top:25px;text-align:center;display:none !important;}
 header{height:80px}
 #HeadLogo{cursor:pointer;height:20px;margin-left:10px;position:absolute;top:15px;width:128px}
@@ -167,8 +167,8 @@ header{height:80px}
 #NewsTime{float:right;padding-top:4px}
 #NewsBody{padding:10px 0 15px}
 #MinerDash{margin-bottom:10px}
-#MinerDash .Spl{display:inline-grid;text-align:center;width:50%}
-#MinerPayments{border-bottom:1px solid rgba(0,0,0,.25);height:0;overflow:hidden;position:relative;transition:height 300ms}
+#MinerDash .Spl{display:inline-grid;text-align:center;width:48%;border:1px solid #4C5C96;padding:5px;margin:5px;border-radius:5px;}
+#MinerPayments{border-bottom:1px solid grey;height:0;overflow:hidden;position:relative;transition:height 300ms}
 #MinerPayments.Opened{height:320px}
 #MinerPayments.OpenedBig{height:550px}
 #MinerPayments .LR85{height:calc(100% - 1px)}
@@ -207,7 +207,7 @@ table.noborder{border-width:0!important}
 #MinerGraph,#MinerPayments{-moz-box-shadow:inset 0 25px 16px -22px rgba(0,0,0,.06);-webkit-box-shadow:inset 0 25px 16px -22px rgba(0,0,0,.06);box-shadow:inset 0 25px 16px -22px rgba(0,0,0,.06)}
 #MinerGraph .chart,.Worker,#MinerPayments{background:rgba(0,0,0,.03);background:linear-gradient(90deg,rgba(0,0,0,.04) 0,rgba(0,0,0,.02) 20%,rgba(0,0,0,.01) 80%,rgba(0,0,0,.03) 100%)}
 #TimerPie,.Worker{height:100%;position:relative}
-#AutoPayBtn,#PaymentHistoryBtn,#PaymentHistoryBtnClose,#EmailSubscribeBtn{height:40px;width:95%}
+#AutoPayBtn,#PaymentHistoryBtn,#PaymentHistoryBtnClose,#EmailSubscribeBtn{height:40px;width:95%;}
 #MinerPaymentsTable,#WorkerList{min-height:100px}
 @-webkit-keyframes glowing {
 50%{-webkit-box-shadow:0 0 20px #4C5C96;background-color:#4C5C96}

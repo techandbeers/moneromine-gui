@@ -68,7 +68,7 @@ var	mde = 'l',
 		sts: function() { return {
 			MinerWorkerCount:	'<div id="WebMinerBtn" class="BtnElem C0'+mde+' txttny C1bk C2bk_hov"></div>',
 			MinerHashes:		'Your <select id="HashSelect"></select> Hashrate',
-			MinerShares:		'Shares<br /><br />(Hashes: <span id="TotalHashes">--</span>)',
+			MinerShares:		'Shares<br /><br /><br /><br /><span id="TotalHashes">--</span><div class="hbar shim4 o8"></div>Hashes',
 			MinerCalc: 		'<input type="text" id="MinerCalcHsh" size="3" /><select id="MinerCalcUnit"></select><select id="MinerCalcFld"></select>',
 		}},
 		stsw: function() { return { // For worker
@@ -1327,12 +1327,12 @@ function Workers_detail(xid){
 
 	removeElement('WorkerPop');
 	document.querySelectorAll('.Worker').forEach(function(x){
-		x.classList.remove('C1');
+		x.classList.remove('C1bk');
 		x.classList.add('C3'+mde);
 	});
 
 	if(xid && sts !== 'remove'){
-		w.classList.add('C1');
+		w.classList.add('C1bk');
 		w.classList.remove('C3'+mde);
 		w.innerHTML += '<div id="WorkerPop" class="C0bk'+mde+' C1br C3'+mde+' txtsmall"></div>';
 
@@ -1383,7 +1383,7 @@ function MinerPayments(typ){
 		}else{
 			if(n) n.classList.add('hide');
 			m.className = 'Opened';
-			m.innerHTML = '<div class="hbar"></div><div id="MinerPaymentsStage">'+$I.load+'</div>';
+			m.innerHTML = '<!--<div class="hbar"></div>--><div id="MinerPaymentsStage">'+$I.load+'</div>';
 			Dash_btn('closer');
 		}
 	}else{
@@ -1396,14 +1396,14 @@ function MinerPayments(typ){
 				'<table class="C3l noborder"><tr>'+
 					'<td width="50%" class="center">'+
 						'<input type="text" id="AutoPayFld" class="center txt C0bk'+mde+' C3'+mde+' C1br" autocomplete="off" placeholder="Auto Pay Amount...">'+
-						'<div class="pbar"></div><span class="txttny C2 noselect">Auto pay ' + $Q.cur.sym + ' threshold</span>'+
+						'<!--<div class="pbar"></div>--><span class="txttny C2 noselect">Auto pay ' + $Q.cur.sym + ' threshold</span>'+
 					'</td>'+
 					'<td width="50%" class="center">'+
-						'<div id="AutoPayBtn" class="BtnElem txtmed C0'+mde+' C1bk C2bk_hov o5">'+$$.trn.set+'</div>'+
-						'<div class="pbar"></div><span id="AutoPayFeeLbl" class="txttny C2 noselect">' + fee_txt($A[addr].threshold) + '</span>'+
+						'<div id="AutoPayBtn" class="BtnElem txtmed C0'+mde+' C1bk C2bk_hov o5">'+$$.trn.set+'</div><br />'+
+						'<!--<div class="pbar"></div>--><span id="AutoPayFeeLbl" class="txttny C2 noselect">' + fee_txt($A[addr].threshold) + '</span>'+
 					'</td>'+
 				'</tr></table>'+
-		                '<div class="hbar shim10"></div>'+
+		                '<!--<div class="hbar shim10"></div>-->'+
 			'</div>';
 		if ($Q.email) {
 			var	email_enabled = $A[addr].email,
@@ -1412,18 +1412,18 @@ function MinerPayments(typ){
 			ins +=	'<div class="LR50 shimtop20 C0'+mde+' txtmed center">'+
 				'<div class="Split3L">'+
 					'<input type="text" id="EmailFROM" class="center txt C0bk'+mde+' C3'+mde+' C1br" placeholder="Change email FROM">'+
-					'<div class="pbar"></div><span class="txttny C2 noselect">Change email FROM</span>'+
+					'<!--<div class="pbar"></div>--><span class="txttny C2 noselect">Change email FROM</span>'+
 				'</div>'+
 				'<div class="Split3R">'+
 					'<input type="text" id="EmailTO" class="center txt C0bk'+mde+' C3'+mde+' C1br" placeholder="Change email TO">'+
-					'<div class="pbar"></div><span class="txttny C2 noselect">Change email TO</span>'+
+					'<!--<div class="pbar"></div>--><span class="txttny C2 noselect">Change email TO</span>'+
 				'</div>'+
 				'<div class="Split3">'+
 					'<div id="EmailSubscribeBtn" class="BtnElem DiscMde C1bk C2bk_hov">'+
 						'<div class="DiscIcon C0bk'+mde+' C1fl">'+check+'</div>'+
 						'<span id="EmailSubscribeLbl" class="C0'+mde+' txtmed">'+lbl+'</span>'+
 					'</div>'+
-					'<div class="pbar"></div><span class="txttny C2 noselect">and change email</span>'+
+					'<!--<div class="pbar"></div>--><span class="txttny C2 noselect">and change email</span>'+
 				'</div>'+
 				'<div class="hbar shim10"></div>'+
 				'</div>';
