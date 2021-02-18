@@ -178,7 +178,7 @@ var	mde = 'l',
 			},
 
 			{ q:	'Is it possible to open the pool home page on a specific XMR address?',
-			  a:	'Yup! You can use <b>https://moneromine.co/#/dashboard?addr=&quot;xmr_address&quot;</b>. You can also use the following URL to start web mining immediately without the need to click the button: <b>https://moneromine.co/#/dashboard?addr=&quot;xmr_address&quot;&amp;web_miner</b>.'
+			  a:	'Yup! You can use <b>https://moneromine.co/#/dashboard?addr=&quot;xmr_address&quot;</b>. <!--You can also use the following URL to start web mining immediately without the need to click the button: <b>https://moneromine.co/#/dashboard?addr=&quot;xmr_address&quot;&amp;web_miner</b>.-->'
 			},
 			
 			{ q:	'How are you combating centralization?',
