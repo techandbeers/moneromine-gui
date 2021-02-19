@@ -17,6 +17,7 @@
 <meta name="theme-color" content="#ffffff">
 
 <link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="assets/css/responsiveStyles.css" />
 <style>
 	.miner {
 		display:none;
@@ -129,22 +130,22 @@
 <!-- One -->
 	<section id="one" class="wrapper spotlight style1">
 		<div class="inner">
-			<a href="#one" class="image"><img src="images/monero.webp" alt="Monero XMR Mining" /></a>
+			<a href="#one" class="image hide-sm"><img src="images/monero.webp" alt="Monero XMR Mining" /></a>
 			<div class="content">
 				<h2 class="major">Start Mining</h2>
 				<h3 style="text-align:center">us1.moneromine.co</h3>
-				<table>
-					<tr><th>Port</th><th>Starting Difficulty</th><th>Description</th></tr>
-					<tr><td>80</td><td>8000</td><td>Firewall Bypass & Very Low-End CPU|GPU</td></tr>
-					<tr><td>443</td><td>8000</td><td>Firewall Bypass & Very Low-End CPU|GPU SSL/TLS</td></tr>
-					<tr><td>2222</td><td>64000</td><td>Low-End CPU|GPU SSL/TLS</td></tr>
-					<tr><td>3333</td><td>64000</td><td>Low-End CPU|GPU</td></tr>
-					<tr><td>4444</td><td>128000</td><td>Modern CPU SSL/TLS </td></tr>
-					<tr><td>5555</td><td>128000</td><td>Modern CPU</td></tr>
-					<tr><td>6666</td><td>4096000</td><td>Farm-Grade Hardware SSL/TLS</td></tr>
-					<tr><td>7777</td><td>4096000</td><td>Farm-Grade Hardware (Nicehash, proxy, etc)</td></tr>
-					<tr><td>8888</td><td>128000</td><td>Solo SSL/TLS</td></tr>
-					<tr><td>9999</td><td>128000</td><td>Solo</td></tr>
+				<table class="mining-table">
+					<tr class="mining-table-header"><th>Port</th><th>Starting Difficulty</th><th>Description</th></tr>
+					<tr class="mining-table-row"><td><span class="small-label">Port: </span>80</td><td><span class="small-label">Starting Difficulty: </span>8000</td><td class="mining-table-desc"><span class="small-label">Description: </span>Firewall Bypass & Very Low-End CPU|GPU</td></tr>
+					<tr class="mining-table-row"><td><span class="small-label">Port: </span>443</td><td><span class="small-label">Starting Difficulty: </span>8000</td><td class="mining-table-desc"><span class="small-label">Description: </span>Firewall Bypass & Very Low-End CPU|GPU SSL/TLS</td></tr>
+					<tr class="mining-table-row"><td><span class="small-label">Port: </span>2222</td><td><span class="small-label">Starting Difficulty: </span>64000</td><td class="mining-table-desc"><span class="small-label">Description: </span>Low-End CPU|GPU SSL/TLS</td></tr>
+					<tr class="mining-table-row"><td><span class="small-label">Port: </span>3333</td><td><span class="small-label">Starting Difficulty: </span>64000</td><td class="mining-table-desc"><span class="small-label">Description: </span>Low-End CPU|GPU</td></tr>
+					<tr class="mining-table-row"><td><span class="small-label">Port: </span>4444</td><td><span class="small-label">Starting Difficulty: </span>128000</td><td class="mining-table-desc"><span class="small-label">Description: </span>Modern CPU SSL/TLS </td></tr>
+					<tr class="mining-table-row"><td><span class="small-label">Port: </span>5555</td><td><span class="small-label">Starting Difficulty: </span>128000</td><td class="mining-table-desc"><span class="small-label">Description: </span>Modern CPU</td></tr>
+					<tr class="mining-table-row"><td><span class="small-label">Port: </span>6666</td><td><span class="small-label">Starting Difficulty: </span>4096000</td><td class="mining-table-desc"><span class="small-label">Description: </span>Farm-Grade Hardware SSL/TLS</td></tr>
+					<tr class="mining-table-row"><td><span class="small-label">Port: </span>7777</td><td><span class="small-label">Starting Difficulty: </span>4096000</td><td class="mining-table-desc"><span class="small-label">Description: </span>Farm-Grade Hardware (Nicehash, proxy, etc)</td></tr>
+					<tr class="mining-table-row"><td><span class="small-label">Port: </span>8888</td><td><span class="small-label">Starting Difficulty: </span>128000</td><td class="mining-table-desc"><span class="small-label">Description: </span>Solo SSL/TLS</td></tr>
+					<tr class="mining-table-row"><td><span class="small-label">Port: </span>9999</td><td><span class="small-label">Starting Difficulty: </span>128000</td><td class="mining-table-desc"><span class="small-label">Description: </span>Solo</td></tr>
 				</table>
 				<p style="text-align:center;"><b>Pool Fee: 0%</b><br /><span style="font-size:14px !important"><i>Please note that there is a small withdrawal tx fee that becomes zero after 4.0 XMR</i></span></p>
 				<!--<section class="features">
@@ -166,7 +167,7 @@
 <!-- Two -->
 	<section id="two" class="wrapper alt spotlight style2">
 		<div class="inner">
-			<a href="#two" class="image"><img src="images/blockchain.webp" alt="Monero XMR Public Node" /></a>
+			<a href="#two" class="image hide-sm"><img src="images/blockchain.webp" alt="Monero XMR Public Node" /></a>
 			<div class="content">
 				<h2 class="major">Public Node</h2>
 				<p>The <a href="https://getmonero.org/downloads/" target="_blank">Official Monero Wallet</a> requires a connection to the Monero blockchain. Makes sense. Our node allows folks to sync their wallets without having to download the entire blockchain.</p>
