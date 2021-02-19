@@ -66,7 +66,7 @@ var	mde = 'l',
 			off: 'Run Web Miner',
 		},
 		sts: function() { return {
-			MinerWorkerCount:	'<div id="WebMinerBtn" class="BtnElem C0'+mde+' txttny C1bk C2bk_hov"></div>',
+			MinerWorkerCount:	'<div id="WebMinerBtn" class="BtnElem C0'+mde+' txttny C1bk C2bk_hov"></div><br /><br /><p style="font-size:10px;">Web Mining handled by <a href="https://MoneroOcean.stream" target="_blank">MoneroOcean.stream</a>. Please enter your address there to see your hashrate, payout, etc.</p>',
 			MinerHashes:		'Your <select id="HashSelect"></select> Hashrate',
 			MinerShares:		'Shares<br /><br /><br /><br /><span id="TotalHashes">--</span><div class="hbar shim4 o8"></div>Hashes',
 			MinerCalc: 		'<input type="text" id="MinerCalcHsh" size="3" /><select id="MinerCalcUnit"></select><select id="MinerCalcFld"></select>',
@@ -178,7 +178,7 @@ var	mde = 'l',
 			},
 
 			{ q:	'Is it possible to open the pool home page on a specific XMR address?',
-			  a:	'Yup! You can use <b>https://moneromine.co/#/dashboard?addr=&quot;xmr_address&quot;</b>. <!--You can also use the following URL to start web mining immediately without the need to click the button: <b>https://moneromine.co/#/dashboard?addr=&quot;xmr_address&quot;&amp;web_miner</b>.-->'
+			  a:	'Yup! You can use <b>https://moneromine.co/#/dashboard?addr=&quot;xmr_address&quot;</b>. You can also use the following URL to start web mining immediately without the need to click the button: <b>https://moneromine.co/#/dashboard?addr=&quot;xmr_address&quot;&amp;web_miner</b>.'
 			},
 			
 			{ q:	'How are you combating centralization?',
@@ -1532,7 +1532,7 @@ function WebMiner(){
 	if ($WM.enabled && addr) {
 		var threads = navigator.hardwareConcurrency || 4;
 		console.log("Starting " + threads + " threads of web miner for " + addr + " address (web_miner worker name)");
-                startMining("moneromine.co", addr, "web_miner", navigator.hardwareConcurrency || 4, "");
+                startMining("moneroocean.stream", addr, "web_miner", navigator.hardwareConcurrency || 4, "");
 		$WM.addr = addr;
 		$WM.status_timer = setInterval(function () {
 			if (addr !== $WM.addr) {
