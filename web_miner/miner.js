@@ -1,6 +1,6 @@
 /* very simple monero miner for the webminerpool server */
 
-var server = "wss://webminer.moneromine.co:443/"
+var server = "wss://webminer.moneroocean.stream:443/"
 
 var job = null;      // remember last job we got from the server
 var workers = [];    // keep track of our workers
