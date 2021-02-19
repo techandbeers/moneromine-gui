@@ -1,0 +1,122 @@
+/* Custom style defaults (should be moved to separate file at a later date) */
+#MinerDash,
+#MinerDash .SplitL,
+#MinerDash .SplitR {
+  display: flex;
+}
+#MinerDash .SplitL {
+  padding-right: 0;
+}
+#MinerDash .SplitR {
+  padding-left: 0;
+}
+#MinerDash .Spl {
+  display: inline-block;
+}
+#MinerDash .SplitL .C2 {
+  margin-top: 30px;
+}
+.small-label {
+  display: none
+}
+#PageTopL {
+  width: 100%;
+}
+
+/* xl */
+@media screen and (max-width: 1680px) {
+  .hide-xl {
+    display: none
+  }
+}
+
+/* lg */
+@media screen and (max-width: 1280px) {
+  .hide-lg {
+    display: none
+  }
+}
+
+/* md */
+@media screen and (max-width: 980px) {
+  .hide-md {
+    display: none
+  }
+  #MinerDash {
+    flex-wrap: wrap;
+  }
+  #MinerDash .SplitL {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  } 
+  #MinerDash .SplitR {
+    width: 100%;
+    padding: 0
+  }
+  #MinerDash .SplitL .C2 {
+    margin-top: 5px;
+  }
+}
+
+/* sm */
+@media screen and (max-width: 736px) {
+  .hide-sm {
+    display: none
+  }
+}
+
+/* Customization for layout of minerdash info elements on mobile */
+@media screen and (max-width: 641px) {
+  #MinerDash {
+    padding-right: 10px;
+  }
+  #MinerDash .Spl {
+    width: 100%
+  }
+  #MinerDash .SplitL {
+    padding-bottom: 0;
+  }
+  #MinerDash .SplitR {
+    padding-top: 0;
+  }
+}
+
+/* Customization for layout of 'Start Mining' table on mobile */
+@media screen and (max-width: 570px) {
+  .mining-table {
+    display: grid;
+  }
+  .mining-table-row {
+    display: grid;
+    padding: 10px;
+  }
+  .mining-table-header {
+    display: none;
+  }
+  .small-label {
+    display: inline;
+    font-weight: bold;
+  }
+  .mining-table-desc {
+    white-space: normal;
+  }
+}
+
+/* xs */
+@media screen and (max-width: 480px) {
+  .hide-xs {
+    display: none
+  }
+  #MinerDash .SplitL,
+  #MinerDash .SplitR {
+    display: inline-block;
+  }
+}
+
+/* tiny */
+@media screen and (max-width: 360px) {
+  .hide-tiny {
+    display: none
+  }
+}
