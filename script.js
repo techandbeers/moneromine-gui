@@ -62,7 +62,7 @@ var	mde = 'l',
 			DashPaid:	{lbl: $Q.cur.sym + ' Paid', var: 'paid', tooltip: 'Amount pool already paid to you'}
 		},
 		wm:{
-			on:  'Web mining: <span id="WebMinerHash">--</span>',
+			on:  'Web Mining: <span id="WebMinerHash">--</span>',
 			off: 'Run Web Miner',
 		},
 		sts: function() { return {
