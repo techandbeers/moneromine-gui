@@ -173,7 +173,7 @@ header{height:80px}
 #MinerPayments.OpenedBig{height:550px}
 #MinerPayments .LR85{height:calc(100% - 1px)}
 #MinerPaymentsStage{height:calc(100% - 1px);position:relative}
-#WebMinerBtn{height:20px;width:150px}
+#WebMinerBtn{height:25px;width:100%}
 #MinerSetupShowBtn,#MinerSetupHideBtn{height:32px;width:60%}
 #AutoPayFld,#EmailFROM,#EmailTO{border-style:solid;border-width:1px;padding:3px;width:90%}
 #AutoPayBtn .preload{display:inline-block;height:22px;width:22px}
