@@ -178,7 +178,7 @@ var	mde = 'l',
 			},
 
 			{ q:	'Is it possible to open the pool home page on a specific XMR address?',
-			  a:	'Yup! You can use <b>https://moneromine.co/#/dashboard?addr=&quot;xmr_address&quot;</b>. <!--You can also use the following URL to start web mining immediately without the need to click the button: <b>https://moneromine.co/#/dashboard?addr=&quot;xmr_address&quot;&amp;web_miner</b>.-->'
+			  a:	'Yup! You can use <b>https://moneromine.co/#/dashboard?addr=&quot;xmr_address&quot;</b>. You can also use the following URL to start web mining immediately without the need to click the button: <b>https://moneromine.co/#/dashboard?addr=&quot;xmr_address&quot;&amp;web_miner</b>.'
 			},
 			
 			{ q:	'How are you combating centralization?',
@@ -256,9 +256,9 @@ var	mde = 'l',
 			  a:	'This is because of the use of too many worker names. To avoid DB/network channel overloads, all extra miners are joined under the <b>all_other_workers</b> worker name.'
 			},
 
-//			{ q:	'Why is the web miner not working (always shows zero hashrate)?',
-//			  a:	'Try to use your browser&#039;s incognito mode or another browser. You could also be blocked by your malware or antivirus software, or by your ISP.'
-//			},
+			{ q:	'Why is the web miner not working (always shows zero hashrate)?',
+			  a:	'Try to use your browser&#039;s incognito mode or another browser. You could also be blocked by your malware or antivirus software, or by your ISP.'
+			},
 
 //			{ q:	'How can I uninstall miner installed using the MoneroOcean miner setup scripts?',
 //			  a:	'On Windows run this command: <b>powershell -Command &quot;$wc = New-Object System.Net.WebClient; $tempfile = [System.IO.Path]::GetTempFileName(); $tempfile += &#039;.bat&#039;; $wc.DownloadFile(&#039;https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/uninstall_moneroocean_miner.bat&#039;, $tempfile); &amp; $tempfile; Remove-Item -Force $tempfile&quot;</b><br>'+
@@ -268,7 +268,7 @@ var	mde = 'l',
 			// Fees and donations
 
 			{ q:	'How does the pool mining fee work?',
-			  a:	'There is no pool mining fee! Instead there is a small withdrawal tx fee that becomes zero after <b>4.0</b> XMR.'
+			  a:	'There is no pool mining fee! Instead there is a small withdrawal tx fee that becomes zero after <b>4.0</b> XMR. Also note that the web miner has a 3% fee that goes directly to the developer.'
 			},
 
 			{ q:	'Can I split/donate the hashrate of my worker between several Monero addresses?',
