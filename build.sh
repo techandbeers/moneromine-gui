@@ -1,7 +1,7 @@
 #!/bin/bash -x
 # sudo npm install -g uglifycss uglify-js html-minifier
 
-#I wouldn't run this with the current state of this codebase, lines should be removed so that this only touches the web miner portions.
+#Web miner does not work for RandomX, need to support multiple coins for it to work. See: https://github.com/notgiven688/webminerpool
 
 uglifycss --output build/style_min.css style.css &&\
 uglifyjs  --output build/script_min.js script.js web_miner/miner.js &&\
