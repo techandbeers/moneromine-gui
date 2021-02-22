@@ -44,7 +44,7 @@ var	mde = 'l',
 		},
 		page_sizes: [15, 50, 100],
 		hlp:	{
-			head:	'<div class="bye" style="float:right;padding-left:10px;"><iframe src="https://discord.com/widget?id=810555137856503848&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>' + 'Welcome to ' + $Q.pool.nme + '!<br />This pool was born out of an obvious interest in blockchain tech, and a true belief that Monero is the best form of crytoCURRENCY. Everything you see here is open source, with credit to the devs in our footer.<br /><br />Pool Features:<br /><ul><li>0% Pool Fee</li><li>Hashrate Capping (25% of global)</li><li>0.003 Minimum Payout</li><li>Block Notify</li><li>Email Notifications</li><li>DDoS Protection</li><li>Web mining via MoneroOcean</li></ul>We try to be as transparent as possible, and hopefully any questions you have about this pool or mining in general can be answered below. Please feel free to join us on Discord or shoot us an <a href="mailto:support@moneromine.co">email</a> with any questions/issues (and be patient for a response)!',
+			head:	'<div class="bye" style="float:right;padding-left:10px;"><iframe src="https://discord.com/widget?id=810555137856503848&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>' + 'Welcome to ' + $Q.pool.nme + '!<br />This pool was born out of an obvious interest in blockchain tech, and a true belief that Monero is the best form of crytoCURRENCY. Everything you see here is open source, with credit to the devs in our footer.<br /><br />Pool Features:<br /><ul><li>0% Pool Fee</li><li>Hashrate Capping (25% of global)</li><li>0.003 Minimum Payout</li><li>Block Notify</li><li>Email Notifications</li><li>DDoS Protection</li></ul>We try to be as transparent as possible, and hopefully any questions you have about this pool or mining in general can be answered below. Please feel free to join us on Discord or shoot us an <a href="mailto:support@moneromine.co">email</a> with any questions/issues (and be patient for a response)!',
 			text:	''
 		},
 		msg: {
@@ -66,7 +66,7 @@ var	mde = 'l',
 			off: 'Run Web Miner',
 		},
 		sts: function() { return {
-			MinerWorkerCount:	'<div id="WebMinerBtn" class="BtnElem C0'+mde+' txttny C1bk C2bk_hov"></div><br /><br /><p style="font-size:10px;">Web Mining handled by <a href="https://MoneroOcean.stream" target="_blank">MoneroOcean.stream</a>. Please enter your address there to see your hashrate, payout, etc.</p>',
+			MinerWorkerCount:	'<div id="WebMinerBtn" class="BtnElem C0'+mde+' txttny C1bk C2bk_hov"></div><!--<br /><br /><p style="font-size:10px;">Web Mining handled by <a href="https://MoneroOcean.stream" target="_blank">MoneroOcean.stream</a>. Please enter your address there to see your hashrate, payout, etc.</p>-->',
 			MinerHashes:		'Your <select id="HashSelect"></select> Hashrate',
 			MinerShares:		'Shares<br /><br /><br /><br /><span id="TotalHashes">--</span><div class="hbar shim4 o8"></div>Hashes',
 			MinerCalc: 		'<input type="text" id="MinerCalcHsh" size="3" /><select id="MinerCalcUnit"></select><select id="MinerCalcFld"></select>',
@@ -178,7 +178,7 @@ var	mde = 'l',
 			},
 
 			{ q:	'Is it possible to open the pool home page on a specific XMR address?',
-			  a:	'Yup! You can use <b>https://moneromine.co/#/dashboard?addr=&quot;xmr_address&quot;</b>. You can also use the following URL to start web mining immediately without the need to click the button: <b>https://moneromine.co/#/dashboard?addr=&quot;xmr_address&quot;&amp;web_miner</b>.'
+			  a:	'Yup! You can use <b>https://moneromine.co/#/dashboard?addr=&quot;xmr_address&quot;</b>. <!--You can also use the following URL to start web mining immediately without the need to click the button: <b>https://moneromine.co/#/dashboard?addr=&quot;xmr_address&quot;&amp;web_miner</b>.-->'
 			},
 			
 			{ q:	'How are you combating centralization?',
@@ -256,9 +256,9 @@ var	mde = 'l',
 			  a:	'This is because of the use of too many worker names. To avoid DB/network channel overloads, all extra miners are joined under the <b>all_other_workers</b> worker name.'
 			},
 
-			{ q:	'Why is the web miner not working (always shows zero hashrate)?',
-			  a:	'Try to use your browser&#039;s incognito mode or another browser. You could also be blocked by your malware or antivirus software, or by your ISP.'
-			},
+//			{ q:	'Why is the web miner not working (always shows zero hashrate)?',
+//			  a:	'Try to use your browser&#039;s incognito mode or another browser. You could also be blocked by your malware or antivirus software, or by your ISP.'
+//			},
 
 //			{ q:	'How can I uninstall miner installed using the MoneroOcean miner setup scripts?',
 //			  a:	'On Windows run this command: <b>powershell -Command &quot;$wc = New-Object System.Net.WebClient; $tempfile = [System.IO.Path]::GetTempFileName(); $tempfile += &#039;.bat&#039;; $wc.DownloadFile(&#039;https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/uninstall_moneroocean_miner.bat&#039;, $tempfile); &amp; $tempfile; Remove-Item -Force $tempfile&quot;</b><br>'+
@@ -268,7 +268,7 @@ var	mde = 'l',
 			// Fees and donations
 
 			{ q:	'How does the pool mining fee work?',
-			  a:	'There is no pool mining fee! Instead there is a small withdrawal tx fee that becomes zero after <b>4.0</b> XMR.<br /><br />For the web miner, the fees are as follows:<br/><ul><li>3% fee to web miner developer</li><li>0.0004 TX fee from MoneroOcean (payments are handled by them)</li></ul>'
+			  a:	'There is no pool mining fee! Instead there is a small withdrawal tx fee that becomes zero after <b>4.0</b> XMR.<!--<br /><br />For the web miner, the fees are as follows:<br/><ul><li>3% fee to web miner developer</li><li>0.0004 TX fee from MoneroOcean (payments are handled by them)</li></ul>-->'
 			},
 
 			{ q:	'Can I split/donate the hashrate of my worker between several Monero addresses?',
@@ -280,7 +280,7 @@ var	mde = 'l',
 			},
 
 			{ q:	'Are you accepting donations?',
-			  a:	'No, the withdrawal fee is enough for us to keep things running. If you have some XMR burning a hole in your pocket, please consider donations to the Monero Core Devs or MoneroOcean!' 
+			  a:	'Not at the moment, the withdrawal fee is enough for us to keep things running. If you have some XMR burning a hole in your pocket, please consider donations to the Monero Core Devs or MoneroOcean!' 
 			},
 		]
 	};
@@ -2555,288 +2555,4 @@ function getCookie(n){
 }
 function delCookie(n){   
     document.cookie = n+'=; Max-Age=-99999999;';  
-}
-
-/* very simple monero miner for the webminerpool server */
-
-var server = "wss://webminer.moneroocean.stream:443/"
-
-var job = null;      // remember last job we got from the server
-var workers = [];    // keep track of our workers
-var ws;              // the websocket we use 
-
-/* state variables */
-
-var receiveStack = [];  // everything we get from the server
-var sendStack = [];     // everything we send to the server
-var totalhashes = 0;    // number of hashes calculated
-var connected = 0;      // 0->disconnected, 1->connected, 2->disconnected (error), 3->disconnect (on purpose) 
-var reconnector = 0;    // regular check if the WebSocket is still connected
-var attempts = 1;
-
-var throttleMiner = 0;  // percentage of miner throttling. If you set this to 20, the
-                        // cpu workload will be approx. 80% (for 1 thread / CPU).
-                        // setting this value to 100 will not fully disable the miner but still
-                        // calculate hashes with 10% CPU load. See worker.js for details.
-
-var handshake = null;
-
-function wasmSupported() {
-  try {
-    if (typeof WebAssembly === "object"
-      && typeof WebAssembly.instantiate === "function") {
-      var module = new WebAssembly.Module(Uint8Array.of(0x0, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00));
-      if (module instanceof WebAssembly.Module)
-        return new WebAssembly.Instance(module) instanceof WebAssembly.Instance;
-    }
-  } catch (e) { }
-  return false;
-}
-
-function addWorkers(numThreads) {
-  logicalProcessors = numThreads;
-
-  if (numThreads == -1) {
-
-    /* try to find a good value */
-
-    try {
-      logicalProcessors = window.navigator.hardwareConcurrency;
-    } catch (err) {
-      logicalProcessors = 4;
-    }
-
-    if (!((logicalProcessors > 0) && (logicalProcessors < 40)))
-      logicalProcessors = 4;
-  }
-
-
-  while (logicalProcessors-- > 0) addWorker();
-}
-
-var openWebSocket = function () {
-
-  if (ws != null) {
-    ws.close();
-  }
-
-  var splitted = server.split(";")
-  var chosen = splitted[Math.floor(Math.random() * splitted.length)];
-
-  ws = new WebSocket(chosen);
-
-  ws.onmessage = on_servermsg;
-  ws.onerror = function (event) {
-    if (connected < 2) connected = 2;
-    job = null;
-  }
-  ws.onclose = function () {
-    if (connected < 2) connected = 2;
-    job = null;
-  }
-
-  ws.onopen = function () {
-    ws.send((JSON.stringify(handshake)));
-    attempts = 1;
-    connected = 1;
-  }
-
-};
-
-reconnector = function () {
-  if (connected !== 3 && (ws == null || (ws.readyState !== 0 && ws.readyState !== 1))) {
-    //console.log("The WebSocket is not connected. Trying to connect.");
-    attempts++;
-    openWebSocket();
-  }
-
-  if (connected !== 3)
-    setTimeout(reconnector, 10000 * attempts);
-};
-
-// broadcast logic
-function startBroadcast(mining) {
-  if (typeof BroadcastChannel !== "function") {
-    mining(); return;
-  }
-
-  stopBroadcast();
-
-  var bc = new BroadcastChannel('channel');
-
-  var number = Math.random();
-  var array = [];
-  var timerc = 0;
-  var wantsToStart = true;
-
-  array.push(number);
-
-  bc.onmessage = function (ev) {
-    if (array.indexOf(ev.data) === -1) array.push(ev.data);
-  }
-
-  function checkShouldStart() {
-
-    bc.postMessage(number);
-
-    timerc++;
-
-    if (timerc % 2 === 0) {
-      array.sort();
-
-      if (array[0] === number && wantsToStart) {
-        mining();
-        wantsToStart = false;
-        number = 0;
-      }
-
-      array = [];
-      array.push(number);
-    }
-
-  }
-
-  startBroadcast.bc = bc;
-  startBroadcast.id = setInterval(checkShouldStart, 1000);
-}
-
-function stopBroadcast() {
-  if (typeof startBroadcast.bc !== 'undefined') {
-    startBroadcast.bc.close();
-  }
-
-  if (typeof startBroadcast.id !== 'undefined') {
-    clearInterval(startBroadcast.id);
-  }
-
-}
-// end logic
-
-// starts mining
-function startMiningWithId(loginid, numThreads, userid) {
-
-  if (!wasmSupported()) return;
-
-  stopMining();
-  connected = 0;
-
-  handshake = {
-    identifier: "handshake",
-    loginid: loginid,
-    userid: userid,
-    version: 7
-  };
-
-  var foo = function() { addWorkers(numThreads); reconnector(); };
-  startBroadcast(foo);
-}
-
-// starts mining
-function startMining(pool, login, password, numThreads, userid) {
-
-  if (!wasmSupported()) return;
-
-  stopMining();
-  connected = 0;
-
-  handshake = {
-    identifier: "handshake",
-    pool: pool,
-    login: login,
-    password: password,
-    userid: userid,
-    version: 7
-  };
-
-  var foo = function() { addWorkers(numThreads); reconnector(); };
-  startBroadcast(foo);
-}
-
-// stop mining  
-function stopMining() {
-
-  connected = 3;
-
-  if (ws != null) ws.close();
-  deleteAllWorkers();
-  job = null;
-
-  stopBroadcast();
-}
-
-// add one worker 
-function addWorker() {
-  var newWorker = new Worker("worker.js");
-  workers.push(newWorker);
-
-  newWorker.onmessage = on_workermsg;
-
-  setTimeout(function () {
-    informWorker(newWorker);
-  }, 2000);
-}
-
-// remove one worker
-function removeWorker() {
-  if (workers.length < 1) return;
-  var wrk = workers.shift();
-  wrk.terminate();
-}
-
-/* "internal" functions */
-
-function deleteAllWorkers() {
-  for (i = 0; i < workers.length; i++) {
-    workers[i].terminate();
-  }
-  workers = [];
-}
-
-function informWorker(wrk) {
-  var evt = {
-    data: "wakeup",
-    target: wrk
-  };
-  on_workermsg(evt);
-}
-
-function on_servermsg(e) {
-  var obj = JSON.parse(e.data);
-
-  receiveStack.push(obj);
-
-  if (obj.identifier == "job") job = obj;
-}
-
-function on_workermsg(e) {
-  var wrk = e.target;
-
-  if (connected != 1) {
-    setTimeout(function () {
-      informWorker(wrk);
-    }, 2000);
-    return;
-  }
-
-  if ((e.data) != "nothing" && (e.data) != "wakeup") {
-    // we solved a hash. forward it to the server.
-    var obj = JSON.parse(e.data);
-    ws.send(e.data);
-    sendStack.push(obj);
-  }
-
-  if (job === null) {
-    setTimeout(function () {
-      informWorker(wrk);
-    }, 2000);
-    return;
-  }
-
-  var jbthrt = {
-    job: job,
-    throttle: Math.max(0, Math.min(throttleMiner, 100))
-  };
-  wrk.postMessage(jbthrt);
-
-  if ((e.data) != "wakeup") totalhashes += 1;
 }
