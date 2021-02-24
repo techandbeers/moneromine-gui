@@ -1396,11 +1396,11 @@ function MinerPayments(typ){
 				'<table class="C3l noborder"><tr>'+
 					'<td width="50%" class="center">'+
 						'<input type="text" id="AutoPayFld" class="center txt C0bk'+mde+' C3'+mde+' C1br" autocomplete="off" placeholder="Auto Pay Amount...">'+
-						'<!--<div class="pbar"></div>--><span style="font-size:14px;" class="C2 noselect">Auto Pay ' + $Q.cur.sym + ' Threshold</span>'+
+						'<!--<div class="pbar"></div>--><span style="font-size:12px;" class="C2 noselect">Auto Pay ' + $Q.cur.sym + ' Threshold</span>'+
 					'</td>'+
 					'<td width="50%" class="center">'+
 						'<div id="AutoPayBtn" class="BtnElem txtmed C0'+mde+' C1bk C2bk_hov o5">'+$$.trn.set+'</div><br />'+
-						'<!--<div class="pbar"></div>--><span id="AutoPayFeeLbl" style="font-size:14px;" class="C2 noselect">' + fee_txt($A[addr].threshold) + '</span>'+
+						'<!--<div class="pbar"></div>--><span id="AutoPayFeeLbl" style="font-size:12px;" class="C2 noselect">' + fee_txt($A[addr].threshold) + '</span>'+
 					'</td>'+
 				'</tr></table>'+
 		                '<!--<div class="hbar shim10"></div>-->'+
