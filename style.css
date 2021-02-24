@@ -282,7 +282,6 @@ textarea{resize:none}
 }
 @media all and (max-width:500px) {
 #HeadLogo span{font-size:33px;letter-spacing:-1px}
-#coinmarketcap-widget-marquee{margin-top:30px !important}
 #GPop{width:70%}
 #GPop.pright{left:25%}
 .WorkerWrap{width:100%}
@@ -291,5 +290,6 @@ textarea{resize:none}
 #MinerPayments.Opened{height:340px}
 #MinerPayments.OpenedBig{height:700px}
 .Split3L,.Split3R{padding:6px 0;width:100%!important}
+.txtshrink {font-size:8px !important}
 }
 svg .txtmed{font-size:20px}
