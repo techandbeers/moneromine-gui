@@ -1383,7 +1383,7 @@ function MinerPayments(typ){
 		}else{
 			if(n) n.classList.add('hide');
 			m.className = 'Opened';
-			m.innerHTML = '<!--<div class="hbar"></div>--><div id="MinerPaymentsStage">'+$I.load+'</div>';
+			m.innerHTML = '<div class="hbar"></div><div id="MinerPaymentsStage">'+$I.load+'</div>';
 			Dash_btn('closer');
 		}
 	}else{
@@ -1393,17 +1393,21 @@ function MinerPayments(typ){
 	api('user').then(function(){
 	   	var ins = '';
 		ins +=	'<div class="LR50 shimtop20 C0'+mde+' txtmed center">'+
-				'<table class="C3l noborder"><tr>'+
-					'<td width="50%" class="center">'+
+				'<!--<table class="C3l noborder"><tr>-->'+
+					'<!--<td width="50%" class="center">-->'+
+					'<div class="SplitL" style="padding:0px !important;">'+
 						'<input type="text" id="AutoPayFld" class="center txt C0bk'+mde+' C3'+mde+' C1br" autocomplete="off" placeholder="Auto Pay Amount...">'+
-						'<!--<div class="pbar"></div>--><span class="txttny txtshrink C2 noselect">Auto Pay ' + $Q.cur.sym + ' Threshold</span>'+
-					'</td>'+
-					'<td width="50%" class="center">'+
+						'<!--<div class="pbar"></div>--><span class="txttny C2 noselect">Auto Pay ' + $Q.cur.sym + ' Threshold</span>'+
+					'</div>'+
+					'<!--</td>-->'+
+					'<!--<td width="50%" class="center">-->'+
+					'<div class="SplitR" style="padding:0px !important;">'+
 						'<div id="AutoPayBtn" class="BtnElem txtmed C0'+mde+' C1bk C2bk_hov o5">'+$$.trn.set+'</div><br />'+
-						'<!--<div class="pbar"></div>--><span id="AutoPayFeeLbl" class="txttny txtshrink C2 noselect">' + fee_txt($A[addr].threshold) + '</span>'+
-					'</td>'+
-				'</tr></table>'+
-		                '<!--<div class="hbar shim10"></div>-->'+
+						'<!--<div class="pbar"></div>--><span id="AutoPayFeeLbl" class="txttny C2 noselect">' + fee_txt($A[addr].threshold) + '</span>'+
+					'</div>'+
+					'<!--</td>-->'+
+				'<!--</tr></table>-->'+
+		                '<div class="hbar shim10"></div>'+
 			'</div>';
 		if ($Q.email) {
 			var	email_enabled = $A[addr].email,
