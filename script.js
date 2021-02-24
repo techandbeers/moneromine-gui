@@ -44,7 +44,7 @@ var	mde = 'l',
 		},
 		page_sizes: [15, 50, 100],
 		hlp:	{
-			head:	'<div class="bye" style="float:right;padding-left:10px;"><iframe src="https://discord.com/widget?id=810555137856503848&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>' + 'Welcome to ' + $Q.pool.nme + '!<br />This pool was born out of an obvious interest in blockchain tech, and a true belief that Monero is the best form of crytoCURRENCY. Everything you see here is open source, with credit to the devs in our footer.<br /><br />Pool Features:<br /><ul><li>0% Pool Fee</li><li>Hashrate Capping (25% of global)</li><li>0.003 Minimum Payout</li><li>Block Notify</li><li>Email Notifications</li><li>DDoS Protection</li></ul>We try to be as transparent as possible, and hopefully any questions you have about this pool or mining in general can be answered below. Please feel free to join us on Discord or shoot us an <a href="mailto:support@moneromine.co">email</a> with any questions/issues (and be patient for a response)!',
+			head:	'<div class="bye" style="float:right;padding-left:10px;"><iframe src="https://discord.com/widget?id=810555137856503848&theme=dark" width="350" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>' + 'Welcome to ' + $Q.pool.nme + '!<br />This pool was born out of an obvious interest in blockchain tech, and a true belief that Monero is the best form of crytoCURRENCY. Everything you see here is open source, with credit to the devs in our footer.<br /><br />Pool Features:<br /><ul><li>0% Pool Fee</li><li>Hashrate Capping (25% of global)</li><li>0.003 Minimum Payout</li><li>Block Notify</li><li>Email Notifications</li><li>DDoS Protection</li></ul>We try to be as transparent as possible, and hopefully any questions you have about this pool or mining in general can be answered below. Please feel free to join us on Discord or shoot us an <a href="mailto:support@moneromine.co">email</a> with any questions/issues (and be patient for a response)!',
 			text:	''
 		},
 		msg: {
@@ -1396,11 +1396,11 @@ function MinerPayments(typ){
 				'<table class="C3l noborder"><tr>'+
 					'<td width="50%" class="center">'+
 						'<input type="text" id="AutoPayFld" class="center txt C0bk'+mde+' C3'+mde+' C1br" autocomplete="off" placeholder="Auto Pay Amount...">'+
-						'<!--<div class="pbar"></div>--><span class="txttny C2 noselect">Auto pay ' + $Q.cur.sym + ' threshold</span>'+
+						'<!--<div class="pbar"></div>--><span style="font-size:14px;" class="C2 noselect">Auto Pay ' + $Q.cur.sym + ' Threshold</span>'+
 					'</td>'+
 					'<td width="50%" class="center">'+
 						'<div id="AutoPayBtn" class="BtnElem txtmed C0'+mde+' C1bk C2bk_hov o5">'+$$.trn.set+'</div><br />'+
-						'<!--<div class="pbar"></div>--><span id="AutoPayFeeLbl" class="txttny C2 noselect">' + fee_txt($A[addr].threshold) + '</span>'+
+						'<!--<div class="pbar"></div>--><span id="AutoPayFeeLbl" style="font-size:14px;" class="C2 noselect">' + fee_txt($A[addr].threshold) + '</span>'+
 					'</td>'+
 				'</tr></table>'+
 		                '<!--<div class="hbar shim10"></div>-->'+
@@ -1411,19 +1411,19 @@ function MinerPayments(typ){
 				lbl = $$.trn[email_enabled ? 'eml_on' : 'eml_off'];
 			ins +=	'<div class="LR50 shimtop20 C0'+mde+' txtmed center">'+
 				'<div class="Split3L">'+
-					'<input type="text" id="EmailFROM" class="center txt C0bk'+mde+' C3'+mde+' C1br" placeholder="Change email FROM">'+
-					'<!--<div class="pbar"></div>--><span class="txttny C2 noselect">Change email FROM</span>'+
+					'<input type="text" id="EmailFROM" class="center txt C0bk'+mde+' C3'+mde+' C1br" placeholder="Change Email FROM (current email)">'+
+					'<!--<div class="pbar"></div><span class="txttny C2 noselect">Change email FROM</span>-->'+
 				'</div>'+
 				'<div class="Split3R">'+
-					'<input type="text" id="EmailTO" class="center txt C0bk'+mde+' C3'+mde+' C1br" placeholder="Change email TO">'+
-					'<!--<div class="pbar"></div>--><span class="txttny C2 noselect">Change email TO</span>'+
+					'<input type="text" id="EmailTO" class="center txt C0bk'+mde+' C3'+mde+' C1br" placeholder="Change Email TO (or initial email) ">'+
+					'<!--<div class="pbar"></div><span class="txttny C2 noselect">Change email TO</span>-->'+
 				'</div>'+
 				'<div class="Split3">'+
 					'<div id="EmailSubscribeBtn" class="BtnElem DiscMde C1bk C2bk_hov">'+
 						'<div class="DiscIcon C0bk'+mde+' C1fl">'+check+'</div>'+
 						'<span id="EmailSubscribeLbl" class="C0'+mde+' txtmed">'+lbl+'</span>'+
 					'</div>'+
-					'<!--<div class="pbar"></div>--><span class="txttny C2 noselect">and change email</span>'+
+					'<!--<div class="pbar"></div><span class="txttny C2 noselect">and change email</span>-->'+
 				'</div>'+
 				'<div class="hbar shim10"></div>'+
 				'</div>';
