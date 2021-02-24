@@ -282,6 +282,7 @@ textarea{resize:none}
 }
 @media all and (max-width:500px) {
 #HeadLogo span{font-size:33px;letter-spacing:-1px}
+#coinmarketcap-widget-marquee{margin-top:30px !important}
 #GPop{width:70%}
 #GPop.pright{left:25%}
 .WorkerWrap{width:100%}
