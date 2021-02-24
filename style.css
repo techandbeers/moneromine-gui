@@ -134,7 +134,7 @@ select,.select-point,.nav,.hov,.C2br_hov,.C2bk_hov,.PagBtn{cursor:pointer}
 #MinerGraph{position:relative}
 #MinerGraph .mchart{height:100px}
 #MinerGraph .MinerMsg{padding-top:25px;text-align:center;display:none !important;}
-header{height:80px}
+header{height:60px}
 #HeadLogo{cursor:pointer;height:20px;margin-left:10px;position:absolute;top:15px;width:128px}
 #HeadMenu,#TogMode,#Timer,#TimerRefresh,#TimerLoader{box-sizing:border-box;height:35px;left:100%;padding:5px;position:absolute;top:9px;width:35px}
 #HeadMenu{border:0;margin-left:-200px;overflow:hidden;text-align:right;top:9px;width:150px;height:100px;}
@@ -169,7 +169,7 @@ header{height:80px}
 #MinerDash{margin-bottom:10px}
 #MinerDash .Spl{display:inline-grid;text-align:center;width:48%;border:1px solid #4C5C96;padding:5px;margin:5px;border-radius:5px;}
 #MinerPayments{border-bottom:1px solid grey;height:0;overflow:hidden;position:relative;transition:height 300ms}
-#MinerPayments.Opened{height:230px}
+#MinerPayments.Opened{height:240px}
 #MinerPayments.OpenedBig{height:550px}
 #MinerPayments .LR85{height:calc(100% - 1px)}
 #MinerPaymentsStage{height:calc(100% - 1px);position:relative}
@@ -290,6 +290,5 @@ textarea{resize:none}
 #MinerPayments.Opened{height:340px}
 #MinerPayments.OpenedBig{height:700px}
 .Split3L,.Split3R{padding:6px 0;width:100%!important}
-.txtshrink {font-size:8px !important}
 }
 svg .txtmed{font-size:20px}
