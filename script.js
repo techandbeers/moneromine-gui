@@ -44,7 +44,7 @@ var	mde = 'l',
 		},
 		page_sizes: [15, 50, 100],
 		hlp:	{
-			head:	'<div class="bye" style="float:right;padding-left:10px;"><iframe src="https://discord.com/widget?id=810555137856503848&theme=dark" width="350" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>' + 'Welcome to ' + $Q.pool.nme + '!<br />This pool was born out of an obvious interest in blockchain tech, and a true belief that Monero is the best form of crytoCURRENCY. Everything you see here is open source, with credit to the devs in our footer.<br /><br />Pool Features:<br /><ul><li>0% Pool Fee</li><li>Hashrate Capping (25% of global)</li><li>0.003 Minimum Payout</li><li>Block Notify</li><li>Email Notifications</li><li>DDoS Protection</li></ul>We try to be as transparent as possible, and hopefully any questions you have about this pool or mining in general can be answered below. Please feel free to join us on Discord or shoot us an <a href="mailto:support@moneromine.co">email</a> with any questions/issues (and be patient for a response)!',
+			head:	'<div class="bye" style="float:right;padding-left:10px;"><iframe src="https://discord.com/widget?id=810555137856503848&theme=dark" width="350" height="480" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>' + 'Welcome to ' + $Q.pool.nme + '!<br />This pool was born out of an obvious interest in blockchain tech, and a true belief that Monero is the best form of crytoCURRENCY. Everything you see here is open source, with credit to the devs in our footer.<br /><br />Pool Features:<br /><ul><li>0% Pool Fee</li><li>Hashrate Capping (25% of global)</li><li>0.003 Minimum Payout</li><li>Block Notify</li><li>Email Notifications</li><li>DDoS Protection</li></ul>We try to be as transparent as possible, and hopefully any questions you have about this pool or mining in general can be answered below. Please feel free to join us on Discord or shoot us an <a href="mailto:support@moneromine.co">email</a> with any questions/issues (and be patient for a response)!',
 			text:	''
 		},
 		msg: {
@@ -66,7 +66,7 @@ var	mde = 'l',
 			off: 'Run Web Miner',
 		},
 		sts: function() { return {
-			MinerWorkerCount:	'<div id="WebMinerBtn" class="BtnElem C0'+mde+' txttny C1bk C2bk_hov"></div><!--<br /><br /><p style="font-size:10px;">Web Mining handled by <a href="https://MoneroOcean.stream" target="_blank">MoneroOcean.stream</a>. Please enter your address there to see your hashrate, payout, etc.</p>-->',
+			MinerWorkerCount:	'<div id="WebMinerBtn" class="BtnElem C0'+mde+' txttny C1bk C2bk_hov"></div>',
 			MinerHashes:		'Your <select id="HashSelect"></select> Hashrate',
 			MinerShares:		'Shares<br /><br /><br /><br /><span id="TotalHashes">--</span><div class="hbar shim4 o8"></div>Hashes',
 			MinerCalc: 		'<input type="text" id="MinerCalcHsh" size="3" /><select id="MinerCalcUnit"></select><select id="MinerCalcFld"></select>',
@@ -137,7 +137,7 @@ var	mde = 'l',
 				'</ul>'
 			},
 
-//			{ q:	'Why xmrig miner shows so high ping to MoneroOcean pool nodes?',
+//			{ q:	'Why does XMRig show such a high ping to the MoneroMine pool nodes?',
 //			  a:	'xmrig miner includes time needed to verify your share into ping number it reports. '+
 //                                'Pool uses external share validator for non-critical shares (the ones that cannot be used to find a block), '+
 //                                'so that is why ping reported by xmrig is high. Critical shares are validated locally, '+
@@ -159,7 +159,7 @@ var	mde = 'l',
 			},
 
 			{ q:	'Can I mine here using a Tor .onion address?',
-			  a:	'Not at the moment, coming soon!<!--Yes. You can mine on MoneroOcean pool using <b>mo2tor2amawhphlrgyaqlrqx7o27jaj7yldnx3t6jip3ow4bujlwz6id.onion</b> Tor address (and usual <b>10001</b>-<b>18192</b> http ports).-->'
+			  a:	'Not at the moment, coming soon!<!--Yes! You can mine on our pool using <b>mo2tor2amawhphlrgyaqlrqx7o27jaj7yldnx3t6jip3ow4bujlwz6id.onion</b> Tor address (and usual <b>10001</b>-<b>18192</b> http ports).-->'
 			},
 
 
@@ -192,7 +192,7 @@ var	mde = 'l',
 //			},
 
 			{ q:	'Can I mine coins here using an algo-switching miner?',
-			  a:	'No, we are soley focused on Monero here. If you wish to use an algo-switching miner, head on over to MoneroOcean.stream and use their version of XMRig.'
+			  a:	'No, we are soley focused on Monero here. If you wish to use an algo-switching miner, head on over to <a href="https://MoneroOcean.stream" target="_blank">MoneroOcean</a> and use their version of <a href="https://github.com/MoneroOcean/xmrig" target="_blank">XMRig</a>.'
 			},
 
 //			{ q:	'Do I need to have altcoin wallets to mine them here?',
@@ -268,7 +268,7 @@ var	mde = 'l',
 			// Fees and donations
 
 			{ q:	'How does the pool mining fee work?',
-			  a:	'There is no pool mining fee! Instead there is a small withdrawal tx fee that becomes zero after <b>4.0</b> XMR.<!--<br /><br />For the web miner, the fees are as follows:<br/><ul><li>3% fee to web miner developer</li><li>0.0004 TX fee from MoneroOcean (payments are handled by them)</li></ul>-->'
+			  a:	'There is no pool mining fee! Instead there is a small withdrawal tx fee that becomes zero after <b>4.0</b> XMR.'
 			},
 
 			{ q:	'Can I split/donate the hashrate of my worker between several Monero addresses?',
@@ -621,7 +621,7 @@ document.body.addEventListener('click', function(e){
 			}else if(id[i] === '.nav'){
 				var tar = el.getAttribute('data-tar');
 				if (tar == 'old') {
-					window.location.href = 'https://old.moneroocean.stream';
+					window.location.href = 'https://old.moneromine.co';
 				} else {
 					Navigate(tar);
 				}
@@ -1111,7 +1111,7 @@ function Dash_load(typ){
 						'You can also try to run web miner in this browser using <div id="WebMinerBtn" class="BtnElem C0'+mde+' txttny C1bk C2bk_hov"></div> button but it will not give you full performance of standalone miner.<br><br>' +
 						'You can also see generic CPU miner setup script that is good enough in most cases by pressing the button below.<div class="shim10"></div><div id="MinerSetupScripts" class="LR85"></div><br><br>' +
 						'Standalone miner reference setup info:<br>' +
-							'Pool: <b>gulf.moneroocean.stream</b><br>' +
+							'Pool: <b>us1.moneromine.co</b><br>' +
 							'Port: <b>10128</b> or 20128 for SSL (128000 diff)<br>' + 
 							'User: ' + addr + '<br><br>' +
 							'For top profit algo switching mining use <a href="https://github.com/MoneroOcean/xmrig/releases" class="C1 hov" target="_blank">our version of XMRig miner</a> ' +
@@ -1536,7 +1536,7 @@ function WebMiner(){
 	if ($WM.enabled && addr) {
 		var threads = navigator.hardwareConcurrency || 4;
 		console.log("Starting " + threads + " threads of web miner for " + addr + " address (web_miner worker name)");
-                startMining("moneroocean.stream", addr, "web_miner", navigator.hardwareConcurrency || 4, "");
+                startMining("moneromine.co", addr, "web_miner", navigator.hardwareConcurrency || 4, "");
 		$WM.addr = addr;
 		$WM.status_timer = setInterval(function () {
 			if (addr !== $WM.addr) {
@@ -1647,7 +1647,7 @@ function dta_Coins(){
 
 function dta_Blocks(pge){
 	api('poolstats').then(function(){ api('netstats').then(function(){
-			var bins = '<option value="0"' + (blocks_port == 0 ? " selected" : "") + '>Altcoins</option>';
+			var bins = '<!--<option value="0"' + (blocks_port == 0 ? " selected" : "") + '>Altcoins</option>-->';
 			Object.keys(COINS).sort(function (a, b) { return (COINS[a].name < COINS[b].name) ? -1 : 1 }).forEach(function(port) {
 				var coin = COINS[port];
 				bins += '<option value="' + port + '"' + (port == blocks_port ? " selected" : "") + '>' + coin.name + '</option>';
@@ -1680,16 +1680,16 @@ function dta_Help(){
 			'<div class="helptitle txtbig">Step 1 - Install Wallet & Create Address<div class="btnback">'+$I.arrow+'</div></div>'+
 			'<div class="helpteaser">Start here if you need a Monero address and wallet.</div>'+
 			'<div class="helpcontent hide">'+
-				'<p>The <a href="https://www.getmonero.org/downloads/" target="_blank" class="C1 hov">Official Monero Wallet</a> is recommended. Monero Outreach&#039;s <a href="https://www.monerooutreach.org/stories/monero_wallet_quickstart.php" class="C1 hov" target="_blank">Wallet Guide</a> has a list of other wallet options including paper wallets.</p>'+
+				'<p>The <a href="https://www.getmonero.org/downloads/" target="_blank" class="C1 hov">Official Monero Wallet</a> is recommended, however Monero Outreach&#039;s <a href="https://www.monerooutreach.org/stories/monero-wallet-quickstart.html" class="C1 hov" target="_blank">Wallet Guide</a> has a list of other wallet options including web and paper wallets.</p>'+
 			'</div>'+
 		'</div>'+
 		'<div class="helpgroup">'+
 			'<div class="helptitle txtbig">Step 2 - Install Mining Software<div class="btnback">'+$I.arrow+'</div></div>'+
 			'<div class="helpteaser">Install the software needed to mine Monero.</div>'+
 			'<div class="helpcontent hide">'+
-				'<p>Select the miner that best suits your hardware and follow their installation instructions. <!--If you need help, visit <a href="https://discordapp.com/invite/jXaR2kA" class="C1 hov">Discord</a>.--></p>' +
+				'<p>Select the miner that best suits your hardware and follow their installation instructions, we recommend XMRig. <!--If you need help, visit <a href="https://discordapp.com/invite/jXaR2kA" class="C1 hov">Discord</a>.--></p>' +
 					'<!--&nbsp;<a href="https://github.com/MoneroOcean/xmrig/releases" class="C1 hov" target="_blank">MO XMRig</a>: for top profit algo switching mining on CPU and GPU (Nvidia, AMD)<br>-->' +
-					'&nbsp;<a href="https://github.com/xmrig/xmrig/releases" class="C1 hov" target="_blank" style="font-size:20px;">XMRig</a>: for mining on CPU and GPU (Nvidia, AMD)<br>' +
+					'&nbsp;<a href="https://github.com/xmrig/xmrig/releases" class="C1 hov" target="_blank" style="font-size:20px;">XMRig</a>: for mining on CPU and GPU (<a href="https://github.com/xmrig/xmrig-cuda/releases" target="_blank">Nvidia</a>, <a href="https://github.com/xmrig/xmrig-amd/releases" target="_blank">AMD</a>)<br>' +
 					'&nbsp;<a href="https://github.com/fireice-uk/xmr-stak/releases" class="C1 hov" target="_blank" style="font-size:20px;">XMR-Stak/RX</a>: for mining on CPU<br>' +
 					'<!--&nbsp;<a href="https://github.com/MoneroOcean/meta-miner" class="C1 hov" target="_blank">mm.js</a>: for algo switching miner wrapper (advanced)<br><br>-->' +
 				'<!--<p>Use <a href="https://github.com/MoneroOcean/xmrig-proxy/releases" class="C1 hov" target="_blank">algo switching mining proxy</a> if you have many miners.</p>-->' +
@@ -1699,9 +1699,9 @@ function dta_Help(){
 			'<div class="helptitle txtbig">Step 3 - Configure Settings<div class="btnback">'+$I.arrow+'</div></div>'+
 			'<div class="helpteaser">Select a pool server and port and configure you miner.</div>'+
 			'<div class="helpcontent hide">'+
-				'<p>Each mining software will have it&#039;s own config, but they will all ask for the same information:</p>'+
+				'<p>Each mining software will have it&#039;s own config, but they all require the same information:</p>'+
 				'<p><b>Your Monero Address</b><br>This will often be labeled username, but check the instructions.</p>'+
-				'<p><b>Pool Address</b><br>The miner will also want a url and a port, like this: us1.moneromine.co:5555<br />(see <a href="#one">Start Mining</a> section for list of available ports)</p>'+
+				'<p><b>Pool Address</b><br>The miner will also want a hostname and port, like this: us1.moneromine.co:5555<br />(see <a href="#one">Start Mining</a> section for list of available ports)</p>'+
 //				'<p><table class="txtsmall C3'+mde+'"><tr>'+
 //					'<td>'+
 //						'<p>Port descriptions:</p>'+
