@@ -134,7 +134,7 @@ select,.select-point,.nav,.hov,.C2br_hov,.C2bk_hov,.PagBtn{cursor:pointer}
 #MinerGraph{position:relative}
 #MinerGraph .mchart{height:100px}
 #MinerGraph .MinerMsg{padding-top:25px;text-align:center;display:none !important;}
-header{height:60px}
+header{height:80px}
 #HeadLogo{cursor:pointer;height:20px;margin-left:10px;position:absolute;top:15px;width:128px}
 #HeadMenu,#TogMode,#Timer,#TimerRefresh,#TimerLoader{box-sizing:border-box;height:35px;left:100%;padding:5px;position:absolute;top:9px;width:35px}
 #HeadMenu{border:0;margin-left:-200px;overflow:hidden;text-align:right;top:9px;width:150px;height:100px;}
