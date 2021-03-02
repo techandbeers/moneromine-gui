@@ -838,7 +838,11 @@ function TimerUpdateData(){
 				Dash_load(typ);
 			}
 		} break;
-		case 'coins':    dta_Coins(); break;
+		case 'coins':    
+		console.log('842')
+		case 'luck': 
+			dta_Luck(); 
+		break;
 		case 'blocks':   dta_Blocks(parseInt(document.getElementById('TblPagBox').value.replace(/\D/g,''))); break;
 		case 'payments': dta_Payments(parseInt(document.getElementById('TblPagBox').value.replace(/\D/g,''))); break;
 	}
@@ -849,7 +853,7 @@ function TimerUpdateData(){
                         document.getElementById('WorldHash').innerHTML  = HashConvStr(difficultyToHashRate($D.netstats.difficulty, mport));
 			document.getElementById('PoolHash').innerHTML   = '<span class="nav" data-tar="coins">' + HashConvStr($D.poolstats.hashRate) + '</span>';
 			document.getElementById('CurrEffort').innerHTML =
-				'<span title="' + $D.poolstats.roundHashes  + ' / ' + $D.netstats.difficulty + '" class="nav" data-tar="coins">' +
+				'<span title="' + $D.poolstats.roundHashes  + ' / ' + $D.netstats.difficulty + '" class="nav" data-tar="luck">' +
 				Rnd(100 * $D.poolstats.roundHashes / $D.netstats.difficulty, 2, 'txt') + "%</span>";
 			document.getElementById('BlockCount').innerHTML =
 				'<span title="' + $D.poolstats.totalBlocksFound + ' ' + $Q.cur.nme + ' blocks and ' + $D.poolstats.totalAltBlocksFound + ' altcoin blocks" class="nav" data-tar="blocks">' +
@@ -972,11 +976,15 @@ function Navigate(tar){
 	});
 	setTimeout(function(){
 		var n = '', m = 'StageFade', h = '', d = 'LR85 C3l';
-		if(tar && ['coins','blocks','payments','help'].indexOf(tar) >= 0){
+		if(tar && ['coins','luck','blocks','payments','help'].indexOf(tar) >= 0){
 			n = 'short';
 			m += ' short';
 			if (tar != 'coins' && tar != 'help') {
-				h += '<div class="LR85 clearfix"><div id="PageTopL" class="C3'+mde+' txtmed"></div><div id="PageTopR" class="right"></div></div>';
+				if (tar ==='luck') {
+					h+= '<div class="LR85 clearfix"><div id="LuckChartWrapper" class="C3'+mde+' txtmed"><canvas id="luckChart" width="400" height="400"></canvas></div><</div>';
+				} else {
+					h += '<div class="LR85 clearfix"><div id="PageTopL" class="C3'+mde+' txtmed"></div><div id="PageTopR" class="right"></div></div>';
+				}
 			} else {
 				h += '<div class="LR85 clearfix"><div id="PageTopL" class="C3'+mde+' txtmed"></div></div>';
 			}
@@ -992,6 +1000,7 @@ function Navigate(tar){
 
 		switch (tar) {
 			case 'coins':    dta_Coins();     break;
+			case 'luck':     dta_Luck();      break;
 			case 'blocks':   dta_Blocks(1);   break;
 			case 'payments': dta_Payments(1); break;
 			case 'help':     dta_Help();      break;
@@ -1642,6 +1651,47 @@ function dta_Coins(){
 		});
 		document.getElementById('PageTopL').innerHTML = 'Current PPLNS window length: ' + Rnd($D.poolstats.pplnsWindowTime / 3600, 2, 'txt') + ' hours';
 		Tbl('PageBot', 'coins', 0, 0);
+	}).catch(function(err){console.log(err)}); }).catch(function(err){console.log(err)});
+}
+
+function dta_Luck(){
+	api('poolstats').then(function(){ api('netstats').then(function(){
+		let dataPoints = []
+		api('blocks', 1, 100).then(function(){
+			console.log($D.blocks[1])
+			// Average Luck
+			var eff = 0, bnum = 0;
+			if ($D.blocks[1]) $D.blocks[1].forEach(function(b) { eff += b.shares / b.diff; ++ bnum; });
+			var eff_perc = bnum ? Rnd(eff / bnum * 100) : 0;
+			// Calculating Each Point		
+			$D.blocks[1].forEach((block) => {
+				dataPoints.push({
+					x:block.ts,
+					y:Math.round(block.shares / block.diff * 100)
+				})
+			})
+			var ctx = document.getElementById('luckChart').getContext('2d');
+			var luckChart = new Chart(ctx, {
+					type: 'scatter',
+					data: {
+							labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+							datasets: [{
+									label: 'Blocks Found',
+									data: dataPoints
+							}]
+					},
+					options: {
+						scales: {
+								xAxes: [{
+										type: 'linear',
+										position: 'bottom'
+								}]
+						}
+				}
+			});
+		})
+
+		document.getElementById('PageBot').innerHTML = null;
 	}).catch(function(err){console.log(err)}); }).catch(function(err){console.log(err)});
 }
 
