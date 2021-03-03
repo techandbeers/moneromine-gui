@@ -23,11 +23,14 @@
   width: 100%;
 }
 #NetStats {
-  min-width: 300px;
+  min-width: 256px;
+}
+#PageTopR.right {
+  width: 50%
 }
 
 /* xl */
-@media screen and (max-width: 1680px) {
+@media screen and (min-width: 1281px) {
   .hide-xl {
     display: none
   }
@@ -72,6 +75,11 @@
   }
   #NetStats td:nth-of-type(n+4) {
     margin-top: 10px;
+  }
+  #PageTopR.right {
+    width: 100%;
+    float: left;
+    text-align: left;
   }
 }
 
@@ -140,5 +148,11 @@
 @media screen and (max-width: 360px) {
   .hide-tiny {
     display: none
+  }
+  #NetStats td {
+    width: 100%;
+  }
+  #NetStats td:nth-of-type(n+1) {
+    margin-top: 10px;
   }
 }
