@@ -1713,7 +1713,10 @@ function dta_Luck(){
                     // }
 										},
 										distribution:'linear',
-										position: 'bottom'
+										position: 'bottom',
+										gridLines: {
+											display: false
+										},
 								}],
 								yAxes: [{
 									scaleLabel: {
@@ -1725,7 +1728,7 @@ function dta_Luck(){
 											return value + '%'
 										}
 									}
-								}]
+								}],
 						},
 						tooltips: {
 							callbacks: {
@@ -1741,7 +1744,7 @@ function dta_Luck(){
 									};
 							},
 							}
-						}
+						},
 				}
 			});
 		})
