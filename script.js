@@ -981,7 +981,7 @@ function Navigate(tar){
 			m += ' short';
 			if (tar != 'coins' && tar != 'help') {
 				if (tar ==='luck') {
-					h+= '<div class="LR85 clearfix"><div id="LuckChartWrapper" class="C3'+mde+' txtmed"><canvas id="luckChart" width="400" height="400"></canvas></div><</div>';
+					h+= '<div class="LR85 clearfix"><div id="LuckChartWrapper" class="C3'+mde+' txtmed"><canvas id="luckChart" width="400" height="200"></canvas></div><</div>';
 				} else {
 					h += '<div class="LR85 clearfix"><div id="PageTopL" class="C3'+mde+' txtmed"></div><div id="PageTopR" class="right"></div></div>';
 				}
@@ -1653,39 +1653,94 @@ function dta_Coins(){
 		Tbl('PageBot', 'coins', 0, 0);
 	}).catch(function(err){console.log(err)}); }).catch(function(err){console.log(err)});
 }
-
 function dta_Luck(){
 	api('poolstats').then(function(){ api('netstats').then(function(){
 		let dataPoints = []
+		let colors = []
 		api('blocks', 1, 100).then(function(){
-			console.log($D.blocks[1])
+			const dateFormat = 'DD-MM-YYYY'
+			const earliestDate = moment().subtract(30,'days')
 			// Average Luck
 			var eff = 0, bnum = 0;
 			if ($D.blocks[1]) $D.blocks[1].forEach(function(b) { eff += b.shares / b.diff; ++ bnum; });
 			var eff_perc = bnum ? Rnd(eff / bnum * 100) : 0;
 			// Calculating Each Point		
 			$D.blocks[1].forEach((block) => {
+				const dif = Math.round(block.shares / block.diff * 100)
 				dataPoints.push({
-					x:block.ts,
-					y:Math.round(block.shares / block.diff * 100)
+					x:moment(block.ts).toDate(),
+					y:dif
 				})
+				colors.push(dif > 100 ? '#f44336' : dif > 50 ? '#ff9800' : '#4caf50')
 			})
+			Chart.defaults.global.defaultFontColor = '#fff'
+			Chart.defaults.global.defaultFontFamily = 'raleway'
+			Chart.defaults.global.elements.point.radius = 5
 			var ctx = document.getElementById('luckChart').getContext('2d');
 			var luckChart = new Chart(ctx, {
 					type: 'scatter',
 					data: {
-							labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
 							datasets: [{
-									label: 'Blocks Found',
+									label: 'Blocks Found (Last 30 Days)',
+									pointBackgroundColor: colors,
 									data: dataPoints
 							}]
 					},
 					options: {
+						title: {
+							display: true,
+							position: 'top',
+							text: 'Blocks Found (Last 30 Days)'
+						},
+						legend: {
+							display: false
+						},
 						scales: {
 								xAxes: [{
-										type: 'linear',
+										type: 'time',
+										time: {
+											tooltipFormat:'ll HH:mm'
+										},
+										scaleLabel: {
+											display:'true',
+											labelString:'Date',
+										},
+										ticks: {
+											min:earliestDate,
+										// 	callback: function(value) {
+										// 		console.log(value)
+                    //     return value;
+                    // }
+										},
+										distribution:'linear',
 										position: 'bottom'
+								}],
+								yAxes: [{
+									scaleLabel: {
+										display:'true',
+										labelString:'Difficulty',
+									},
+									ticks: {
+										callback: function(value) {
+											return value + '%'
+										}
+									}
 								}]
+						},
+						tooltips: {
+							callbacks: {
+								label: function(tooltipItem,data) {
+									console.log(tooltipItem,data)
+									return tooltipItem.label + ' - ' + tooltipItem.value + '% Difficulty'
+								},
+								labelColor: function(tooltipItem, chart) {
+									let color = tooltipItem.yLabel > 100 ? '#f44336' : tooltipItem.yLabel > 50 ? '#ff9800' : '#4caf50'
+									return {
+											borderColor: color,
+											backgroundColor: color
+									};
+							},
+							}
 						}
 				}
 			});
@@ -1694,7 +1749,6 @@ function dta_Luck(){
 		document.getElementById('PageBot').innerHTML = null;
 	}).catch(function(err){console.log(err)}); }).catch(function(err){console.log(err)});
 }
-
 function dta_Blocks(pge){
 	api('poolstats').then(function(){ api('netstats').then(function(){
 			var bins = '<!--<option value="0"' + (blocks_port == 0 ? " selected" : "") + '>Altcoins</option>-->';
