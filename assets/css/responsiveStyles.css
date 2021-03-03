@@ -29,27 +29,23 @@
 /* Custom styling for Difficulty Chart items */
 #luckChartInfo {
   display: flex;
-  margin-left: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px 20px 20px 20px;
 }
-.luckItemTotal {
-  font-size: 26px !important;
-  font-weight: bold !important;
+#luckChartInfo .luckItemTitle {
+  font-size: 26px;
+  font-weight: bold;
 }
-.luckItemSub {
-  font-size: 16px !important;
-  color: #fafafa !important;
+#luckChartInfo .luckItemSub {
+  font-size: 16px;
+  color: #e0e0e0;
 }
-.luckAvg {
-  color: #7986cb
+#avgDif .luckItemSub {
+  color: #bcc2e4
 }
-.luckGood {
-  color: #81c784
-}
-.luckMed {
-  color: #ffb74d
-}
-.luckBad {
-  color: #e57373
+#avgLuck .luckItemSub {
+  color: #bcc2e4
 }
 
 /* xl */
@@ -105,6 +101,12 @@
 @media screen and (max-width: 736px) {
   .hide-sm {
     display: none
+  }
+  #luckChartInfo .luckItemWrapper {
+    width: 50%;
+  }
+  #luckChartInfo .luckItemWrapper:nth-of-type(n+3) {
+    margin-top: 20px;
   }
 }
 
@@ -166,5 +168,11 @@
 @media screen and (max-width: 360px) {
   .hide-tiny {
     display: none
+  }
+  #luckChartInfo .luckItemWrapper {
+    width: 100%;
+  }
+  #luckChartInfo .luckItemWrapper:nth-of-type(n+1) {
+    margin-top: 20px;
   }
 }

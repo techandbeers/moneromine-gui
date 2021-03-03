@@ -981,7 +981,7 @@ function Navigate(tar){
 			m += ' short';
 			if (tar != 'coins' && tar != 'help') {
 				if (tar ==='luck') {
-					h+= '<div class="LR85 clearfix"><div id="LuckChartWrapper" class="C3'+mde+' txtmed"><div id="luckChartInfo"></div><canvas id="luckChart" width="400" height="200"></canvas></div></div>';
+					h+= '<div class="LR85 clearfix"><div id="LuckChartWrapper" class="C3'+mde+' txtmed"><div id="luckChartInfo"></div><canvas id="luckChart"></canvas></div></div>';
 				} else {
 					h += '<div class="LR85 clearfix"><div id="PageTopL" class="C3'+mde+' txtmed"></div><div id="PageTopR" class="right"></div></div>';
 				}
@@ -1660,7 +1660,7 @@ function dta_Luck(){
 		let currentDif = Math.floor($D.poolstats.currentEfforts[$D.poolstats.activePort] / $D.netstats.difficulty * 100)
 		api('blocks', 1, 100).then(function(){
 			const dateFormat = 'DD-MM-YYYY'
-			const earliestDate = moment().subtract(30,'days')
+			const earliestDate = window.width > 641 ? moment().subtract(30,'days') : moment().subtract(15,'days')
 			// Average Luck
 			var eff = 0, bnum = 0;
 			if ($D.blocks[1]) $D.blocks[1].forEach(function(b) { eff += b.shares / b.diff; ++ bnum; });
@@ -1701,7 +1701,7 @@ function dta_Luck(){
 									],
 									type:'line',
 									fill:false,
-									borderColor:currentDif > 100 ? '#d32f2f' : currentDif > 50 ? '#f57c00' : '#388e3c',
+									borderColor:LuckColors(currentDif),
 									borderWidth:1,
 									pointRadius:0
 								},
@@ -1719,7 +1719,7 @@ function dta_Luck(){
 									],
 									type:'line',
 									fill:false,
-									borderColor:'#3f51b5',
+									borderColor:'#bcc2e4',
 									borderWidth:1,
 									pointRadius:0
 								}
@@ -1783,9 +1783,13 @@ function dta_Luck(){
 							},
 							}
 						},
+						aspectRatio: window.width > 641 ? 2 : 1
 				}
 			});
-			document.getElementById('luckChartInfo').innerHTML = MakeDifItem('avgDif',eff_perc,'Average Difficulty') + MakeDifItem('curDif',currentDif,'Current Effort')
+			document.getElementById('luckChartInfo').innerHTML = MakeDifItem('avgDif',eff_perc + '%','Average Difficulty',LuckColors(eff_perc)) 
+			+ MakeDifItem('avgLuck',CheckLuck(eff_perc),'Average Luck',LuckColors(eff_perc))
+			+ MakeDifItem('curDif',currentDif + '%','Current Effort',LuckColors(currentDif))
+			+ MakeDifItem('curLuck',CheckLuck(currentDif),'Current Luck',LuckColors(currentDif))
 		})
 
 		document.getElementById('PageBot').innerHTML = null;
@@ -2706,6 +2710,37 @@ function getCookie(n){
 function delCookie(n){   
     document.cookie = n+'=; Max-Age=-99999999;';  
 }
-function MakeDifItem(id,val,sub){
-	return '<div id="' + id + '" class="luckItemWrapper"><div class="luckItemTitle">' + val + '</div><div class="luckItemSub">' + sub + '</div></div>'
+function MakeDifItem(id,val,sub,cl){
+	return '<div id="' + id + '" class="luckItemWrapper"><div class="luckItemTitle" style="color:' + cl + '">' + val + '</div><div class="luckItemSub">' + sub + '</div></div>'
+}
+function CheckLuck(val){
+	console.log(val)
+	let luckStrings = {
+		1:'Very Lucky',
+		2:'Lucky',
+		3:'Nominal Luck',
+		4:'Not Lucky',
+		5:'Unlucky',
+		6:'Very Unlucky'
+	}
+		if (val < 30) {
+			return luckStrings[1]
+		} else if (val < 60) {
+			return luckStrings[2]
+		} else if (val < 80) {
+			return luckStrings[3]
+		} else if (val < 120) {
+			return luckStrings[4]
+		} else if (val < 150) {
+			return luckStrings[5]
+		} else {
+			return luckStrings[6]
+		}
+}
+function LuckColors(val) {
+	if (val < 80) {
+		return '#81c784'
+	} else if (val < 120) {
+		return '#ffb74d'
+	} else return '#e57373'
 }
