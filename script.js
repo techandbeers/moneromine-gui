@@ -53,6 +53,8 @@ var	mde = 'l',
 		},
 		nav:{
 			home:		'Home',
+			coins:		'Stats',
+			luck:		'Effort',
 			blocks:		'Blocks',
 			payments:	'Payments',
 			help:		'Help'
@@ -2182,7 +2184,7 @@ function Tbl(tar, typ, pge, lim){
 					}
 					break;
 				}
-				case 'bheight': val = d.port ? d.height : '<!--<a href="https://block-share-dumps.moneroocean.stream/-->' + d.hash + '.cvs.xz">' + d.height + '<!--</a>-->'; break;
+				case 'bheight': val = d.port ? d.height : '<!--<a href="https://block-share-dumps.moneroocean.stream/-->' + '<!--d.hash-->' + '<!--.cvs.xz">-->' + d.height + '<!--</a>-->'; break;
 				case 'hash':	val = hashToLink(d[n], d.port ? d.port : mport, t.typ); break;
 				default:	val = d[n];
 			}
