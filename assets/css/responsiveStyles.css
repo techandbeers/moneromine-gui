@@ -29,6 +29,28 @@
   width: 50%
 }
 
+/* Custom styling for Difficulty Chart items */
+#luckChartInfo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px 20px 20px 20px;
+}
+#luckChartInfo .luckItemTitle {
+  font-size: 26px;
+  font-weight: bold;
+}
+#luckChartInfo .luckItemSub {
+  font-size: 16px;
+  color: #e0e0e0;
+}
+#avgDif .luckItemSub {
+  color: #bcc2e4
+}
+#avgLuck .luckItemSub {
+  color: #bcc2e4
+}
+
 /* xl */
 @media screen and (min-width: 1281px) {
   .hide-xl {
@@ -87,6 +109,12 @@
 @media screen and (max-width: 736px) {
   .hide-sm {
     display: none
+  }
+  #luckChartInfo .luckItemWrapper {
+    width: 50%;
+  }
+  #luckChartInfo .luckItemWrapper:nth-of-type(n+3) {
+    margin-top: 20px;
   }
 }
 
@@ -149,10 +177,16 @@
   .hide-tiny {
     display: none
   }
+  #luckChartInfo .luckItemWrapper {
+    width: 100%;
+  }
   #NetStats td {
     width: 100%;
   }
   #NetStats td:nth-of-type(n+1) {
     margin-top: 10px;
+  }
+  #luckChartInfo .luckItemWrapper:nth-of-type(n+1) {
+    margin-top: 20px;
   }
 }

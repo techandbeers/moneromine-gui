@@ -838,7 +838,11 @@ function TimerUpdateData(){
 				Dash_load(typ);
 			}
 		} break;
-		case 'coins':    dta_Coins(); break;
+		case 'coins':    
+		console.log('842')
+		case 'luck': 
+			dta_Luck(); 
+		break;
 		case 'blocks':   dta_Blocks(parseInt(document.getElementById('TblPagBox').value.replace(/\D/g,''))); break;
 		case 'payments': dta_Payments(parseInt(document.getElementById('TblPagBox').value.replace(/\D/g,''))); break;
 	}
@@ -849,7 +853,7 @@ function TimerUpdateData(){
                         document.getElementById('WorldHash').innerHTML  = HashConvStr(difficultyToHashRate($D.netstats.difficulty, mport));
 			document.getElementById('PoolHash').innerHTML   = '<span class="nav" data-tar="coins">' + HashConvStr($D.poolstats.hashRate) + '</span>';
 			document.getElementById('CurrEffort').innerHTML =
-				'<span title="' + $D.poolstats.roundHashes  + ' / ' + $D.netstats.difficulty + '" class="nav" data-tar="coins">' +
+				'<span title="' + $D.poolstats.roundHashes  + ' / ' + $D.netstats.difficulty + '" class="nav" data-tar="luck">' +
 				Rnd(100 * $D.poolstats.roundHashes / $D.netstats.difficulty, 2, 'txt') + "%</span>";
 			document.getElementById('BlockCount').innerHTML =
 				'<span title="' + $D.poolstats.totalBlocksFound + ' ' + $Q.cur.nme + ' blocks and ' + $D.poolstats.totalAltBlocksFound + ' altcoin blocks" class="nav" data-tar="blocks">' +
@@ -972,11 +976,15 @@ function Navigate(tar){
 	});
 	setTimeout(function(){
 		var n = '', m = 'StageFade', h = '', d = 'LR85 C3l';
-		if(tar && ['coins','blocks','payments','help'].indexOf(tar) >= 0){
+		if(tar && ['coins','luck','blocks','payments','help'].indexOf(tar) >= 0){
 			n = 'short';
 			m += ' short';
 			if (tar != 'coins' && tar != 'help') {
-				h += '<div class="LR85 clearfix"><div id="PageTopL" class="C3'+mde+' txtmed"></div><div id="PageTopR" class="right"></div></div>';
+				if (tar ==='luck') {
+					h+= '<div class="LR85 clearfix"><div id="LuckChartWrapper" class="C3'+mde+' txtmed"><div id="luckChartInfo"></div><canvas id="luckChart"></canvas></div></div>';
+				} else {
+					h += '<div class="LR85 clearfix"><div id="PageTopL" class="C3'+mde+' txtmed"></div><div id="PageTopR" class="right"></div></div>';
+				}
 			} else {
 				h += '<div class="LR85 clearfix"><div id="PageTopL" class="C3'+mde+' txtmed"></div></div>';
 			}
@@ -992,6 +1000,7 @@ function Navigate(tar){
 
 		switch (tar) {
 			case 'coins':    dta_Coins();     break;
+			case 'luck':     dta_Luck();      break;
 			case 'blocks':   dta_Blocks(1);   break;
 			case 'payments': dta_Payments(1); break;
 			case 'help':     dta_Help();      break;
@@ -1644,7 +1653,148 @@ function dta_Coins(){
 		Tbl('PageBot', 'coins', 0, 0);
 	}).catch(function(err){console.log(err)}); }).catch(function(err){console.log(err)});
 }
+function dta_Luck(){
+	api('poolstats').then(function(){ api('netstats').then(function(){
+		let dataPoints = []
+		let colors = []
+		let currentDif = Math.floor($D.poolstats.currentEfforts[$D.poolstats.activePort] / $D.netstats.difficulty * 100)
+		api('blocks', 1, 100).then(function(){
+			const dateFormat = 'DD-MM-YYYY'
+			const earliestDate = window.width > 641 ? moment().subtract(30,'days') : moment().subtract(15,'days')
+			// Average Luck
+			var eff = 0, bnum = 0;
+			if ($D.blocks[1]) $D.blocks[1].forEach(function(b) { eff += b.shares / b.diff; ++ bnum; });
+			var eff_perc = bnum ? Rnd(eff / bnum * 100) : 0;
+			// Calculating Each Point		
+			$D.blocks[1].forEach((block) => {
+				const dif = Math.round(block.shares / block.diff * 100)
+				dataPoints.push({
+					x:moment(block.ts).toDate(),
+					y:dif
+				})
+				colors.push(dif > 100 ? '#f44336' : dif > 50 ? '#ff9800' : '#4caf50')
+			})
+			Chart.defaults.global.defaultFontColor = '#fff'
+			Chart.defaults.global.defaultFontFamily = 'raleway'
+			Chart.defaults.global.elements.point.radius = 5
+			var ctx = document.getElementById('luckChart').getContext('2d');
+			var luckChart = new Chart(ctx, {
+					type: 'scatter',
+					data: {
+							datasets: [
+								{
+									label: 'Blocks Found (Last 30 Days)',
+									pointBackgroundColor: colors,
+									data: dataPoints
+								},
+								{
+									label:'Current Block Effort',
+									data:[
+										{
+											x:earliestDate,
+											y:currentDif
+										},
+										{
+											x:moment(),
+											y:currentDif
+										}
+									],
+									type:'line',
+									fill:false,
+									borderColor:LuckColors(currentDif),
+									borderWidth:1,
+									pointRadius:0
+								},
+								{
+									label:'Average Difficulty',
+									data:[
+										{
+											x:earliestDate,
+											y:eff_perc
+										},
+										{
+											x:moment(),
+											y:eff_perc
+										}
+									],
+									type:'line',
+									fill:false,
+									borderColor:'#bcc2e4',
+									borderWidth:1,
+									pointRadius:0
+								}
+							]
+					},
+					options: {
+						title: {
+							display: true,
+							position: 'top',
+							text: 'Blocks Found (Last 30 Days)'
+						},
+						legend: {
+							display: false
+						},
+						scales: {
+								xAxes: [{
+										type: 'time',
+										time: {
+											tooltipFormat:'ll HH:mm'
+										},
+										scaleLabel: {
+											display:'true',
+											labelString:'Date',
+										},
+										ticks: {
+											min:earliestDate,
+										},
+										distribution:'linear',
+										position: 'bottom',
+										gridLines: {
+											display: false
+										},
+								}],
+								yAxes: [{
+									scaleLabel: {
+										display:'true',
+										labelString:'Difficulty',
+									},
+									ticks: {
+										callback: function(value) {
+											return value + '%'
+										}
+									},
+									gridLines: {
+										display: false
+									},
+								}],
+						},
+						tooltips: {
+							callbacks: {
+								label: function(tooltipItem,data) {
+									console.log(tooltipItem,data)
+									return tooltipItem.label + ' - ' + tooltipItem.value + '% Difficulty'
+								},
+								labelColor: function(tooltipItem, chart) {
+									let color = tooltipItem.yLabel > 100 ? '#f44336' : tooltipItem.yLabel > 50 ? '#ff9800' : '#4caf50'
+									return {
+											borderColor: color,
+											backgroundColor: color
+									};
+							},
+							}
+						},
+						aspectRatio: window.width > 641 ? 2 : 1
+				}
+			});
+			document.getElementById('luckChartInfo').innerHTML = MakeDifItem('avgDif',eff_perc + '%','Average Difficulty',LuckColors(eff_perc)) 
+			+ MakeDifItem('avgLuck',CheckLuck(eff_perc),'Average Luck',LuckColors(eff_perc))
+			+ MakeDifItem('curDif',currentDif + '%','Current Effort',LuckColors(currentDif))
+			+ MakeDifItem('curLuck',CheckLuck(currentDif),'Current Luck',LuckColors(currentDif))
+		})
 
+		document.getElementById('PageBot').innerHTML = null;
+	}).catch(function(err){console.log(err)}); }).catch(function(err){console.log(err)});
+}
 function dta_Blocks(pge){
 	api('poolstats').then(function(){ api('netstats').then(function(){
 			var bins = '<!--<option value="0"' + (blocks_port == 0 ? " selected" : "") + '>Altcoins</option>-->';
@@ -2559,4 +2709,38 @@ function getCookie(n){
 }
 function delCookie(n){   
     document.cookie = n+'=; Max-Age=-99999999;';  
+}
+function MakeDifItem(id,val,sub,cl){
+	return '<div id="' + id + '" class="luckItemWrapper"><div class="luckItemTitle" style="color:' + cl + '">' + val + '</div><div class="luckItemSub">' + sub + '</div></div>'
+}
+function CheckLuck(val){
+	console.log(val)
+	let luckStrings = {
+		1:'Very Lucky',
+		2:'Lucky',
+		3:'Nominal Luck',
+		4:'Not Lucky',
+		5:'Unlucky',
+		6:'Very Unlucky'
+	}
+		if (val < 30) {
+			return luckStrings[1]
+		} else if (val < 60) {
+			return luckStrings[2]
+		} else if (val < 80) {
+			return luckStrings[3]
+		} else if (val < 120) {
+			return luckStrings[4]
+		} else if (val < 150) {
+			return luckStrings[5]
+		} else {
+			return luckStrings[6]
+		}
+}
+function LuckColors(val) {
+	if (val < 80) {
+		return '#81c784'
+	} else if (val < 120) {
+		return '#ffb74d'
+	} else return '#e57373'
 }
