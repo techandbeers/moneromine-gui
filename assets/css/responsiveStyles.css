@@ -27,7 +27,7 @@
 }
 
 /* xl */
-@media screen and (max-width: 1680px) {
+@media screen and (min-width: 1281px) {
   .hide-xl {
     display: none
   }
@@ -140,5 +140,11 @@
 @media screen and (max-width: 360px) {
   .hide-tiny {
     display: none
+  }
+  #NetStats td {
+    width: 100%;
+  }
+  #NetStats td:nth-of-type(n+1) {
+    margin-top: 10px;
   }
 }
