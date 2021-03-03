@@ -23,6 +23,32 @@
   width: 100%;
 }
 
+/* Custom styling for Difficulty Chart items */
+#luckChartInfo {
+  display: flex;
+  margin-left: 20px;
+}
+.luckItemTotal {
+  font-size: 26px !important;
+  font-weight: bold !important;
+}
+.luckItemSub {
+  font-size: 16px !important;
+  color: #fafafa !important;
+}
+.luckAvg {
+  color: #7986cb
+}
+.luckGood {
+  color: #81c784
+}
+.luckMed {
+  color: #ffb74d
+}
+.luckBad {
+  color: #e57373
+}
+
 /* xl */
 @media screen and (max-width: 1680px) {
   .hide-xl {

@@ -981,7 +981,7 @@ function Navigate(tar){
 			m += ' short';
 			if (tar != 'coins' && tar != 'help') {
 				if (tar ==='luck') {
-					h+= '<div class="LR85 clearfix"><div id="LuckChartWrapper" class="C3'+mde+' txtmed"><canvas id="luckChart" width="400" height="200"></canvas></div><</div>';
+					h+= '<div class="LR85 clearfix"><div id="LuckChartWrapper" class="C3'+mde+' txtmed"><div id="luckChartInfo"></div><canvas id="luckChart" width="400" height="200"></canvas></div></div>';
 				} else {
 					h += '<div class="LR85 clearfix"><div id="PageTopL" class="C3'+mde+' txtmed"></div><div id="PageTopR" class="right"></div></div>';
 				}
@@ -1657,6 +1657,7 @@ function dta_Luck(){
 	api('poolstats').then(function(){ api('netstats').then(function(){
 		let dataPoints = []
 		let colors = []
+		let currentDif = Math.floor($D.poolstats.currentEfforts[$D.poolstats.activePort] / $D.netstats.difficulty * 100)
 		api('blocks', 1, 100).then(function(){
 			const dateFormat = 'DD-MM-YYYY'
 			const earliestDate = moment().subtract(30,'days')
@@ -1680,11 +1681,49 @@ function dta_Luck(){
 			var luckChart = new Chart(ctx, {
 					type: 'scatter',
 					data: {
-							datasets: [{
+							datasets: [
+								{
 									label: 'Blocks Found (Last 30 Days)',
 									pointBackgroundColor: colors,
 									data: dataPoints
-							}]
+								},
+								{
+									label:'Current Block Effort',
+									data:[
+										{
+											x:earliestDate,
+											y:currentDif
+										},
+										{
+											x:moment(),
+											y:currentDif
+										}
+									],
+									type:'line',
+									fill:false,
+									borderColor:currentDif > 100 ? '#d32f2f' : currentDif > 50 ? '#f57c00' : '#388e3c',
+									borderWidth:1,
+									pointRadius:0
+								},
+								{
+									label:'Average Difficulty',
+									data:[
+										{
+											x:earliestDate,
+											y:eff_perc
+										},
+										{
+											x:moment(),
+											y:eff_perc
+										}
+									],
+									type:'line',
+									fill:false,
+									borderColor:'#3f51b5',
+									borderWidth:1,
+									pointRadius:0
+								}
+							]
 					},
 					options: {
 						title: {
@@ -1707,10 +1746,6 @@ function dta_Luck(){
 										},
 										ticks: {
 											min:earliestDate,
-										// 	callback: function(value) {
-										// 		console.log(value)
-                    //     return value;
-                    // }
 										},
 										distribution:'linear',
 										position: 'bottom',
@@ -1727,7 +1762,10 @@ function dta_Luck(){
 										callback: function(value) {
 											return value + '%'
 										}
-									}
+									},
+									gridLines: {
+										display: false
+									},
 								}],
 						},
 						tooltips: {
@@ -1747,6 +1785,7 @@ function dta_Luck(){
 						},
 				}
 			});
+			document.getElementById('luckChartInfo').innerHTML = MakeDifItem('avgDif',eff_perc,'Average Difficulty') + MakeDifItem('curDif',currentDif,'Current Effort')
 		})
 
 		document.getElementById('PageBot').innerHTML = null;
@@ -2666,4 +2705,7 @@ function getCookie(n){
 }
 function delCookie(n){   
     document.cookie = n+'=; Max-Age=-99999999;';  
+}
+function MakeDifItem(id,val,sub){
+	return '<div id="' + id + '" class="luckItemWrapper"><div class="luckItemTitle">' + val + '</div><div class="luckItemSub">' + sub + '</div></div>'
 }
