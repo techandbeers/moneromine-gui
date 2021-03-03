@@ -36,7 +36,7 @@ p{margin:0;padding:0;padding-top:10px}
 a:focus{outline:0}
 b,.bold{font-weight:700}
 table{border-collapse:collapse;border-spacing:0;empty-cells:show;width:100%}
-.scroll{display:block;margin-left:auto;margin-right:auto;max-width:1100px;overflow-x:auto}
+.scroll{display:block;margin-left:auto;margin-right:auto;/*max-width:1100px;*/overflow-x:auto}
 td{text-align:left;white-space:nowrap}
 *{-webkit-tap-highlight-color:transparent}
 header,section{margin:0;padding:0}
@@ -191,7 +191,7 @@ table.noborder{border-width:0!important}
 #PageTopL,#PageTopR{box-sizing:border-box;display:inline;padding:14px 0 10px;position:relative;width:calc(100% - 245px)}
 #PageTopL{width:70%;}
 #PageTopR{float:right;width:30%;}
-#PageBot{min-height:200px}
+#PageBot{/*min-height:200px*/}
 .helpgroup{margin-top:20px;padding-bottom:10px;padding-left:25px}
 .helpgroup2{margin-top:10px;padding-bottom:5px;padding-left:50px}
 .helptitle,.helptitle2{color:#4C5C96;cursor:pointer;display:inline-block;fill:#4C5C96;position:relative;font-weight:bold;}
