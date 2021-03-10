@@ -28,6 +28,10 @@
 #PageTopR.right {
   width: 50%
 }
+.GAlert {
+  position: relative !important;
+  margin: auto !important;
+}
 
 /* Custom styling for Difficulty Chart items */
 #luckChartInfo {
