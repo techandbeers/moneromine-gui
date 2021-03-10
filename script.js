@@ -79,17 +79,17 @@ var	mde = 'l',
 		}},
 		tbl: {
 			coins: [
-				{name: 'name', lbl: 'Name', cls: 'min'},
-				{name: 'algo', lbl: 'Algo', cls: 'min'},
-				{name: 'profit', lbl: 'Profit', 'tooltip':'Profit per hash in percent', cls: 'min'},
-				{name: 'eff', lbl: 'Effort', 'tooltip':'Current block effort in percent', cls: 'min'},
-				{name: 'reward_perc', lbl: 'Reward', 'tooltip':'Block reward in percent', cls: 'min'},
-				{name: 'accounts', lbl: 'Accounts', 'tooltip':'Account (Wallet) Count', cls: 'min'},
-				{name: 'poolhashrate', lbl: 'Hashrate', 'tooltip':'Pool hashrate', cls: 'min'},
-				{name: 'worldhashrate', lbl: 'World Hash', 'tooltip':'Coin world hashrate', cls: 'min'},
-				{name: 'height', lbl: 'Top Height', cls: 'min'},
-				{name: 'pplns', lbl: 'PPLNS', 'tooltip':'Share in last block PPLNS window in percent', cls: 'min'},
-				{name: 'notes', lbl: 'Notes', cls: 'trunc'},
+//				{name: 'name', lbl: 'Name', cls: 'min'},
+//				{name: 'algo', lbl: 'Algo', cls: 'min'},
+//				{name: 'profit', lbl: 'Profit', 'tooltip':'Profit per hash in percent', cls: 'min'},
+//				{name: 'eff', lbl: 'Effort', 'tooltip':'Current block effort in percent', cls: 'min'},
+//				{name: 'reward_perc', lbl: 'Reward', 'tooltip':'Block reward in percent', cls: 'min'},
+//				{name: 'accounts', lbl: 'Accounts', 'tooltip':'Account (Wallet) Count', cls: 'min'},
+//				{name: 'poolhashrate', lbl: 'Hashrate', 'tooltip':'Pool hashrate', cls: 'min'},
+//				{name: 'worldhashrate', lbl: 'World Hash', 'tooltip':'Coin world hashrate', cls: 'min'},
+//				{name: 'height', lbl: 'Top Height', cls: 'min'},
+//				{name: 'pplns', lbl: 'PPLNS', 'tooltip':'Share in last block PPLNS window in percent', cls: 'min'},
+//				{name: 'notes', lbl: 'Notes', cls: 'trunc'},
 			],
 			blocks: [
 				{name: 'num', lbl: '#', cls: 'min'},
@@ -142,10 +142,10 @@ var	mde = 'l',
 			// Advanced worker configuration
 
 			{ q:	'What are the available pool addresses?',
-			  a:	'We have one pool at the moment, located US Central. Obviously we will expand this number if demand increases.'+
+			  a:	'Current pool addresses (hostnames) are listed below, we hope to continue adding more locations!'+
 				'<ul>'+
 					'<li><b>us1.moneromine.co</b>: US Central</li>'+
-					'<!--<li></li>-->'+
+					'<li><b>eu1.moneromine.co</b>: EU Central</li>'+
 				'</ul>'
 			},
 
