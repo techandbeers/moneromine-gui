@@ -65,7 +65,7 @@ header,section{margin:0;padding:0}
 .rot180{-ms-transform:rotate(180deg);-webkit-transform:rotate(180deg);transform:rotate(180deg)}
 .rot270{-ms-transform:rotate(270deg);-webkit-transform:rotate(270deg);transform:rotate(270deg)}
 .right{text-align:right}
-.center{text-align:center}
+.center{text-align:center;}
 .min{padding-left:10px;width:1px}
 .trunc{padding-left:10px;width:100%}
 .TDPadS td{padding:3px}
