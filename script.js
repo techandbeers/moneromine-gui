@@ -79,17 +79,17 @@ var	mde = 'l',
 		}},
 		tbl: {
 			coins: [
-				{name: 'name', lbl: 'Name', cls: 'min'},
-				{name: 'algo', lbl: 'Algo', cls: 'min'},
-				{name: 'profit', lbl: 'Profit', 'tooltip':'Profit per hash in percent', cls: 'min'},
-				{name: 'eff', lbl: 'Effort', 'tooltip':'Current block effort in percent', cls: 'min'},
-				{name: 'reward_perc', lbl: 'Reward', 'tooltip':'Block reward in percent', cls: 'min'},
-				{name: 'accounts', lbl: 'Accounts', 'tooltip':'Account (Wallet) Count', cls: 'min'},
-				{name: 'poolhashrate', lbl: 'Hashrate', 'tooltip':'Pool hashrate', cls: 'min'},
-				{name: 'worldhashrate', lbl: 'World Hash', 'tooltip':'Coin world hashrate', cls: 'min'},
-				{name: 'height', lbl: 'Top Height', cls: 'min'},
-				{name: 'pplns', lbl: 'PPLNS', 'tooltip':'Share in last block PPLNS window in percent', cls: 'min'},
-				{name: 'notes', lbl: 'Notes', cls: 'trunc'},
+//				{name: 'name', lbl: 'Name', cls: 'min'},
+//				{name: 'algo', lbl: 'Algo', cls: 'min'},
+//				{name: 'profit', lbl: 'Profit', 'tooltip':'Profit per hash in percent', cls: 'min'},
+//				{name: 'eff', lbl: 'Effort', 'tooltip':'Current block effort in percent', cls: 'min'},
+//				{name: 'reward_perc', lbl: 'Reward', 'tooltip':'Block reward in percent', cls: 'min'},
+//				{name: 'accounts', lbl: 'Accounts', 'tooltip':'Account (Wallet) Count', cls: 'min'},
+//				{name: 'poolhashrate', lbl: 'Hashrate', 'tooltip':'Pool hashrate', cls: 'min'},
+//				{name: 'worldhashrate', lbl: 'World Hash', 'tooltip':'Coin world hashrate', cls: 'min'},
+//				{name: 'height', lbl: 'Top Height', cls: 'min'},
+//				{name: 'pplns', lbl: 'PPLNS', 'tooltip':'Share in last block PPLNS window in percent', cls: 'min'},
+//				{name: 'notes', lbl: 'Notes', cls: 'trunc'},
 			],
 			blocks: [
 				{name: 'num', lbl: '#', cls: 'min'},
@@ -142,10 +142,10 @@ var	mde = 'l',
 			// Advanced worker configuration
 
 			{ q:	'What are the available pool addresses?',
-			  a:	'We have one pool at the moment, located US Central. Obviously we will expand this number if demand increases.'+
+			  a:	'Current pool addresses (hostnames) are listed below, we hope to continue adding more locations!'+
 				'<ul>'+
 					'<li><b>us1.moneromine.co</b>: US Central</li>'+
-					'<!--<li></li>-->'+
+					'<li><b>eu1.moneromine.co</b>: EU Central</li>'+
 				'</ul>'
 			},
 
@@ -883,7 +883,7 @@ function TimerUpdateData(){
 	api('netstats').then(function(){
 		api('poolstats').then(function(){
 			ErrAlert('X');
-                        document.getElementById('WorldHash').innerHTML  = HashConvStr(difficultyToHashRate($D.netstats.difficulty, mport));
+      document.getElementById('WorldHash').innerHTML  = '<span class="nav" data-tar="home">' + HashConvStr(difficultyToHashRate($D.netstats.difficulty, mport)) + '</span>';
 			document.getElementById('PoolHash').innerHTML   = '<span class="nav" data-tar="coins">' + HashConvStr($D.poolstats.hashRate) + '</span>';
 			document.getElementById('CurrEffort').innerHTML =
 				'<span title="' + $D.poolstats.roundHashes  + ' / ' + $D.netstats.difficulty + '" class="nav" data-tar="luck">' +
@@ -891,7 +891,7 @@ function TimerUpdateData(){
 			document.getElementById('BlockCount').innerHTML =
 				'<span title="' + $D.poolstats.totalBlocksFound + ' ' + $Q.cur.nme + ' blocks and ' + $D.poolstats.totalAltBlocksFound + ' altcoin blocks" class="nav" data-tar="blocks">' +
 				($D.poolstats.totalBlocksFound + $D.poolstats.totalAltBlocksFound) + '</span>';
-			document.getElementById('AccountCount').innerHTML = $D.poolstats.miners;
+			document.getElementById('AccountCount').innerHTML = '<span class="nav" data-tar="home">' + $D.poolstats.miners + '</span>';
 			document.getElementById('PaymentsMade').innerHTML = '<span class="nav" data-tar="payments">' + $D.poolstats.totalPayments + '</span>';
 			updateTimer = $Q.timer;
 			$C.TimerText.innerHTML = updateTimer;
@@ -1037,6 +1037,7 @@ function Navigate(tar){
 			case 'blocks':   dta_Blocks(1);   break;
 			case 'payments': dta_Payments(1); break;
 			case 'help':     dta_Help();      break;
+			case 'home':     Dash_init(); Dash_load();     break;
 			default:
 				Dash_init();
 				Dash_load();
@@ -1775,7 +1776,7 @@ function dta_Luck(){
 						title: {
 							display: true,
 							position: 'top',
-							text: 'Blocks Found (Last 30 Days)'
+							text: `Blocks Found (Last ${window.width > 641 ? 30 : 15} Days)`
 						},
 						legend: {
 							display: false
