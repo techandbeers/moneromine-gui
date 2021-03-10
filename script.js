@@ -94,7 +94,7 @@ var	mde = 'l',
 			blocks: [
 				{name: 'num', lbl: '#', cls: 'min'},
 				{name: 'tme', lbl: 'Found', cls: 'min'},
-				{name: 'coin', lbl: 'Coin', cls: 'min'},
+				{name: 'coin', lbl: 'Coin name', cls: 'min'},
 				{name: 'eff', lbl: 'Effort', cls: 'min'},
 				{name: 'reward', lbl: 'Raw reward', 'tooltip':'Raw block reward in native coin units', cls: 'min'},
 				{name: 'payment', lbl: 'Payment ('+$Q.cur.sym+')', cls: 'min'},
@@ -112,8 +112,17 @@ var	mde = 'l',
 				{name: 'tme', lbl: 'Payment Sent', cls: 'min'},
 				{name: 'amnt', lbl: 'Amount ('+$Q.cur.sym+')', cls: 'min'},
 				{name: 'hash', lbl: 'Tx Hash', typ: 'tx', cls: 'trunc'},
+			],	
+			blockpay: [
+				{name: 'tme', lbl: 'Block pay time', cls: 'min'},
+				{name: 'tme_found', lbl: 'Block found time', cls: 'min'},
+				{name: 'amnt', lbl: 'Amount ('+$Q.cur.sym+')', cls: 'min'},
+				{name: 'percent', lbl: 'Block share (percent)', cls: 'min'},
+				{name: 'coin', lbl: 'Coin name', cls: 'min'},
+				{name: 'hash_pay', lbl: 'Block Hash', cls: 'trunc'},  
 			]
 		},
+		
 		trn:{
 			avgeff:		'Avg Effort',
 			conf:		'Confirmed',
@@ -125,7 +134,8 @@ var	mde = 'l',
 			rcnt:		'Recent',
 			set:		'Update Threshold',
 			updt:		'Threshold Updated',
-			vwpy:		'Show Your Payments'
+			vwpy:		'Show Your Payments',
+			vwpy2:		'Show Your Block Payments'						 
 		},
 		faq: [
 
@@ -498,6 +508,7 @@ var addr = UrlVars().addr || '',
 		poolpay:	[],
 		poolstats:	{},
 		pay:		{},
+		blockpay:	{},
 		netstats:	{},
 		hashconv: {
 			TH:	1000000000000,
@@ -563,9 +574,22 @@ document.body.addEventListener('change', function(e){
 		}
 	}
 }, false);
+
+function PaymentHistoryButtonHTML() {
+	return	'<div class="LR50">'+
+			'<div id="PaymentHistoryBtn" class="BtnElem C0'+mde+' txtmed C1bk C2bk_hov">'+$$.trn.vwpy+'</div>'+
+		'</div>';
+}
+
+function BlockPaymentHistoryButtonHTML() {
+	return	'<div class="LR50">'+
+			'<div id="BlockPaymentHistoryBtn" class="BtnElem C0'+mde+' txtmed C1bk C2bk_hov">'+$$.trn.vwpy2+'</div>'+
+		'</div>';
+}
+
 document.body.addEventListener('click', function(e){
 	var id = [
-		'#TogMode','#Timer', '#DashPayBtn', '#NetGraphClose', '#NewsClose', '#AutoPayBtn', '#PaymentHistoryBtn', '#WebMinerBtn',
+		'#TogMode','#Timer', '#DashPayBtn', '#NetGraphClose', '#NewsClose', '#AutoPayBtn', '#PaymentHistoryBtn', '#BlockPaymentHistoryBtn', '#WebMinerBtn',
 		'#PaymentHistoryBtnClose', '#EmailSubscribeBtn', '#AddrDelete', '#WorkerPopClose', '#WorkerSortName', '#WorkerSortRate',
 		'#MinerSetupShowBtn', '#MinerSetupHideBtn', '#WinCmdTextArea', '#LinCmdTextArea',
 		'.nav', '.PagBtn', '.Worker', '.blockgroup', '.helptitle', '.helptitle2'
@@ -593,7 +617,13 @@ document.body.addEventListener('click', function(e){
 			}else if(id[i] === '#AutoPayBtn'){
 				AutoPay();
 			}else if(id[i] === '#PaymentHistoryBtn'){
-				MinerPaymentHistory(1);
+				document.getElementById('PaymentHistory').innerHTML      = PaymentHistoryButtonHTML();
+				document.getElementById('BlockPaymentHistory').innerHTML = BlockPaymentHistoryButtonHTML();
+                                MinerPaymentHistory(1);
+			}else if(id[i] === '#BlockPaymentHistoryBtn'){
+				document.getElementById('PaymentHistory').innerHTML      = PaymentHistoryButtonHTML();
+				document.getElementById('BlockPaymentHistory').innerHTML = BlockPaymentHistoryButtonHTML();
+				MinerBlockPaymentHistory(1);
 			}else if(id[i] === '#PaymentHistoryBtnClose'){
 				MinerPayments('back');
 			}else if(id[i] === '#EmailSubscribeBtn'){
@@ -630,9 +660,10 @@ document.body.addEventListener('click', function(e){
 			}else if(id[i] === '.PagBtn'){
 				var p = parseInt(el.getAttribute('data-page'));
 				switch (el.getAttribute('data-func')) {
-					case 'blocks':  dta_Blocks(p);  break;
-					case 'poolpay': dta_Payments(p); break;
-					case 'pay':     MinerPaymentHistory(p); break;
+					case 'blocks':    dta_Blocks(p);  break;
+					case 'poolpay':   dta_Payments(p); break;
+					case 'pay':       MinerPaymentHistory(p); break;
+					case 'blockpay':  MinerBlockPaymentHistory(p); break;
 				}
 			}else if(id[i] === '.Worker'){
 				Workers_detail(el.getAttribute('data-key'));
@@ -1381,6 +1412,7 @@ function Workers_detail(xid){
 		}).catch(function(err){console.log(err)});
 	}
 }
+
 //Miner Payments
 function MinerPayments(typ){
 	typ = typ || '';
@@ -1444,9 +1476,9 @@ function MinerPayments(typ){
 				'<div class="hbar shim10"></div>'+
 				'</div>';
 		}
-		ins +=	'<div id="PaymentHistory" class="center"><div class="LR50">'+
-				'<div id="PaymentHistoryBtn" class="BtnElem C0'+mde+' txtmed C1bk C2bk_hov">'+$$.trn.vwpy+'</div>'+
-			'</div></div>';
+		ins +=	'<div id="PaymentHistory" class="center">' + PaymentHistoryButtonHTML() + '</div>';
+                ins +=  '<div class="shim10"></div>';
+		ins +=	'<div id="BlockPaymentHistory" class="center">' + BlockPaymentHistoryButtonHTML() + '</div>';
 		
 		document.getElementById('MinerPaymentsStage').innerHTML = ins;
 		document.getElementById('AutoPayFld').value = Rnd($A[addr].threshold, $Q.pay.dec_auto, 'txt');
@@ -1611,12 +1643,24 @@ function AutoPayCheck(){
 function MinerPaymentHistory(pge){
 	pge = (pge > 1) ? pge : 1;
 	document.getElementById('MinerPayments').className = 'OpenedBig';
-	document.getElementById('PaymentHistory').innerHTML = '<div class="LR85"><div id="PaymentHistoryBtnClose" class="BtnElem C0'+mde+' txtmed C1bk C2bk_hov">Close Payment History</div>'+
+	document.getElementById('PaymentHistory').innerHTML = '<div class="LR85"><div class="LR50"><div id="PaymentHistoryBtnClose" class="BtnElem C0'+mde+' txtmed C1bk C2bk_hov">Close Payment History</div></div>'+
 		'<div id="MinerPaymentsTable" class="C3'+mde+'">'+$I.load+'</div></div>'+
 		'<input type="hidden" id="MinerPaymentsPage" value="'+pge+'">';
 		
 	api('pay', pge, 10).then(function(){
 		Tbl('MinerPaymentsTable', 'pay', pge, 10);
+	}).catch(function(err){console.log(err)});
+}
+
+function MinerBlockPaymentHistory(pge){
+	pge = (pge > 1) ? pge : 1;
+	document.getElementById('MinerPayments').className = 'OpenedBig';
+	document.getElementById('BlockPaymentHistory').innerHTML = '<div class="LR85"><div class="LR50"><div id="PaymentHistoryBtnClose" class="BtnElem C0'+mde+' txtmed C2bk C2bk_hov">Close Block Payment History</div></div>'+
+		'<div id="MinerBlockPaymentsTable" class="C3'+mde+'">'+$I.load+'</div></div>'+
+		'<input type="hidden" id="MinerBlockPaymentsPage" value="'+pge+'">';
+		
+	api('blockpay', pge, 10).then(function(){
+		Tbl('MinerBlockPaymentsTable', 'blockpay', pge, 10);
 	}).catch(function(err){console.log(err)});
 }
 
@@ -1926,6 +1970,8 @@ var api = function(m, key, xid){
 		url = 'miner/'+addr+'/stats';
 	}else if(m === 'pay'){
 		url = 'miner/'+addr+'/payments?page='+(key - 1)+'&limit='+xid;
+	}else if(m === 'blockpay'){
+		url = 'miner/'+addr+'/block_payments?page='+(key - 1)+'&limit='+xid;
 	}else if(m === 'workers' && (isEmpty($A[addr].wrkrs) || now > ($A[addr].wrkrs_updt + 120))){
 		url = 'miner/'+addr+'/chart/hashrate/allWorkers';
 	}else if(m === 'workerdetail'){
@@ -1962,18 +2008,26 @@ var api = function(m, key, xid){
 					//Process Data
 					if(m === 'news'){
 						$D[m] = d;
-					}else if(['blocks','pay','poolpay'].indexOf(m) >= 0){
+					}else if(['blocks','pay','blockpay','poolpay'].indexOf(m) >= 0){
 						$D[m][key] = [];
 						for(i = 0; i < dcnt; i++){
 							var v = d[i];
 							switch (m) {
-								case 'blocks':	$D[m][key][i] = v; break;
-								case 'pay':	$D[m][key][i] = {
+								case 'blocks':	 $D[m][key][i] = v; break;
+								case 'pay':	 $D[m][key][i] = {
 									'ts':		v.ts * 1000,
 									'hash': 	v.txnHash,
 									'amnt':		Rnd((v.amount / COINS[mport].divisor), 8)
 								}; break;
-								case 'poolpay':	$D[m][key][i] = {
+								case 'blockpay': $D[m][key][i] = {
+									'ts':		v.ts * 1000,
+									'ts_found':	v.ts_found * 1000,
+									'port': 	v.port,
+									'hash': 	v.hash,
+									'amnt':		Rnd(v.value, 8),
+									'percent':	Rnd(v.value_percent, 8)
+								}; break;
+								case 'poolpay':	 $D[m][key][i] = {
 									'ts':		v.ts,
 									'hash':		v.hash,
 									'payees':	v.payees,
@@ -2145,9 +2199,10 @@ function Tbl(tar, typ, pge, lim){
 			if (skip_col_names.indexOf(n) >= 0) return;
 			var val;
 			switch (n) {
-				case 'num':	val = blocks_count - ((pge-1)*lim + rows); break
-				case 'tme':	val = AgoTooltip(d.ts / 1000, 'y'); break;
-				case 'coin':	val = COINS[d.port].name; break;
+				case 'num':	  val = blocks_count - ((pge-1)*lim + rows); break
+				case 'tme':	  val = AgoTooltip(d.ts / 1000, 'y'); break;
+				case 'tme_found': val = AgoTooltip(d.ts_found / 1000, 'y'); break;
+				case 'coin':	  val = COINS[d.port].name; break;
 				case 'eff': 	{
 					var eff = Rnd(d.shares / d.diff * 100);
 					val = '<span class="'+(eff > 100 ? 'C4' : 'C5')+'" title="'+d.shares+' / '+d.diff+'">'+Perc(eff)+'</span>';
@@ -2185,9 +2240,10 @@ function Tbl(tar, typ, pge, lim){
 					}
 					break;
 				}
-				case 'bheight': val = d.port ? d.height : '<!--<a href="https://block-share-dumps.moneroocean.stream/-->' + '<!--d.hash-->' + '<!--.cvs.xz">-->' + d.height + '<!--</a>-->'; break;
-				case 'hash':	val = hashToLink(d[n], d.port ? d.port : mport, t.typ); break;
-				default:	val = d[n];
+				case 'bheight':  val = d.valid && d.unlocked && (d.port ? d.pay_value : d.value) ? '<!--<a href="https://block-share-dumps.moneroocean.stream/-->' + '<!--d.hash-->' + '<!--.cvs.xz-->' + d.height + '<!--</a>-->' : d.height; break;
+				case 'hash':	 val = hashToLink(d[n], d.port ? d.port : mport, d.port === 8545 && d.value < 2 * COINS[d.port].divisor ? "uncle" : t.typ); break;
+				case 'hash_pay': val = '<!--<a href="https://block-share-dumps.moneroocean.stream/-->' + '<!--d.hash-->' + '<!--.cvs.xz-->' + d.hash + '<!--</a>-->'; break;
+				default: 	 val = d[n];
 			}
 			ins += '<td class="'+t.cls+'">'+val+'</td>';
 		});
@@ -2645,6 +2701,8 @@ function hashToLink(hash, port, type) {
 	var url = port in COINS ? COINS[port].url : "";
 	if (port == 11898) {
 		return '<a class="C1 hov" target="_blank" href="' + url + '/block.html?hash=' + hash + '">' + hash + '</a>';
+		} else if (port == 13007) {
+		return '<a class="C1 hov" target="_blank" href="' + url + '/?hash=' + hash + '">' + hash + '</a>';
         } else if (port == 11812) {
 		return '<a class="C1 hov" target="_blank" href="' + url + '/' + type + '?' + type + "_info=" + hash + '">' + hash + '</a>';
 	} else if (port == 8545) {
