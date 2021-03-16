@@ -2234,7 +2234,7 @@ function Tbl(tar, typ, pge, lim){
 							}
 							if (payment) val = '<span title="Pending ' + payment_txt + ' ' + $Q.cur.sym + '">' + val + '</span>';
 						}
-						if (d.unlocked) val = '<span class="C5">' + val + '</span>';
+						if (d.unlocked) val = '<span class="">' + val + '</span>';
 					} else {
 						val = InvalidBlock();
 					}
