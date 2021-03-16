@@ -94,9 +94,9 @@ var	mde = 'l',
 			blocks: [
 				{name: 'num', lbl: '#', cls: 'min'},
 				{name: 'tme', lbl: 'Found', cls: 'min'},
-				{name: 'coin', lbl: 'Coin name', cls: 'min'},
+//				{name: 'coin', lbl: 'Coin Name', cls: 'min'},
 				{name: 'eff', lbl: 'Effort', cls: 'min'},
-				{name: 'reward', lbl: 'Raw reward', 'tooltip':'Raw block reward in native coin units', cls: 'min'},
+				{name: 'reward', lbl: 'Raw Reward', 'tooltip':'Raw block reward in native coin units', cls: 'min'},
 				{name: 'payment', lbl: 'Payment ('+$Q.cur.sym+')', cls: 'min'},
 				{name: 'bheight', lbl: 'Height', cls: 'min'},
 				{name: 'hash', lbl: 'Hash', typ: 'block', cls: 'trunc'},
@@ -114,11 +114,11 @@ var	mde = 'l',
 				{name: 'hash', lbl: 'Tx Hash', typ: 'tx', cls: 'trunc'},
 			],	
 			blockpay: [
-				{name: 'tme', lbl: 'Block pay time', cls: 'min'},
-				{name: 'tme_found', lbl: 'Block found time', cls: 'min'},
+				{name: 'tme', lbl: 'Block Pay Time', cls: 'min'},
+				{name: 'tme_found', lbl: 'Block Found Time', cls: 'min'},
 				{name: 'amnt', lbl: 'Amount ('+$Q.cur.sym+')', cls: 'min'},
-				{name: 'percent', lbl: 'Block share (percent)', cls: 'min'},
-				{name: 'coin', lbl: 'Coin name', cls: 'min'},
+				{name: 'percent', lbl: 'Block Share (percent)', cls: 'min'},
+//				{name: 'coin', lbl: 'Coin name', cls: 'min'},
 				{name: 'hash_pay', lbl: 'Block Hash', cls: 'trunc'},  
 			]
 		},
@@ -1696,7 +1696,7 @@ function dta_Coins(){
 			});
 			$D.coins[0].push(table_coin);
 		});
-		document.getElementById('PageTopL').innerHTML = 'Current PPLNS window length: ' + Rnd($D.poolstats.pplnsWindowTime / 3600, 2, 'txt') + ' hours';
+		document.getElementById('PageTopL').innerHTML = 'Current PPLNS Window Length: ' + Rnd($D.poolstats.pplnsWindowTime / 3600, 2, 'txt') + ' Hours';
 		Tbl('PageBot', 'coins', 0, 0);
 	}).catch(function(err){console.log(err)}); }).catch(function(err){console.log(err)});
 }
