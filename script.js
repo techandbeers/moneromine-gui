@@ -71,7 +71,7 @@ var	mde = 'l',
 			MinerWorkerCount:	'<div id="WebMinerBtn" class="BtnElem C0'+mde+' txttny C1bk C2bk_hov"></div>',
 			MinerHashes:		'Your <select id="HashSelect"></select> Hashrate',
 			MinerShares:		'Shares<br /><br /><br /><br /><span id="TotalHashes">--</span><div class="hbar shim4 o8"></div>Hashes',
-			MinerCalc: 		'<input type="text" id="MinerCalcHsh" size="3" /><select id="MinerCalcUnit"></select><select id="MinerCalcFld"></select>',
+			MinerCalc: 			'<input type="text" id="MinerCalcHsh" size="3" /><select id="MinerCalcUnit"></select><select id="MinerCalcFld"></select>',
 		}},
 		stsw: function() { return { // For worker
 			MinerHashes: 		'Total Hashes',
@@ -134,8 +134,8 @@ var	mde = 'l',
 			rcnt:		'Recent',
 			set:		'Update Threshold',
 			updt:		'Threshold Updated',
-			vwpy:		'Show Your Payments',
-			vwpy2:		'Show Your Block Payments'						 
+			vwpy:		'Show Payments',
+			vwpy2:		'Show Block Payments'						 
 		},
 		faq: [
 

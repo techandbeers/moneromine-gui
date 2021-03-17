@@ -156,7 +156,7 @@ header{height:80px}
 #AddrRecent .select-point{height:8px;right:0;top:5px;width:8px;display:none;}
 #AddrFieldCell{height:34px;position:relative}
 #DashPending,#DashPaid{min-width:97px}
-#DashPayBtn{border-radius:50%;box-sizing:border-box;display:inline-block;height:45px;padding:8px;position:relative;width:45px}
+#DashPayBtn{border-radius:50%;box-sizing:border-box;display:inline-block;height:45px;padding:8px;position:relative;width:45px;border:1px solid #999;}
 #DashPayBtn .Loader,#DashPayBtn .Closer,#TimerText div{box-sizing:border-box;padding:0px}
 #Stage{-moz-transition:opacity .4s ease-in;-ms-transition:opacity .4s ease-in;-o-transition:opacity .4s ease-in;-webkit-transition:opacity .4s ease-in;min-height:calc(100% - 312px);opacity:0;position:relative;transition:opacity .4s ease-in}
 #Stage.short{min-height:calc(100% - 140px)}
