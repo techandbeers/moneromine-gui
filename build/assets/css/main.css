@@ -2809,7 +2809,7 @@ input, select, textarea {
 			color: #ffffff;
 			font-size: 0.9em;
 			font-weight: 600;
-			padding: 0 0.75em 0.75em 0.75em;
+			padding: 0.2em 0.2em;
 			text-align: left;
 		}
 
@@ -4034,7 +4034,7 @@ input, select, textarea {
 		#footer .inner .copyright {
 			border-top: solid 2px rgba(255, 255, 255, 0.125);
 			list-style: none;
-			margin: 4em 0 2em 0;
+			margin: 2em 0 2em 0;
 			padding: 2em 0 0 0;
 			width: 100%;
 		}

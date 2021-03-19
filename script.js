@@ -1643,7 +1643,7 @@ function AutoPayCheck(){
 function MinerPaymentHistory(pge){
 	pge = (pge > 1) ? pge : 1;
 	document.getElementById('MinerPayments').className = 'OpenedBig';
-	document.getElementById('PaymentHistory').innerHTML = '<div class="LR85"><div class="LR50"><div id="PaymentHistoryBtnClose" class="BtnElem C0'+mde+' txtmed C1bk C2bk_hov">Close Payment History</div></div>'+
+	document.getElementById('PaymentHistory').innerHTML = '<div class="LR85"><div class="LR50"><div id="PaymentHistoryBtnClose" class="BtnElem C0'+mde+' txtmed C1bk C2bk_hov">Close Payments</div></div>'+
 		'<div id="MinerPaymentsTable" class="C3'+mde+'">'+$I.load+'</div></div>'+
 		'<input type="hidden" id="MinerPaymentsPage" value="'+pge+'">';
 		
@@ -1655,7 +1655,7 @@ function MinerPaymentHistory(pge){
 function MinerBlockPaymentHistory(pge){
 	pge = (pge > 1) ? pge : 1;
 	document.getElementById('MinerPayments').className = 'OpenedBig';
-	document.getElementById('BlockPaymentHistory').innerHTML = '<div class="LR85"><div class="LR50"><div id="PaymentHistoryBtnClose" class="BtnElem C0'+mde+' txtmed C2bk C2bk_hov">Close Block Payment History</div></div>'+
+	document.getElementById('BlockPaymentHistory').innerHTML = '<div class="LR85"><div class="LR50"><div id="PaymentHistoryBtnClose" class="BtnElem C0'+mde+' txtmed C2bk C2bk_hov">Close Block Payments</div></div>'+
 		'<div id="MinerBlockPaymentsTable" class="C3'+mde+'">'+$I.load+'</div></div>'+
 		'<input type="hidden" id="MinerBlockPaymentsPage" value="'+pge+'">';
 		
@@ -1918,7 +1918,7 @@ function dta_Help(){
 			'<div class="helptitle txtbig">Step 4 - Start Mining<div class="btnback">'+$I.arrow+'</div></div>'+
 			'<div class="helpteaser">Launch the miner and learn more.</div>'+
 			'<div class="helpcontent hide">'+
-				'<p>This pool uses PPLNS to determine payouts. PPLNS helps to combat pool hopping and ensures a good payout for miners. We also offer Solo Mining for those interested.</p>'+
+				'<p>This pool uses PPLNS to determine payouts. PPLNS helps to combat pool hopping and ensures a good payout for miners, especially those that mine with us for a long duration.</p>'+
 				'<p><b>Pool Fee: ' + Perc(0) + '</b></p>'+
 				'<p><b>' + $Q.pay.min_auto + '</b> XMR Minimum Payout</p>'+
 				'<p><b>' + $Q.cur.conf + '</b> Block Confirmation Time</p>'+
