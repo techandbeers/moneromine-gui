@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="build/assets/icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="build/assets/icons/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="build/assets/icons/favicon-16x16.png">
-<link rel="manifest" href="build/assets/icons/site.webmanifest" crossorigin="use-credentials">
+<link rel="manifest" href="build/assets/icons/site.webmanifest">
 <link rel="mask-icon" href="build/assets/icons/safari-pinned-tab.svg" color="#603cba">
 <meta name="msapplication-TileColor" content="#603cba">
 <meta name="theme-color" content="#ffffff">
@@ -151,19 +151,25 @@
 			<a href="#one" class="image hide-sm"><img src="build/assets/images/monero.webp" alt="Monero XMR Mining" /></a>
 			<div class="content">
 				<h2 class="major">Start Mining</h2>
-				<p style="text-align:center;margin-bottom: 1em;"><b>Pool Fee: 0%</b><br /><span style="font-size:14px !important"><i>Please note that there is a small withdrawal tx fee that becomes zero after 4.0 XMR</i></span></p>
+				<p style="text-align:center;"><b>Pool Fee: 0%</b><br /><span style="font-size:14px !important"><i>Please note that there is a small withdrawal tx fee that becomes zero after 4.0 XMR</i></span></p>
 				<table>
 					<tr><th>Location</th><th>Hostname</th></tr>
 					<tr><td>North America</td><td>us1.moneromine.co</td></tr>
 					<tr><td>Europe</td><td>eu1.moneromine.co</td></tr>
 				</table>
-				<p style="text-align:center;margin-bottom: 1em;"><span style="font-size:14px !important"><i>The pool will automatically adjust your miner(s) or proxy difficulty to your hardware's ability.</i></span></p>
+				<p style="text-align:center;margin-bottom: 1em;"><span style="font-size:14px !important"><i>Port difficulty will automatically adjust to your hardware's ability.</i></span></p>
 				<table class="mining-table">
-					<tr class="mining-table-header"><th>Port</th><th>TLS</th><th>Description</th></tr>
-					<tr class="mining-table-row"><td><span class="small-label">Port: </span>4444</td><td><span class="small-label">TLS: </span>Yes</td><td class="mining-table-desc"><span class="small-label">Description: </span>Common Port</td></tr>
-					<tr class="mining-table-row"><td><span class="small-label">Port: </span>5555</td><td><span class="small-label">TLS: </span>No</td><td class="mining-table-desc"><span class="small-label">Description: </span>Common Port</td></tr>
-					<tr class="mining-table-row"><td><span class="small-label">Port: </span>443</td><td><span class="small-label">TLS: </span>Yes</td><td class="mining-table-desc"><span class="small-label">Description: </span>Firewall Bypass</td></tr>
-					<tr class="mining-table-row"><td><span class="small-label">Port: </span>80</td><td><span class="small-label">TLS: </span>No</td><td class="mining-table-desc"><span class="small-label">Description: </span>Firewall Bypass</td></tr>
+					<tr class="mining-table-header"><th>Port</th><th>Starting Difficulty</th><th>Description</th></tr>
+					<tr class="mining-table-row"><td><span class="small-label">Port: </span>80</td><td><span class="small-label">Starting Difficulty: </span>8000</td><td class="mining-table-desc"><span class="small-label">Description: </span>Firewall Bypass & Low-End CPU/GPU</td></tr>
+					<tr class="mining-table-row"><td><span class="small-label">Port: </span>443</td><td><span class="small-label">Starting Difficulty: </span>8000</td><td class="mining-table-desc"><span class="small-label">Description: </span>Firewall Bypass & Low-End CPU/GPU - TLS</td></tr>
+					<tr class="mining-table-row"><td><span class="small-label">Port: </span>2222</td><td><span class="small-label">Starting Difficulty: </span>64000</td><td class="mining-table-desc"><span class="small-label">Description: </span>Average CPU/GPU - TLS</td></tr>
+					<tr class="mining-table-row"><td><span class="small-label">Port: </span>3333</td><td><span class="small-label">Starting Difficulty: </span>64000</td><td class="mining-table-desc"><span class="small-label">Description: </span>Average CPU/GPU</td></tr>
+					<tr class="mining-table-row"><td><span class="small-label">Port: </span>4444</td><td><span class="small-label">Starting Difficulty: </span>128000</td><td class="mining-table-desc"><span class="small-label">Description: </span>Modern CPU - TLS </td></tr>
+					<tr class="mining-table-row"><td><span class="small-label">Port: </span>5555</td><td><span class="small-label">Starting Difficulty: </span>128000</td><td class="mining-table-desc"><span class="small-label">Description: </span>Modern CPU</td></tr>
+					<tr class="mining-table-row"><td><span class="small-label">Port: </span>6666</td><td><span class="small-label">Starting Difficulty: </span>4096000</td><td class="mining-table-desc"><span class="small-label">Description: </span>Farm-Grade Hardware - TLS</td></tr>
+					<tr class="mining-table-row"><td><span class="small-label">Port: </span>7777</td><td><span class="small-label">Starting Difficulty: </span>4096000</td><td class="mining-table-desc"><span class="small-label">Description: </span>Farm-Grade Hardware (Nicehash, proxy, etc)</td></tr>
+					<tr class="mining-table-row"><td><span class="small-label">Port: </span>8888</td><td><span class="small-label">Starting Difficulty: </span>128000</td><td class="mining-table-desc"><span class="small-label">Description: </span>Solo - TLS</td></tr>
+					<tr class="mining-table-row"><td><span class="small-label">Port: </span>9999</td><td><span class="small-label">Starting Difficulty: </span>128000</td><td class="mining-table-desc"><span class="small-label">Description: </span>Solo</td></tr>
 				</table>
 			</div>
 		</div>
@@ -177,7 +183,7 @@
 				<h2 class="major">Public Node</h2>
 				<p>The <a href="https://getmonero.org/downloads/" target="_blank">Official Monero Wallet</a> requires a connection to the Monero blockchain. Makes sense. Our node allows folks to sync their wallets without having to download the entire blockchain.</p>
 				<table>
-				<tr><th>Address</th><th>Port</th></tr>
+				<tr><td><b>Address</b></td><td><b>Port</b></td></tr>
 				<tr><td>node.moneromine.co</td><td>18089</td></tr>
 				</table>
 				<p><b>NOTE:</b><br />
@@ -197,6 +203,8 @@
 	channel: '821442709129920553',
 	channel: '810558491809939496',
 	channel: '813805912825397308',
+	channel: '822475476622770186',
+	channel: '823618929686478858',
 	channel: '810555137856503852',
   })
 </script>
@@ -215,11 +223,11 @@
 <div class="footer C0bkgrdl" style="display:none;">
 	<div class="hbar"></div>
 	<div id="FootL" class="C2">
-		<a href="https://twitter.com/MONEROMINEco" target="_blank"><img src="" width="40px" height="40px" title=""></a>
+		<a href="https://twitter.com/MoneroMineCo" target="_blank"><img src="build/assets/twitter.svg" width="40px" height="40px" title="Subscribe to our Twitter to get updates about new blocks and other info!"></a>
 		&nbsp;
-  	        <a href="https://discord.gg/ZypfV3kkb6" target="_blank"><img src="" width="40px" height="40px" title=""></a>
+  	        <a href="https://discord.gg/ZypfV3kkb6" target="_blank"><img src="build/assets/discord.svg" width="40px" height="40px" title="Support on pool dedicated Discord chat channel"></a>
 		&nbsp;
-  	        <a href="http://minerbox.witplex.com/" target="_blank"><img src="" width="40px" height="40px" title=""></a>
+  	        <a href="http://minerbox.witplex.com/" target="_blank"><img src="build/assets/minerbox.png" width="40px" height="40px" title="Phone app to track mining stats"></a>
 	</div>
 	<div id="FootR" class="txtmed C2 right"></div>
 	<div class="shim10"></div>
