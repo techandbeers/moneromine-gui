@@ -556,6 +556,32 @@ var addr = UrlVars().addr || '',
 	};
 $I.load = '<div class="LoadCon C1fl o9 Loader">' + $I.loadico + '</div>';
 
+Chart.plugins.register(ChartDataLabels);
+
+Chart.plugins.register({
+	// need to manipulate tooltip visibility before its drawn (but after update)
+	beforeDraw: function (chartInstance, easing) {
+		// check and see if the plugin is active (its active if the option exists)
+		if (chartInstance.config.options.tooltips.onlyShowForDatasetIndex) {
+			// get the plugin configuration
+			var tooltipsToDisplay = chartInstance.config.options.tooltips.onlyShowForDatasetIndex;
+
+			// get the active tooltip (if there is one)
+			var active = chartInstance.tooltip._active || [];
+
+			// only manipulate the tooltip if its just about to be drawn
+			if (active.length > 0) {
+				// first check if the tooltip relates to a dataset index we don't want to show
+				if (tooltipsToDisplay.indexOf(active[0]._datasetIndex) === -1) {
+					// we don't want to show this tooltip so set it's opacity back to 0
+					// which causes the tooltip draw method to do nothing
+					chartInstance.tooltip._model.opacity = 0;
+				}
+			}
+		}
+	}
+});
+
 //Event Binding
 window.addEventListener('resize', function () { Resize() });
 
@@ -1747,9 +1773,6 @@ function dta_Luck() {
 					})
 					colors.push(dif > 100 ? '#f44336' : dif > 50 ? '#ff9800' : '#4caf50')
 				})
-				Chart.defaults.global.defaultFontColor = '#fff'
-				Chart.defaults.global.defaultFontFamily = 'raleway'
-				Chart.defaults.global.elements.point.radius = 5
 				var ctx = document.getElementById('luckChart').getContext('2d');
 				var luckChart = new Chart(ctx, {
 					type: 'scatter',
@@ -1799,6 +1822,11 @@ function dta_Luck() {
 						]
 					},
 					options: {
+						plugins: {
+							datalabels: {
+								display: false
+							}
+						},
 						title: {
 							display: true,
 							position: 'top',
@@ -2459,7 +2487,6 @@ function Graph_Miner() {
 		document.getElementById('MinerGraph').insertAdjacentElement('afterEnd', apxMineGraph)
 		var ctx2 = document.getElementById('apexMinerGraph').getContext('2d');
 		const { dataArr, avgLine } = dataLineMod($H, 'tme', 'hsh')
-		console.log($H, dataArr)
 		var MinerGraph = new Chart(ctx2, {
 			type: 'line',
 			data: {
@@ -2472,7 +2499,10 @@ function Graph_Miner() {
 						borderColor: '#808080',
 						borderWidth: 2,
 						pointRadius: 0,
-						pointHoverBackgroundColor: '#FFFFFF'
+						pointHoverBackgroundColor: '#FFFFFF',
+						datalabels: {
+							display: false
+						}
 					},
 					{
 						label: 'Average Hashrate',
@@ -2481,14 +2511,33 @@ function Graph_Miner() {
 						fill: false,
 						borderColor: 'rgba(188, 194, 228, 0.5)',
 						borderWidth: 1,
-						pointRadius: 0
+						borderDash: [4, 2],
+						pointRadius: 0,
+						datalabels: {
+							display: [false, true, false],
+							color: 'white',
+							align: 'bottom',
+							backgroundColor: 'rgba(76, 92, 150,0.5)',
+							formatter: function (value) {
+								const trimmed = Math.round(value.y)
+								return '24H Avg - ' + d3.format('~s')(trimmed) + 'H/s'
+							}
+						}
 					},
 					{
 						label: 'Current Hashrate',
 						data: [dataArr[0]],
 						type: 'scatter',
-						pointBackgroundColor: '#FF0000',
-						pointRadius: 4
+						pointRadius: 0,
+						datalabels: {
+							color: 'white',
+							align: 'left',
+							backgroundColor: 'rgba(76, 92, 150,0.5)',
+							formatter: function (value) {
+								const trimmed = Math.round(value.y)
+								return 'Current - ' + d3.format('~s')(trimmed) + 'H/s'
+							}
+						}
 					}
 				]
 			},
@@ -2533,6 +2582,7 @@ function Graph_Miner() {
 				},
 				tooltips: {
 					displayColors: false,
+					onlyShowForDatasetIndex: [0],
 					callbacks: {
 						label: function (tooltipItem, data) {
 							const trimmed = Math.round(tooltipItem.yLabel)
@@ -2543,7 +2593,7 @@ function Graph_Miner() {
 						}
 					}
 				},
-				aspectRatio: window.width > 641 ? 4 : 3
+				aspectRatio: window.width > 641 ? 4 : 3,
 			}
 		});
 		Dash_calc();
@@ -2942,6 +2992,10 @@ function dataLineMod(data, xKey, yKey) {
 	const avgLine = [
 		{
 			x: dataArr[dataArr.length - 1].x,
+			y: avg
+		},
+		{
+			x: (dataArr[0].x + dataArr[dataArr.length - 1].x) / 2,
 			y: avg
 		},
 		{
