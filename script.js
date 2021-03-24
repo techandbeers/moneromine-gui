@@ -2480,11 +2480,10 @@ function Graph_Miner() {
 		//Block Tool Tip
 		ins += GraphLib_ToolTipSetup();
 		ins += '</svg>';
-		document.getElementById('MinerGraph').innerHTML = ins;
+		// document.getElementById('MinerGraph').innerHTML = ins;
+
 		//NEW CHART THING HERE
-		let apxMineGraph = document.createElement('canvas')
-		apxMineGraph.id = 'apexMinerGraph'
-		document.getElementById('MinerGraph').insertAdjacentElement('afterEnd', apxMineGraph)
+		document.getElementById('MinerGraph').innerHTML = "<canvas id='apexMinerGraph'></canvas>";
 		var ctx2 = document.getElementById('apexMinerGraph').getContext('2d');
 		const { dataArr, avgLine } = dataLineMod($H, 'tme', 'hsh')
 		var MinerGraph = new Chart(ctx2, {
@@ -2593,6 +2592,10 @@ function Graph_Miner() {
 						}
 					}
 				},
+				animation: {
+					duration: 0
+				},
+				responsiveAnimationDuration: 0,
 				aspectRatio: window.width > 641 ? 4 : 3,
 			}
 		});
@@ -2605,7 +2608,6 @@ function Graph_Miner() {
 					6, 'txt');
 			});
 		});
-		GraphLib_ToolTipListener();
 	} else {
 		ErrAlert('MinerGraph', 'NoData');
 		ins = '<div id="MinerGraphAlert" class="txtmed C2 o5">' + $$.msg.addr_nodata.head + '</div>';
