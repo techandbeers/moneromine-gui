@@ -2418,70 +2418,6 @@ function Graph_Miner() {
 		if ($H[i].tme < timefirst) timefirst = $H[i].tme;
 	}
 	if (max > 0) {
-		if (timefirst >= timestart) timestart = timefirst;
-		max = max * 1.2;
-		avg = avg / cnt;
-
-		//Create Points
-		for (i = 0; i < cnt; i++) {
-			var x = Rnd(right_x - (now - $H[i].tme) * (right_x / (now - timestart)), 1),
-				y = Rnd(height_pad - ($H[i][hshx]) / max * height_pad, 1);
-
-			points.push({ 'x': x, 'y': y, 'tme': $H[i].tme, 'hsh': $H[i][hshx] });
-			if (i === 0) {
-				yL = y;
-			} else if (i === (cnt - 1)) {
-				yR = y;
-			}
-		}
-
-		ins = '<svg viewBox="0 0 ' + width + ' ' + height + '" class="chart mchart">' +
-			'<defs>' +
-			'<linearGradient id="M"><stop offset="0%" stop-color="#' + $Q.clr.secondary + '" stop-opacity="0.2" /><stop offset="15%" stop-color="#' + $Q.clr.secondary + '" stop-opacity="0.3" /><stop offset="100%" stop-color="#' + $Q.clr.secondary + '" stop-opacity="1" /></linearGradient>' +
-			'</defs>';
-
-		//Grid Lines
-		ins += GraphLib_Grid('line', 5, max, 0, height_pad, width, 'C2');
-
-		//Miner Hash Line & Fill
-		ins += '<path class="C0fl' + mde + '" stroke="url(#M)" stroke-width="2" d="M' + right_x + ',' + points[(cnt - 1)].y + ' ' + GraphLib_Bezier(points) + 'M0,' + yR + ' 0,' + (height + 3) + ' ' + (width + 3) + ',' + (height + 3) + ' ' + (width + 3) + ',' + yL + '" />';
-
-		//Miner Hash Lables with Vertical Adjust
-		var hsh = HashConv($H[0][hshx]), hs_y = yL + 2, lb_y = yL + 11;
-		if (yL > (height_pad * .8)) {
-			hs_y = yL;
-			lb_y = yL - 17;
-		}
-		ins += '<text x="' + (right_x + 4) + '" y="' + hs_y + '" class="txtmed C3fl' + mde + '">' + Rnd(hsh.num, 1, 'txt') + ' ' + hsh.unit + '</text>' +
-			'<text x="' + (right_x + 4) + '" y="' + lb_y + '" class="txtmed C3fl' + mde + ' o7">Your Hash</text>';
-
-		//Miner Hash Dots
-		for (var i = 0; i < points.length; i++) {
-			if (i !== 0 && points[i].x > 50) {
-				ins += '<circle cx="' + points[i].x + '" cy="' + points[i].y + '" r="2" class="C2fl o8" />' +
-					'<circle cx="' + points[i].x + '" cy="' + points[i].y + '" r="4" class="ToolTip C1fl_hov" data-tme="' + points[i].tme + '" data-hsh="' + points[i].hsh + '" />';
-			}
-		}
-
-		//MinerHash Avg
-		var avg_y = Rnd(height_pad - avg / max * height_pad, 2),
-			txt = HashConvStr(avg) + ' Avg ' + Ago(timestart),
-			txt_w = txt.length * 5.4;
-		if (hshx === "hsh2") $D.miner_hash_avg = avg;
-
-		ins += '<line x1="55" y1="' + avg_y + '" x2="' + right_x + '" y2="' + avg_y + '" class="mineravgline C1st" />' +
-			'<rect x="' + ((width / 2) - (txt_w / 2)) + '" y="' + (avg_y - 8) + '" width="' + txt_w + '" height="18" rx="3" class="line C0fl' + mde + ' C1st" />' +
-			'<text id="MinerGraphAvg" data-hsh="' + avg + '" x="' + (width / 2) + '" y="' + (avg_y + 4) + '" text-anchor="middle" class="C2fl txtmed">' + txt + '</text>';
-
-		//Grid Labels
-		ins += GraphLib_Grid('lbl', 5, max, 0, height_pad, width, 'C2');
-		ins += '<text x="5" y="' + height_pad + '" class="txtmed C2fl o9">0</text>';
-
-		//Block Tool Tip
-		ins += GraphLib_ToolTipSetup();
-		ins += '</svg>';
-		// document.getElementById('MinerGraph').innerHTML = ins;
-
 		//NEW CHART THING HERE
 		document.getElementById('MinerGraph').innerHTML = "<canvas id='apexMinerGraph'></canvas>";
 		var ctx2 = document.getElementById('apexMinerGraph').getContext('2d');
@@ -2613,6 +2549,7 @@ function Graph_Miner() {
 		ins = '<div id="MinerGraphAlert" class="txtmed C2 o5">' + $$.msg.addr_nodata.head + '</div>';
 	}
 }
+
 function Graph_Worker(xid) {
 	var WorkerChart = document.querySelector('.WorkerChart[data-worker="' + xid + '"]'),
 		width = WorkerChart.clientWidth,
@@ -2654,6 +2591,7 @@ function Graph_Worker(xid) {
 	}
 	WorkerChart.innerHTML = ins + '</svg>';
 }
+
 function GraphLib_Duration() {
 	var h = $Q.graph.hrs;
 	if (width < 600) {
