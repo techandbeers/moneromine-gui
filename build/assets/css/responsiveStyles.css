@@ -55,6 +55,11 @@
   color: #bcc2e4
 }
 
+/* Custom Styling for Main Miner Graph */
+#MinerGraph {
+  margin-top: 20px;
+}
+
 /* xl */
 @media screen and (min-width: 1281px) {
   .hide-xl {
