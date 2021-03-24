@@ -44,7 +44,7 @@ var mde = 'l',
 		},
 		page_sizes: [15, 50, 100],
 		hlp: {
-			head: '<div class="bye" style="float:right;padding-left:10px;"><iframe src="https://discord.com/widget?id=810555137856503848&theme=dark" width="350" height="480" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>' + 'Welcome to ' + $Q.pool.nme + '!<br />This pool was born out of an obvious interest in blockchain tech, and a true belief that Monero is the best form of crytoCURRENCY. Everything you see here is open source, with credit to the devs in our footer.<br /><br />Pool Features:<br /><ul><li>0% Pool Fee</li><li>Hashrate Capping (25% of global)</li><li>0.003 Minimum Payout</li><li>Block Notify</li><li>Email Notifications</li><li>DDoS Protection</li></ul>We try to be as transparent as possible, and hopefully any questions you have about this pool or mining in general can be answered below. Please feel free to join us on Discord or shoot us an <a href="mailto:support@moneromine.co">email</a> with any questions/issues (and be patient for a response)!',
+			head: '<div class="bye" style="float:right;padding-left:10px;"><iframe src="https://discord.com/widget?id=810555137856503848&theme=dark" width="350" height="480" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>' + 'Welcome to ' + $Q.pool.nme + '!<br />This pool was born out of an obvious interest in blockchain tech, and a true belief that Monero is the best form of crytoCURRENCY. Everything you see here is open source, with credit to the devs in our footer.<br /><br />Pool Features:<br /><ul><li>0% Pool Fee</li><li>Hashrate Capping (25% of global)</li><li>0.003 Minimum Payout</li><li>Block Notify</li><li>Email Notifications</li><li>DDoS Protection</li></ul>We try to be as transparent as possible, and hopefully any questions you have about this pool or mining in general can be answered below or on our <a href="https://wiki.moneromine.co/" target="_blank">Wiki</a>. Please feel free to join us on Discord or shoot us an <a href="mailto:support@moneromine.co">email</a> with any questions/issues (and be patient for a response)!',
 			text: ''
 		},
 		msg: {
@@ -98,9 +98,9 @@ var mde = 'l',
 			blocks: [
 				{ name: 'num', lbl: '#', cls: 'min' },
 				{ name: 'tme', lbl: 'Found', cls: 'min' },
-				{ name: 'coin', lbl: 'Coin name', cls: 'min' },
+				//				{name: 'coin', lbl: 'Coin Name', cls: 'min'},
 				{ name: 'eff', lbl: 'Effort', cls: 'min' },
-				{ name: 'reward', lbl: 'Raw reward', 'tooltip': 'Raw block reward in native coin units', cls: 'min' },
+				{ name: 'reward', lbl: 'Raw Reward', 'tooltip': 'Raw block reward in native coin units', cls: 'min' },
 				{ name: 'payment', lbl: 'Payment (' + $Q.cur.sym + ')', cls: 'min' },
 				{ name: 'bheight', lbl: 'Height', cls: 'min' },
 				{ name: 'hash', lbl: 'Hash', typ: 'block', cls: 'trunc' },
@@ -118,11 +118,11 @@ var mde = 'l',
 				{ name: 'hash', lbl: 'Tx Hash', typ: 'tx', cls: 'trunc' },
 			],
 			blockpay: [
-				{ name: 'tme', lbl: 'Block pay time', cls: 'min' },
-				{ name: 'tme_found', lbl: 'Block found time', cls: 'min' },
+				{ name: 'tme', lbl: 'Block Pay Time', cls: 'min' },
+				{ name: 'tme_found', lbl: 'Block Found Time', cls: 'min' },
 				{ name: 'amnt', lbl: 'Amount (' + $Q.cur.sym + ')', cls: 'min' },
-				{ name: 'percent', lbl: 'Block share (percent)', cls: 'min' },
-				{ name: 'coin', lbl: 'Coin name', cls: 'min' },
+				{ name: 'percent', lbl: 'Block Share (percent)', cls: 'min' },
+				//				{name: 'coin', lbl: 'Coin name', cls: 'min'},
 				{ name: 'hash_pay', lbl: 'Block Hash', cls: 'trunc' },
 			]
 		},
@@ -138,8 +138,8 @@ var mde = 'l',
 			rcnt: 'Recent',
 			set: 'Update Threshold',
 			updt: 'Threshold Updated',
-			vwpy: 'Show Your Payments',
-			vwpy2: 'Show Your Block Payments'
+			vwpy: 'Show Payments',
+			vwpy2: 'Show Block Payments'
 		},
 		faq: [
 
@@ -1692,7 +1692,7 @@ function AutoPayCheck() {
 function MinerPaymentHistory(pge) {
 	pge = (pge > 1) ? pge : 1;
 	document.getElementById('MinerPayments').className = 'OpenedBig';
-	document.getElementById('PaymentHistory').innerHTML = '<div class="LR85"><div class="LR50"><div id="PaymentHistoryBtnClose" class="BtnElem C0' + mde + ' txtmed C1bk C2bk_hov">Close Payment History</div></div>' +
+	document.getElementById('PaymentHistory').innerHTML = '<div class="LR85"><div class="LR50"><div id="PaymentHistoryBtnClose" class="BtnElem C0' + mde + ' txtmed C1bk C2bk_hov">Close Payments</div></div>' +
 		'<div id="MinerPaymentsTable" class="C3' + mde + '">' + $I.load + '</div></div>' +
 		'<input type="hidden" id="MinerPaymentsPage" value="' + pge + '">';
 
@@ -1704,7 +1704,7 @@ function MinerPaymentHistory(pge) {
 function MinerBlockPaymentHistory(pge) {
 	pge = (pge > 1) ? pge : 1;
 	document.getElementById('MinerPayments').className = 'OpenedBig';
-	document.getElementById('BlockPaymentHistory').innerHTML = '<div class="LR85"><div class="LR50"><div id="PaymentHistoryBtnClose" class="BtnElem C0' + mde + ' txtmed C2bk C2bk_hov">Close Block Payment History</div></div>' +
+	document.getElementById('BlockPaymentHistory').innerHTML = '<div class="LR85"><div class="LR50"><div id="PaymentHistoryBtnClose" class="BtnElem C0' + mde + ' txtmed C2bk C2bk_hov">Close Block Payments</div></div>' +
 		'<div id="MinerBlockPaymentsTable" class="C3' + mde + '">' + $I.load + '</div></div>' +
 		'<input type="hidden" id="MinerBlockPaymentsPage" value="' + pge + '">';
 
@@ -1746,7 +1746,7 @@ function dta_Coins() {
 				});
 				$D.coins[0].push(table_coin);
 			});
-			document.getElementById('PageTopL').innerHTML = 'Current PPLNS window length: ' + Rnd($D.poolstats.pplnsWindowTime / 3600, 2, 'txt') + ' hours';
+			document.getElementById('PageTopL').innerHTML = 'Current PPLNS Window Length: ' + Rnd($D.poolstats.pplnsWindowTime / 3600, 2, 'txt') + ' Hours';
 			Tbl('PageBot', 'coins', 0, 0);
 		}).catch(function (err) { console.log(err) });
 	}).catch(function (err) { console.log(err) });
@@ -1975,7 +1975,7 @@ function dta_Help() {
 		'<div class="helptitle txtbig">Step 4 - Start Mining<div class="btnback">' + $I.arrow + '</div></div>' +
 		'<div class="helpteaser">Launch the miner and learn more.</div>' +
 		'<div class="helpcontent hide">' +
-		'<p>This pool uses PPLNS to determine payouts. PPLNS helps to combat pool hopping and ensures a good payout for miners. We also offer Solo Mining for those interested.</p>' +
+		'<p>This pool uses PPLNS to determine payouts. PPLNS helps to combat pool hopping and ensures a good payout for miners, especially those that mine with us for a long duration.</p>' +
 		'<p><b>Pool Fee: ' + Perc(0) + '</b></p>' +
 		'<p><b>' + $Q.pay.min_auto + '</b> XMR Minimum Payout</p>' +
 		'<p><b>' + $Q.cur.conf + '</b> Block Confirmation Time</p>' +
@@ -2291,7 +2291,7 @@ function Tbl(tar, typ, pge, lim) {
 							}
 							if (payment) val = '<span title="Pending ' + payment_txt + ' ' + $Q.cur.sym + '">' + val + '</span>';
 						}
-						if (d.unlocked) val = '<span class="C5">' + val + '</span>';
+						if (d.unlocked) val = '<span class="">' + val + '</span>';
 					} else {
 						val = InvalidBlock();
 					}
