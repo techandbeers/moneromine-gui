@@ -48,7 +48,7 @@ var mde = 'l',
 			text: ''
 		},
 		msg: {
-			addr_invalid: { head: 'Invalid ' + $Q.cur.nme + ' Address', text: 'Double check that your address is complete.' },
+			addr_invalid: { head: 'Invalid ' + $Q.cur.nme + ' Address', text: 'Please ensure that your address is complete.' },
 			addr_nodata: { head: 'No Data', text: '' }
 		},
 		nav: {
@@ -60,8 +60,8 @@ var mde = 'l',
 			help: 'Help'
 		},
 		pay: {
-			DashPending: { lbl: '<span id="PendingPay"></span> ' + $Q.cur.sym + ' Pending', var: 'due', tooltip: 'Total due pool owes you' },
-			DashPaid: { lbl: $Q.cur.sym + ' Paid', var: 'paid', tooltip: 'Amount pool already paid to you' }
+			DashPending: { lbl: '<span id="PendingPay"></span> ' + $Q.cur.sym + ' Pending', var: 'due', tooltip: 'The amount the pool owes you' },
+			DashPaid: { lbl: $Q.cur.sym + ' Paid', var: 'paid', tooltip: 'The amount the pool has paid you' }
 		},
 		wm: {
 			on: 'Web Mining: <span id="WebMinerHash">--</span>',
@@ -128,7 +128,7 @@ var mde = 'l',
 		},
 
 		trn: {
-			avgeff: 'Avg Effort',
+			avgeff: 'Average Effort',
 			conf: 'Confirmed',
 			eff: 'Effort',
 			eml_on: 'Email Alerts On',
@@ -154,26 +154,14 @@ var mde = 'l',
 					'</ul>'
 			},
 
-			//			{ q:	'Why does XMRig show such a high ping to the MoneroMine pool nodes?',
-			//			  a:	'xmrig miner includes time needed to verify your share into ping number it reports. '+
-			//                                'Pool uses external share validator for non-critical shares (the ones that cannot be used to find a block), '+
-			//                                'so that is why ping reported by xmrig is high. Critical shares are validated locally, '+
-			//                                'so that guarantees that there will be no external share validator delay for them and no orphaned blocks because of this. '+
-			//                                'So for our pool usual ping utility provides more accurate results.'
-			//			},
+			{ 
+				q:	'Why does XMRig show such a high ping to the pool nodes?',
+				a:	'XMRig includes the time needed to verify your share into the ping "number" it reports. This pool uses an external share validator for non-critical shares (the ones that cannot be used to find a block), so that is why the ping reported by XMRig appears high. Critical shares are validated locally, which guarantees no external share validator delay and no orphaned blocks. In sumamry, a command prompt/terminal ping will provide more accurate results on your true latency.'
+			},
 
 			{
 				q: 'What are the available pool ports?',
-				a: 'This pool supports a few ports with varying difficulty. Please select them based on your miner speed, or add a starting difficulty to your miner startup script.' +
-					'<ul>' +
-					//					'<li><b>8080</b> (Firewall): 8000 diff (150-300 h/s)</li>'+
-					//					'<li><b>3333</b>: 64000 diff (1000-2000 h/s)</li>'+
-					//					'<li><b>4444</b> (SSL/TLS): 128000 diff (2000-4000 h/s)</li>'+
-					//					'<li><b>5555</b>: 128000 diff (2000-4000 h/s)</li>'+
-					//					'<li><b>7777</b>: 4096000 diff (80000-160000 h/s)</li>'+
-					//					'<li><b>9999</b> (Solo): 128000 diff (2000-4000 h/s)</li>'+
-					'<li>Please see the <a href="#one">Start Mining</a> section for available ports.</li>' +
-					'</ul>'
+				a: 'This pool supports four ports, each can automatically apply the difficulty best suited for your hardware. Please see the <a href="#one">Start Mining</a> section for available ports.'
 			},
 
 			{
@@ -209,24 +197,14 @@ var mde = 'l',
 				a: 'Pool/mining diversity is key in keeping Monero free of manipulation. If (by some miracle) our pool reaches 25% of the overall (global) hashrate, we will stop accepting new connections until the our hashrate drops. Like any country/population/community, monopolies are bad for the consumer, and in this case: devasting to a cryptocurrency.'
 			},
 
-			// Algo switching
-
-			//			{ q:	'How pool determines the most profitable coin to mine for my algo switching miner?',
-			//			  a:	'During login your algo switching miner will report hashrates it can do for all algorithms it support. Pool use that data to offer your miner a coin with the best profit that is determined by multiplication of hashrate of your miner and current coin hash profit.'
-			//			},
-
 			{
 				q: 'Can I mine coins here using an algo-switching miner?',
 				a: 'No, we are soley focused on Monero here. If you wish to use an algo-switching miner, head on over to <a href="https://MoneroOcean.stream" target="_blank">MoneroOcean</a> and use their version of <a href="https://github.com/MoneroOcean/xmrig" target="_blank">XMRig</a>.'
 			},
 
-			//			{ q:	'Do I need to have altcoin wallets to mine them here?',
-			//			  a:	'No. Only Monero wallet is needed because pool does all payments in Monero (XMR).'
-			//			},
-
 			{
-				q: 'Am I payed only for the coin blocks I mine?',
-				a: 'No. The pool pays you your share from every block we find as a pool. Your pay share is based on the amount of hashes you submitted in the PPLNS window, on the moment s block is found. This means that your are payed even after you stopped mining as long as your shares are within the PPLNS window.'
+				q: 'Am I payed only for the coin blocks my rig(s) mine/find?',
+				a: 'Nope! The pool pays you your share from every block we find as a pool. Your pay share is based on the amount of hashes you submitted in the PPLNS window, on the moment s block is found. This means that your are payed even after you stopped mining as long as your shares are within the PPLNS window.'
 			},
 
 			//			{ q:	'How can I verify my PPLNS reward for a particular XMR block?',
@@ -286,15 +264,6 @@ var mde = 'l',
 				q: 'Why are some of my worker names replaced by <b>all_other_workers</b> worker?',
 				a: 'This is because of the use of too many worker names. To avoid DB/network channel overloads, all extra miners are joined under the <b>all_other_workers</b> worker name.'
 			},
-
-			//			{ q:	'Why is the web miner not working (always shows zero hashrate)?',
-			//			  a:	'Try to use your browser&#039;s incognito mode or another browser. You could also be blocked by your malware or antivirus software, or by your ISP.'
-			//			},
-
-			//			{ q:	'How can I uninstall miner installed using the MoneroOcean miner setup scripts?',
-			//			  a:	'On Windows run this command: <b>powershell -Command &quot;$wc = New-Object System.Net.WebClient; $tempfile = [System.IO.Path]::GetTempFileName(); $tempfile += &#039;.bat&#039;; $wc.DownloadFile(&#039;https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/uninstall_moneroocean_miner.bat&#039;, $tempfile); &amp; $tempfile; Remove-Item -Force $tempfile&quot;</b><br>'+
-			//				'On Linux run this command: <b>curl -s -L https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/uninstall_moneroocean_miner.sh | bash -s</b>'
-			//			},
 
 			// Fees and donations
 
@@ -1263,9 +1232,9 @@ function Dash_btn(m) {
 		c = 'nopoint';
 		h = $I.load;
 	} else if (m === 'loaded') {
-		c = 'C1fl hov';
+		c = 'C2fl hov';
 	} else if (m === 'closer') {
-		c = 'C1fl';
+		c = 'C2fl';
 		h = '<div class="Closer hov">' + $I.x + '</div>';
 	}
 	b.className = c;
@@ -1830,6 +1799,7 @@ function dta_Luck() {
 						title: {
 							display: true,
 							position: 'top',
+							fontColor: 'white',
 							text: `Blocks Found (Last ${window.width > 641 ? 30 : 15} Days)`
 						},
 						legend: {
@@ -1839,14 +1809,17 @@ function dta_Luck() {
 							xAxes: [{
 								type: 'time',
 								time: {
-									tooltipFormat: 'll HH:mm'
+									tooltipFormat: 'll HH:mm',
+									fontColor: 'white',
 								},
 								scaleLabel: {
 									display: 'true',
 									labelString: 'Date',
+									fontColor: 'white',
 								},
 								ticks: {
 									min: earliestDate,
+									fontColor: 'white',
 								},
 								distribution: 'linear',
 								position: 'bottom',
@@ -1858,8 +1831,10 @@ function dta_Luck() {
 								scaleLabel: {
 									display: 'true',
 									labelString: 'Difficulty',
+									fontColor: 'white',
 								},
 								ticks: {
+									fontColor: 'white',
 									callback: function (value) {
 										return value + '%'
 									}
@@ -1906,7 +1881,7 @@ function dta_Blocks(pge) {
 				bins += '<option value="' + port + '"' + (port == blocks_port ? " selected" : "") + '>' + coin.name + '</option>';
 			});
 			var blocks_found = blocks_port ? $D.poolstats.altBlocksFound[blocks_port] : $D.poolstats.totalAltBlocksFound;
-			document.getElementById('PageTopL').innerHTML = Num(blocks_found) + ' <select id="BlockType" style="width:100px;" class="FrmElem txttny C0' + mde + ' C1bk">' + bins + '</select> Blocks <span id="BlockEffort"></span>';
+			document.getElementById('PageTopL').innerHTML = Num(blocks_found) + ' <select id="BlockType" style="width:80px;" class="FrmElem txttny C0' + mde + ' C1bk">' + bins + '</select> Blocks <span id="BlockEffort"></span>';
 			document.getElementById('PageBot').innerHTML = $I.load;
 			api('blocks', pge, blocks_page_size).then(function () {
 				Tbl('PageBot', 'blocks', pge, blocks_page_size);
@@ -2332,9 +2307,9 @@ function Tbl(tar, typ, pge, lim) {
 		pgs = Math.ceil(size / page_size);
 		document.getElementById('PageTopR').innerHTML =
 			'<span style="display:inline;" class="txtmed C3' + mde + '">Page</span>' +
-			'<input id="TblPagBox" type="text" style="display:inline;" class="FrmElem txtmed C1bk C0' + mde + '" value="' + pge + '" data-func="' + typ + '" autocomplete="off" data-tot="' + pgs + '">' +
+			'<input id="TblPagBox" type="text" style="display:inline;" class="FrmElem txttny C1bk C0' + mde + '" value="' + pge + '" data-func="' + typ + '" autocomplete="off" data-tot="' + pgs + '">' +
 			'<span style="display:inline;" class="txtmed C3' + mde + '">of ' + Num(pgs) + '</span> ' +
-			'<span style="display:inline;" class="txtmed C3' + mde + '">(<select id="PageSize" style="display:inline;width:100px;" class="FrmElem txtmed C0' + mde + ' C1bk">' + ps_ins + '</select> per page)</span>';
+			'<span style="display:inline;" class="txtmed C3' + mde + '">(<select id="PageSize" style="display:inline;width:80px;" class="FrmElem txttny C0' + mde + ' C1bk">' + ps_ins + '</select> per page)</span>';
 		PaginationBoxWidth();
 	}
 	if (rows > 0) {
@@ -2472,27 +2447,34 @@ function Graph_Miner() {
 					xAxes: [{
 						type: 'time',
 						time: {
-							tooltipFormat: 'hh:mm A'
+							tooltipFormat: 'hh:mm A',
+							fontColor: 'white',
 						},
 						scaleLabel: {
 							display: 'true',
 							labelString: 'Time',
+							fontColor: 'white',
 						},
 						distribution: 'linear',
 						position: 'bottom',
 						gridLines: {
 							display: false
 						},
+						ticks: {
+							fontColor: 'white',
+						}
 					}],
 					yAxes: [{
 						scaleLabel: {
 							display: 'true',
 							labelString: 'Total Hash',
+							fontColor: 'white',
 						},
 						gridLines: {
 							display: false
 						},
 						ticks: {
+							fontColor: 'white',
 							callback: function (value, index, values) {
 								return d3.format("~s")(value) + 'H/s';
 							}
@@ -2865,7 +2847,7 @@ function HashConvStr(h, unit) {
 	return h.num + ' ' + (unit ? h.unit.replace(/H\//, unit + '/') : h.unit);
 }
 function InvalidBlock() {
-	return '<span class="C4" title="This is orphan block so there will be no payment for it. It can happen sometimes naturally.">Orphaned</span>';
+	return '<span class="C4" title="This is an orphan block so there will be no payment for it, it happens.">Orphaned</span>';
 }
 function SynchTime(t) {
 	if (t > now) now = t + 3;
