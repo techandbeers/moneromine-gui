@@ -2539,45 +2539,20 @@ function Graph_Miner() {
 }
 
 function Graph_Worker(xid) {
+	let { sharedMin, sharedMax } = workerAverage()
 	var WorkerChart = document.querySelector('.WorkerChart[data-worker="' + xid + '"]'),
-		width = WorkerChart.clientWidth,
-		width3 = width + 3,
-		height = 26,
-		height3 = 29,
 		i = 0,
 		max = 0,
 		$W = $A[addr].wrkrs[xid].stats,
 		wcnt = numObj($W),
-		points = [],
-		yL = 0,
-		yR = 0,
 		mintime = 99999999999,
-		ins = '<svg viewBox="0 0 ' + width + ' ' + height + '" class="chart">' +
-			'<defs>' +
-			'<linearGradient id="F" gradientTransform="rotate(90)"><stop offset="0%" stop-color="#000" stop-opacity="0.07" /><stop offset="100%" stop-color="#000" stop-opacity="0.03" /></linearGradient>' +
-			'</defs>';
-
-	var hshx = document.getElementById('HashSelect').value == 'raw' ? "hsh" : "hsh2";
+		hshx = document.getElementById('HashSelect').value == 'raw' ? "hsh" : "hsh2";
 
 	for (i = 0; i < wcnt; i++) {
 		if ($W[i][hshx] > max) max = $W[i][hshx];
 		if ($W[i].tme < mintime) mintime = $W[i].tme;
 	}
-	if (max > 0) {
-		for (i = 0; i < wcnt; i++) {
-			var x = Rnd(width - (now - $W[i].tme) * (width / (now - mintime)), 1),
-				y = Rnd(height - $W[i][hshx] * (height / max), 1);
 
-			points.push({ 'x': x, 'y': y });
-			if (i === 0) {
-				yR = y;
-			} else if (i === (wcnt - 1)) {
-				yL = y;
-			}
-		}
-		ins += '<path fill="url(#F)" stroke-width="1.25" class="C2st" d="' + GraphLib_Bezier(points) + 'M-3,' + yL + ' -3,' + height3 + ' ' + width3 + ',' + height3 + ' ' + width3 + ',' + yR + '" />';
-	}
-	WorkerChart.innerHTML = ins + '</svg>';
 	WorkerChart.innerHTML = `<canvas height='55px' id='worker-${xid}'></canvas>`;
 	var ctx = document.getElementById(`worker-${xid}`).getContext('2d');
 	const { dataArr } = dataLineMod($W, 'tme', 'hsh')
@@ -2619,7 +2594,11 @@ function Graph_Worker(xid) {
 			scales: {
 				yAxes: [
 					{
-						display: false
+						display: false,
+						ticks: {
+							min: sharedMin,
+							max: sharedMax
+						}
 					}
 				],
 				xAxes: [
@@ -2986,5 +2965,19 @@ function dataLineMod(data, xKey, yKey) {
 	return {
 		dataArr,
 		avgLine
+	}
+}
+function workerAverage() {
+	let sharedMin = 0
+	let sharedMax = 0
+	_.forEach($A[addr].wrkrs, function (worker) {
+		if (worker.rate > sharedMax) {
+			sharedMax = worker.rate
+		}
+	})
+	sharedMax += sharedMax * .2
+	return {
+		sharedMin,
+		sharedMax
 	}
 }
