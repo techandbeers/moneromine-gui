@@ -1341,9 +1341,9 @@ function Workers_init() {		///check this, getting called alot
 		for (i = 0; i < numwrk; i++) {
 			ky = s[i][0];
 			ins += '<div class="WorkerWrap ' + blkclss + '">' +
+				'<div class="WorkerChart" data-worker="' + ky + '"></div>' +
 				'<div class="Worker C1br C2br_hov C3' + mde + '" data-key="' + ky + '">' +
 				'<div id="WName-' + ky + '" class="txtmed LblL">--</div><div id="WRate-' + ky + '" class="txtmed LblR">--</div>' +
-				'<div class="WorkerChart" data-worker="' + ky + '"></div>' +
 				'</div>' +
 				'</div>';
 		}
@@ -2390,27 +2390,16 @@ function Graph_Miner_init() {
 	}
 }
 function Graph_Miner() {
-	var ins = '',
-		height = 150,
-		height_pad = 140,
-		timefirst = 999999999999999,
+	timefirst = 999999999999999,
 		graphhrs = GraphLib_Duration(),
-		timestart = now - (3600 * graphhrs),
 		padR = 65,
 		right_x = width - padR,
 		$H = $A[addr].stats,
 		i = 0,
 		cnt = numObj($H),
-		points = [],
-		pts = '',
 		avg = 0,
 		max = 0,
-		yL = 0,
-		xR = right_x,
-		yR = 0;
-
-	var hshx = document.getElementById('HashSelect').value == 'raw' ? "hsh" : "hsh2";
-
+		hshx = document.getElementById('HashSelect').value == 'raw' ? "hsh" : "hsh2";
 	i = cnt;
 	while (i--) {
 		avg = avg + $H[i][hshx];
@@ -2418,11 +2407,10 @@ function Graph_Miner() {
 		if ($H[i].tme < timefirst) timefirst = $H[i].tme;
 	}
 	if (max > 0) {
-		//NEW CHART THING HERE
 		document.getElementById('MinerGraph').innerHTML = "<canvas id='apexMinerGraph'></canvas>";
-		var ctx2 = document.getElementById('apexMinerGraph').getContext('2d');
+		var ctx = document.getElementById('apexMinerGraph').getContext('2d');
 		const { dataArr, avgLine } = dataLineMod($H, 'tme', 'hsh')
-		var MinerGraph = new Chart(ctx2, {
+		var MinerGraph = new Chart(ctx, {
 			type: 'line',
 			data: {
 				datasets: [
@@ -2590,6 +2578,58 @@ function Graph_Worker(xid) {
 		ins += '<path fill="url(#F)" stroke-width="1.25" class="C2st" d="' + GraphLib_Bezier(points) + 'M-3,' + yL + ' -3,' + height3 + ' ' + width3 + ',' + height3 + ' ' + width3 + ',' + yR + '" />';
 	}
 	WorkerChart.innerHTML = ins + '</svg>';
+	WorkerChart.innerHTML = `<canvas height='55px' id='worker-${xid}'></canvas>`;
+	var ctx = document.getElementById(`worker-${xid}`).getContext('2d');
+	const { dataArr } = dataLineMod($W, 'tme', 'hsh')
+	const workerChart = new Chart(ctx, {
+		type: 'line',
+		data: {
+			datasets: [
+				{
+					data: dataArr,
+					fill: 'start',
+					backgroundColor: 'rgba(76, 92, 150, 0.5)',
+					borderColor: 'rgba(128, 128, 128, 0.5)'
+				}
+			]
+		},
+		options: {
+			plugins: {
+				datalabels: {
+					display: false
+				}
+			},
+			responsive: true,
+			maintainAspectRatio: false,
+			legend: {
+				display: false
+			},
+			elements: {
+				line: {
+					borderColor: '#000000',
+					borderWidth: 1
+				},
+				point: {
+					radius: 0
+				}
+			},
+			tooltips: {
+				enabled: false
+			},
+			scales: {
+				yAxes: [
+					{
+						display: false
+					}
+				],
+				xAxes: [
+					{
+						display: false
+					}
+				]
+			}
+		}
+	});
 }
 
 function GraphLib_Duration() {
