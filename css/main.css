@@ -3401,6 +3401,11 @@ input, select, textarea {
 			opacity: 1;
 			margin: 0 0 1.3em 0;
 		}
+		
+		#banner .logo:hover {
+			animation: fadeOutBottomLeft; /* referring directly to the animation's @keyframe declaration */
+			animation-duration: 1s; /* don't forget to set a duration! */
+		}
 
 			#banner .logo .icon {
 				border-radius: 100%;

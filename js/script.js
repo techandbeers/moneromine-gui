@@ -147,10 +147,9 @@ var mde = 'l',
 
 			{
 				q: 'What are the available pool addresses?',
-				a: 'Current pool addresses (hostnames) are listed below, we hope to continue adding more locations!' +
+				a: 'We offer pool servers in numerous locations, and we hope to continue adding more!' +
 					'<ul>' +
-					'<li><b>us1.moneromine.co</b>: US Central</li>' +
-					'<li><b>eu1.moneromine.co</b>: EU Central</li>' +
+					'<li>Please see the <a href="#one">Start Mining</a> section for available addresses.</li>' +
 					'</ul>'
 			},
 
@@ -161,7 +160,10 @@ var mde = 'l',
 
 			{
 				q: 'What are the available pool ports?',
-				a: 'This pool supports four ports, each can automatically apply the difficulty best suited for your hardware. Please see the <a href="#one">Start Mining</a> section for available ports.'
+				a: 'This pool supports four PPLNS ports, each can automatically apply the difficulty best suited for your hardware.' +
+					'<ul>' +
+					'<li>Please see the <a href="#one">Start Mining</a> section for available ports.</li>' +
+					'</ul>'
 			},
 
 			{

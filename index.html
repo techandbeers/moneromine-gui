@@ -19,6 +19,13 @@
 
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@0.1.1"></script>
+<script src="js/chartjs-plugin-datalabels.min.js"></script>
+<script src="js/lodash-core.js"></script>
+<script src="js/d3-format.min.js"></script>
 <link rel="stylesheet" href="css/main.css" />
 <link rel="stylesheet" href="css/responsiveStyles.css" />
 
@@ -31,12 +38,6 @@
 
   gtag('config', 'G-SVRD7VG6ND');
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@0.1.1"></script>
-<script src="js/chartjs-plugin-datalabels.min.js"></script>
-<script src="js/lodash-core.js"></script>
-<script src="js/d3-format.min.js"></script>
 <style>
 	.miner {
 		display:none;
@@ -92,9 +93,17 @@
 		border-radius:5px;
 		display:inline-block;
 		width:16%;
+		box-shadow: 10px 10px 18px #333
+		transition: transform 250ms;
+	}
+	.poolStats:hover {
+		transform: translateY(-10px);
 	}
 	@media all and (max-width:900px) {
-	.poolStats {width:100%;margin:1px;}
+	.poolStats {
+		width:100%;
+		margin:8px;
+		}
 	}
 </style>
 </head>
@@ -122,7 +131,7 @@
 	<div class="inner">
 		<div class="logo"><i class="fas fa-meteor fa-3x"></i></div>
 		<a href="https://moneromine.co"><h2>MoneroMine<span style="font-size:14px;">co</span></h2></a>
-		<p>A Monero Mining Pool & Public Node | <a href="https://discord.gg/ZypfV3kkb6" target="_blank" style="border-bottom: none;" title="Join us on Discord"><i class="fab fa-discord"></i></a> <a href="https://twitter.com/moneromineco" target="_blank" style="border-bottom: none;" title="Follow us on Twitter"><i class="fab fa-twitter"></i></a> <a href="mailto:support@moneromine.co" target="_blank" style="border-bottom: none;" title="Shoot us an Email"><i class="fas fa-envelope"></i></a> | <a href="https://wiki.moneromine.co" target="_blank" style="border-bottom: none;" title="View our Wiki"><i class="fas fa-book"></i></a> <a href="https://status.moneromine.co" target="_blank" style="border-bottom: none;" title="View our Infastructure Status"><i class="fas fa-server"></i></a></p>
+		<p>A Monero Mining Pool & Public Node | <a href="https://discord.gg/ZypfV3kkb6" target="_blank" style="border-bottom: none;" title="Join us on Discord"><i class="fab fa-discord"></i></a> <a href="https://twitter.com/moneromineco" target="_blank" style="border-bottom: none;" title="Follow us on Twitter"><i class="fab fa-twitter"></i></a> <a href="mailto:support@moneromine.co" target="_blank" style="border-bottom: none;" title="Shoot us an Email"><i class="fas fa-envelope"></i></a> | <a href="https://wiki.moneromine.co" target="_blank" style="border-bottom: none;" title="View our Wiki"><i class="fas fa-book"></i></a> <a href="https://donate.moneromine.co" target="_blank" style="border-bottom: none;" title="Toss us a Donation and get Perks"><i class="fas fa-donate"></i></a> <a href="https://status.moneromine.co" target="_blank" style="border-bottom: none;" title="View our Infastructure Status"><i class="fas fa-server"></i></a></p>
 
 <!-- Wrapper -->
 <div id="NetStats">
@@ -169,6 +178,7 @@
 					<tr><th>Location</th><th>Hostname</th></tr>
 					<tr><td>North America</td><td>us1.moneromine.co</td></tr>
 					<tr><td>Europe</td><td>eu1.moneromine.co</td></tr>
+					<tr><td>Australia</td><td>au1.moneromine.co</td></tr>
 				</table>
 				<p style="text-align:center;margin-bottom: 1em;"><span style="font-size:14px !important"><i>The pool will automatically adjust your miner(s) or proxy difficulty to your hardware's ability.</i></span></p>
 				<table class="mining-table">
@@ -191,7 +201,7 @@
 				<p>The <a href="https://getmonero.org/downloads/" target="_blank">Official Monero Wallet</a> requires a connection to the Monero blockchain. Makes sense. Our node allows folks to sync their wallets without having to download the entire blockchain.</p>
 				<table>
 				<tr><th>Address</th><th>Port</th></tr>
-				<tr><td>node.moneromine.co</td><td>18089</td></tr>
+				<tr><td>node.moneromine.co</td><td>18081</td></tr>
 				</table>
 				<p><b>NOTE:</b><br />
 				It is <i>strongly</i> recommended that you host your own (local) copy of the blockchain. This is the only way to ensure nothing has been tampered with, with the added benefit of helping the network. We promise we're not malicious, but please only use our node if you cannot host your own copy.</p> 
@@ -210,6 +220,7 @@
 	channel: '821442709129920553',
 	channel: '810558491809939496',
 	channel: '813805912825397308',
+	channel: '824386700431327242',
 	channel: '822475476622770186',
 	channel: '823618929686478858',
 	channel: '810555137856503852',
