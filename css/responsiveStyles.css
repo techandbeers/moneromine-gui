@@ -1,4 +1,18 @@
 /* Custom style defaults (should be moved to separate file at a later date) */
+#meteor-lottie-wrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+#meteor-lottie {
+  transition: all 1.5s ease-in, opacity 1s ease;
+  position: absolute;
+  opacity: 0;
+  transform: rotate(225deg);
+  top: 0;
+  left: -65px;
+}
+
 #MinerDash,
 #MinerDash .SplitL,
 #MinerDash .SplitR {

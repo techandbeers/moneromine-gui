@@ -26,6 +26,7 @@
 <script src="js/chartjs-plugin-datalabels.min.js"></script>
 <script src="js/lodash-core.js"></script>
 <script src="js/d3-format.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.7/lottie.min.js" integrity="sha512-HDCfX3BneBQMfloBfluMQe6yio+OfXnbKAbI0SnfcZ4YfZL670nc52Aue1bBhgXa+QdWsBdhMVR2hYROljf+Fg==" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="css/main.css" />
 <link rel="stylesheet" href="css/responsiveStyles.css" />
 
@@ -129,7 +130,10 @@
 <!-- Banner -->
 <section id="banner">
 	<div class="inner">
-		<div class="logo"><i class="fas fa-meteor fa-3x"></i></div>
+		<div id="meteor-lottie-wrapper">
+			<div id="meteor-lottie"></div>
+		</div>
+		<!-- <div class="logo"><i class="fas fa-meteor fa-3x"></i></div> -->
 		<a href="https://moneromine.co"><h2>MoneroMine<span style="font-size:14px;">co</span></h2></a>
 		<p>A Monero Mining Pool & Public Node | <a href="https://discord.gg/ZypfV3kkb6" target="_blank" style="border-bottom: none;" title="Join us on Discord"><i class="fab fa-discord"></i></a> <a href="https://twitter.com/moneromineco" target="_blank" style="border-bottom: none;" title="Follow us on Twitter"><i class="fab fa-twitter"></i></a> <a href="mailto:support@moneromine.co" target="_blank" style="border-bottom: none;" title="Shoot us an Email"><i class="fas fa-envelope"></i></a> | <a href="https://wiki.moneromine.co" target="_blank" style="border-bottom: none;" title="View our Wiki"><i class="fas fa-book"></i></a> <a href="https://donate.moneromine.co" target="_blank" style="border-bottom: none;" title="Toss us a Donation and get Perks"><i class="fas fa-donate"></i></a> <a href="https://status.moneromine.co" target="_blank" style="border-bottom: none;" title="View our Infastructure Status"><i class="fas fa-server"></i></a></p>
 
@@ -269,4 +273,5 @@
 <script>
 	init();
 </script>
+<script type="text/javascript" src="js/fancy-meteor.js"></script>
 </html>
