@@ -106,7 +106,7 @@ input:-moz-focusring,select:-moz-focusring{color:transparent;text-shadow:0 0 0 #
 .C0bkd,.FLDd{background-color:#101010}
 .C1fl_hov:hover,.C1flim{fill:#4C5C96!important}
 svg,#WorkerSortRate .preload{height:100%;width:100%}
-.o5,.Btn16:hover,.Btn24:hover,.Btn32:hover,.nav:hover,.hov:hover,.PagBtn:hover{opacity:.8}
+.o5,.Btn16:hover,.Btn24:hover,.Btn32:hover,.nav:hover,.hov:hover,.PagBtn:hover{/*opacity:.8;*/}
 select,.select-point,.nav,.hov,.C2br_hov,.C2bk_hov,.PagBtn{cursor:pointer}
 @-moz-keyframes spin {
 100%{-moz-transform:rotate(360deg)}
