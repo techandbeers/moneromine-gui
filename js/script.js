@@ -903,12 +903,12 @@ function TimerUpdateData() {
 	api('netstats').then(function () {
 		api('poolstats').then(function () {
 			ErrAlert('X');
-			document.getElementById('WorldHash').innerHTML = '<div style="width:100%;height:100%;" class="nav" data-tar="home">' + HashConvStr(difficultyToHashRate($D.netstats.difficulty, mport)) + '<hr><span class="txttny">Global Hashrate</span></div>';
-			document.getElementById('PoolHash').innerHTML = '<div style="width:100%;height:100%;" class="nav" data-tar="coins">' + HashConvStr($D.poolstats.hashRate) + '<hr><span class="txttny">Pool Hashrate</span></div>';
-			document.getElementById('CurrEffort').innerHTML = '<div style="width:100%;height:100%;" title="' + $D.poolstats.roundHashes + ' / ' + $D.netstats.difficulty + '" class="nav" data-tar="luck">' + Rnd(100 * $D.poolstats.roundHashes / $D.netstats.difficulty, 2, 'txt') + '%<hr><span class="txttny">Block Effort</span></div>';
-			document.getElementById('BlockCount').innerHTML = '<div style="width:100%;height:100%;" title="' + $D.poolstats.totalBlocksFound + ' ' + $Q.cur.nme + ' blocks and ' + $D.poolstats.totalAltBlocksFound + ' altcoin blocks" class="nav" data-tar="blocks">' + ($D.poolstats.totalBlocksFound + $D.poolstats.totalAltBlocksFound) + '<hr><span class="txttny">Blocks Found</span></div>';
-			document.getElementById('AccountCount').innerHTML = '<div style="width:100%;height:100%;" class="nav" data-tar="home">' + $D.poolstats.miners + '<hr><span class="txttny">Accounts Connected</span></div>';
-			document.getElementById('PaymentsMade').innerHTML = '<div style="width:100%;height:100%;" class="nav" data-tar="payments">' + $D.poolstats.totalPayments + '<hr><span class="txttny">Payments Made</span></div>';
+			document.getElementById('WorldHash').innerHTML = '<div style="width:100%;height:100%;" title="Global Monero Statistics" class="nav" data-tar="home">' + HashConvStr(difficultyToHashRate($D.netstats.difficulty, mport)) + '<hr><span class="txttny">Global Hashrate</span></div>';
+			document.getElementById('PoolHash').innerHTML = '<div style="width:100%;height:100%;" title="Pool Statistics" class="nav" data-tar="coins">' + HashConvStr($D.poolstats.hashRate) + '<hr><span class="txttny">Pool Hashrate</span></div>';
+			document.getElementById('CurrEffort').innerHTML = '<div style="width:100%;height:100%;" title="RoundHashes/Difficulty: ' + $D.poolstats.roundHashes + ' / ' + $D.netstats.difficulty + '" class="nav" data-tar="luck">' + Rnd(100 * $D.poolstats.roundHashes / $D.netstats.difficulty, 2, 'txt') + '%<hr><span class="txttny">Block Effort</span></div>';
+			document.getElementById('BlockCount').innerHTML = '<div style="width:100%;height:100%;" title="' + $D.poolstats.totalBlocksFound + ' ' + $Q.cur.nme + ' Blocks and ' + $D.poolstats.totalAltBlocksFound + ' Altcoin Blocks" class="nav" data-tar="blocks">' + ($D.poolstats.totalBlocksFound + $D.poolstats.totalAltBlocksFound) + '<hr><span class="txttny">Blocks Found</span></div>';
+			document.getElementById('AccountCount').innerHTML = '<div style="width:100%;height:100%;" title="Miner Addresses Connected" class="nav" data-tar="home">' + $D.poolstats.miners + '<hr><span class="txttny">Accounts Connected</span></div>';
+			document.getElementById('PaymentsMade').innerHTML = '<div style="width:100%;height:100%;" title="Miner Payments Made" class="nav" data-tar="payments">' + $D.poolstats.totalPayments + '<hr><span class="txttny">Payments Made</span></div>';
 			updateTimer = $Q.timer;
 			$C.TimerText.innerHTML = updateTimer;
 			LoadTimer();
@@ -2330,16 +2330,16 @@ function PaginationBoxWidth() {
 	var b = document.getElementById('TblPagBox'),
 		val = b.value.replace(/\D/g, ''),
 		tot = parseInt(b.getAttribute('data-tot')),
-		wid = 18;
+		wid = 80;
 
 	if (val > 999) {
 		wid = (val > 9999) ? 50 : 42;
 		if (val > tot) val = tot;
 		val = Num(val);
 	} else if (val > 99) {
-		wid = 32;
+		wid = 80;
 	} else if (val > 9) {
-		wid = 24;
+		wid = 80;
 	}
 	b.style.width = wid + 'px';
 	b.value = val;

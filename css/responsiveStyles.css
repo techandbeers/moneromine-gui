@@ -11,6 +11,8 @@
   transform: rotate(225deg);
   top: 0;
   left: -65px;
+  padding-left:25px;
+  padding-top:-25px;
 }
 
 #MinerDash,
