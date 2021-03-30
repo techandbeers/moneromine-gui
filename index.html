@@ -93,7 +93,7 @@
 		border-radius:5px;
 		display:inline-block;
 		width:16%;
-		height:82px;
+		min-height:82px;
 		transition: transform 300ms;
 	}
 	.poolStats:hover {
@@ -101,14 +101,14 @@
 		transition: transform 300ms;
 		box-shadow: 10px 0 10px -4px #333, -10px 0 10px -4px #333;
 	}
-	@media all and (max-width:900px) {
+	@media all and (max-width:932px) {
 	.poolStats {
 		width:100%;
 		margin:2px;
 		height:70px;
 		}
 	}
-	@media all and (max-width:900px) {
+	@media all and (max-width:932px) {
 	.poolStats:hover {
 		transform: translateY(0px);
 		transition: transform 0ms;
@@ -168,7 +168,7 @@
 	<div class="">
 		<table class=""><tr>
 			<td width="40%"><span id="DashPending" class="txtbig">--</span><div class="pbar"></div><span id="DashPendingLbl" class="txttny noselect">--</span></td>
-			<td width="20%"><div id="DashPayBtn" class="nopoint" title="Miner options"><div class="Loader C01"></div></div></td>
+			<td width="20%"><div id="DashPayBtn" class="nopoint" title="Edit Miner Options"><div class="Loader C01"></div></div></td>
 			<td width="40%"><span id="DashPaid" class="txtbig">--</span><div class="pbar"></div><span id="DashPaidLbl" class="txttny noselect">--</span></td>
 		</tr></table>
 	</div>

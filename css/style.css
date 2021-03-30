@@ -53,7 +53,7 @@ header,section{margin:0;padding:0}
 .ROW1{background-color:rgba(5,5,5,0.05)}
 .ROW0:hover,.ROW1:hover{background-color:rgba(5,5,5,0.1)}
 .WingPanel{margin-left:35px;position:relative;width:calc(100% - 70px)}
-.WingPanel table td{padding:5px 4px;white-space:nowrap;font-size:16px;}
+.WingPanel table td{padding:5px 5px;white-space:nowrap;font-size:18px;}
 #WorkerSortName,#WorkerSortRate,.WingBtnL,.WingBtnR,.WingLblL{border-radius:50%;box-sizing:border-box;height:24px;left:0;margin-left:-29px;padding:4px;position:absolute;top:3px;width:24px}
 #WorkerSortRate,.WingBtnR{left:100%;margin-left:5px}
 #WorkerSortName{margin-left:-5px}
@@ -119,7 +119,7 @@ select,.select-point,.nav,.hov,.C2br_hov,.C2bk_hov,.PagBtn{cursor:pointer}
 }
 .hbar,.pbar{/*background:rgba(0,0,0,.2);background:linear-gradient(90deg,rgba(0,0,0,.01) 0,rgba(0,0,0,.25) 15%,rgba(0,0,0,.35) 50%,rgba(0,0,0,.25) 85%,rgba(0,0,0,.01) 100%);*/background:grey;height:1px;position:relative}
 .pbar{left:10%;margin-bottom:2px;margin-top:2px;opacity:.6;width:80%}
-#TblPagBox{margin:0 5px;position:relative;top:-3px;width:20px}
+#TblPagBox{margin:0 5px;position:relative;top:-3px;width:50px}
 #PageSize,#BlockType{margin:0 1px;position:relative;top:-3px}
 .chart .line{stroke-width:.7}
 .chart .mineravgline{stroke-dasharray:4;stroke-width:1}
