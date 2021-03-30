@@ -19,7 +19,6 @@
 
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@0.1.1"></script>
@@ -94,16 +93,25 @@
 		border-radius:5px;
 		display:inline-block;
 		width:16%;
-		box-shadow: 10px 10px 18px #333
-		transition: transform 250ms;
+		height:82px;
+		transition: transform 300ms;
 	}
 	.poolStats:hover {
-		transform: translateY(-10px);
+		transform: translateY(-8px);
+		transition: transform 300ms;
+		box-shadow: 10px 0 10px -4px #333, -10px 0 10px -4px #333;
 	}
 	@media all and (max-width:900px) {
 	.poolStats {
 		width:100%;
-		margin:8px;
+		margin:2px;
+		height:70px;
+		}
+	}
+	@media all and (max-width:900px) {
+	.poolStats:hover {
+		transform: translateY(0px);
+		transition: transform 0ms;
 		}
 	}
 </style>
@@ -141,12 +149,12 @@
 <div id="NetStats">
 	<!--<div class="bye" style="width:160px; height:130px; float:left; display:inline; margin-left:-180px; margin-top:-20px;"><img src="images/click.png" alt="Click for Pool Info" style="width:100%;" /></div>-->
 	<div class="">
-			<div class="center poolStats"><span id="WorldHash" class="txtbig">--</span><hr><span class="txttny">Global Hashrate</span></div>
-			<div class="center poolStats"><span id="PoolHash" class="txtbig">--</span><hr><span class="txttny">Pool Hashrate</span></div>
-			<div class="center poolStats"><span id="CurrEffort" class="txtbig">--</span><hr><span class="txttny">Block Effort</span></div>
-			<div class="center poolStats"><span id="BlockCount" class="txtbig">--</span><hr><span class="txttny">Blocks Found</span></div>
-			<div class="center poolStats"><span id="AccountCount" class="txtbig">--</span><hr><span class="txttny">Accounts Connected</span></div>
-			<div class="center poolStats"><span id="PaymentsMade" class="txtbig">--</span><hr><span class="txttny">Payments Made</span></div>
+			<div class="center poolStats"><span id="WorldHash" class="txtbig">--</span></div>
+			<div class="center poolStats"><span id="PoolHash" class="txtbig">--</span></div>
+			<div class="center poolStats"><span id="CurrEffort" class="txtbig">--</span></div>
+			<div class="center poolStats"><span id="BlockCount" class="txtbig">--</span></div>
+			<div class="center poolStats"><span id="AccountCount" class="txtbig">--</span></div>
+			<div class="center poolStats"><span id="PaymentsMade" class="txtbig">--</span></div>
 	</div>
 </div>
 <div id="Addr" class="">

@@ -903,16 +903,12 @@ function TimerUpdateData() {
 	api('netstats').then(function () {
 		api('poolstats').then(function () {
 			ErrAlert('X');
-			document.getElementById('WorldHash').innerHTML = '<span class="nav" data-tar="home">' + HashConvStr(difficultyToHashRate($D.netstats.difficulty, mport)) + '</span>';
-			document.getElementById('PoolHash').innerHTML = '<span class="nav" data-tar="coins">' + HashConvStr($D.poolstats.hashRate) + '</span>';
-			document.getElementById('CurrEffort').innerHTML =
-				'<span title="' + $D.poolstats.roundHashes + ' / ' + $D.netstats.difficulty + '" class="nav" data-tar="luck">' +
-				Rnd(100 * $D.poolstats.roundHashes / $D.netstats.difficulty, 2, 'txt') + "%</span>";
-			document.getElementById('BlockCount').innerHTML =
-				'<span title="' + $D.poolstats.totalBlocksFound + ' ' + $Q.cur.nme + ' blocks and ' + $D.poolstats.totalAltBlocksFound + ' altcoin blocks" class="nav" data-tar="blocks">' +
-				($D.poolstats.totalBlocksFound + $D.poolstats.totalAltBlocksFound) + '</span>';
-			document.getElementById('AccountCount').innerHTML = '<span class="nav" data-tar="home">' + $D.poolstats.miners + '</span>';
-			document.getElementById('PaymentsMade').innerHTML = '<span class="nav" data-tar="payments">' + $D.poolstats.totalPayments + '</span>';
+			document.getElementById('WorldHash').innerHTML = '<div style="width:100%;height:100%;" class="nav" data-tar="home">' + HashConvStr(difficultyToHashRate($D.netstats.difficulty, mport)) + '<hr><span class="txttny">Global Hashrate</span></div>';
+			document.getElementById('PoolHash').innerHTML = '<div style="width:100%;height:100%;" class="nav" data-tar="coins">' + HashConvStr($D.poolstats.hashRate) + '<hr><span class="txttny">Pool Hashrate</span></div>';
+			document.getElementById('CurrEffort').innerHTML = '<div style="width:100%;height:100%;" title="' + $D.poolstats.roundHashes + ' / ' + $D.netstats.difficulty + '" class="nav" data-tar="luck">' + Rnd(100 * $D.poolstats.roundHashes / $D.netstats.difficulty, 2, 'txt') + '%<hr><span class="txttny">Block Effort</span></div>';
+			document.getElementById('BlockCount').innerHTML = '<div style="width:100%;height:100%;" title="' + $D.poolstats.totalBlocksFound + ' ' + $Q.cur.nme + ' blocks and ' + $D.poolstats.totalAltBlocksFound + ' altcoin blocks" class="nav" data-tar="blocks">' + ($D.poolstats.totalBlocksFound + $D.poolstats.totalAltBlocksFound) + '<hr><span class="txttny">Blocks Found</span></div>';
+			document.getElementById('AccountCount').innerHTML = '<div style="width:100%;height:100%;" class="nav" data-tar="home">' + $D.poolstats.miners + '<hr><span class="txttny">Accounts Connected</span></div>';
+			document.getElementById('PaymentsMade').innerHTML = '<div style="width:100%;height:100%;" class="nav" data-tar="payments">' + $D.poolstats.totalPayments + '<hr><span class="txttny">Payments Made</span></div>';
 			updateTimer = $Q.timer;
 			$C.TimerText.innerHTML = updateTimer;
 			LoadTimer();
@@ -2348,7 +2344,8 @@ function PaginationBoxWidth() {
 	b.style.width = wid + 'px';
 	b.value = val;
 }
-//Graphing
+
+//Account Graph
 function is_home_page() {
 	return document.querySelector('#HeadMenu select').value == 'home';
 }
@@ -2522,6 +2519,7 @@ function Graph_Miner() {
 	}
 }
 
+//Worker Graph
 function Graph_Worker(xid) {
 	let { sharedMin, sharedMax } = workerAverage()
 	var WorkerChart = document.querySelector('.WorkerChart[data-worker="' + xid + '"]'),
