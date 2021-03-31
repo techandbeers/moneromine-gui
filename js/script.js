@@ -44,7 +44,7 @@ var mde = 'l',
 		},
 		page_sizes: [15, 50, 100],
 		hlp: {
-			head: '<div class="bye" style="float:right;padding-left:10px;"><iframe src="https://discord.com/widget?id=810555137856503848&theme=dark" width="350" height="480" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>' + 'Welcome to ' + $Q.pool.nme + '!<br />This pool was born out of an obvious interest in blockchain tech, and a true belief that Monero is the best form of crytoCURRENCY. Everything you see here is open source, with credit to the devs in our footer.<br /><br />Pool Features:<br /><ul><li>0% Pool Fee</li><li>Hashrate Capping (25% of global)</li><li>0.003 Minimum Payout</li><li>Block Notify</li><li>Email Notifications</li><li>DDoS Protection</li></ul>We try to be as transparent as possible, and hopefully any questions you have about this pool or mining in general can be answered below or on our <a href="https://wiki.moneromine.co/" target="_blank">Wiki</a>. Please feel free to join us on Discord or shoot us an <a href="mailto:support@moneromine.co">email</a> with any questions/issues (and be patient for a response)!',
+			head: '<div class="bye" style="float:right;padding-left:10px;padding-right:10px;"><iframe src="https://discord.com/widget?id=810555137856503848&theme=dark" width="300" height="480" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>' + 'Welcome to ' + $Q.pool.nme + '!<br />This pool was born out of an obvious interest in blockchain tech, and a true belief that Monero is the best form of crytoCURRENCY. Everything you see here is open source, with credit to the devs in our footer.<br /><br />Pool Features:<br /><ul><li>0% Pool Fee</li><li>Hashrate Capping (25% of global)</li><li>0.003 Minimum Payout</li><li>Block Notify</li><li>Email Notifications</li><li>DDoS Protection</li></ul>We try to be as transparent as possible, and hopefully any questions you have about this pool or mining in general can be answered below or on our <a href="https://wiki.moneromine.co/" target="_blank">Wiki</a>. Please feel free to join us on Discord or shoot us an <a href="mailto:support@moneromine.co">email</a> with any questions/issues (and be patient for a response)!',
 			text: ''
 		},
 		msg: {
@@ -98,7 +98,7 @@ var mde = 'l',
 			blocks: [
 				{ name: 'num', lbl: '#', cls: 'min' },
 				{ name: 'tme', lbl: 'Found', cls: 'min' },
-				//				{name: 'coin', lbl: 'Coin Name', cls: 'min'},
+				//{name: 'coin', lbl: 'Coin Name', cls: 'min'},
 				{ name: 'eff', lbl: 'Effort', cls: 'min' },
 				{ name: 'reward', lbl: 'Raw Reward', 'tooltip': 'Raw block reward in native coin units', cls: 'min' },
 				{ name: 'payment', lbl: 'Payment (' + $Q.cur.sym + ')', cls: 'min' },
@@ -122,7 +122,7 @@ var mde = 'l',
 				{ name: 'tme_found', lbl: 'Block Found Time', cls: 'min' },
 				{ name: 'amnt', lbl: 'Amount (' + $Q.cur.sym + ')', cls: 'min' },
 				{ name: 'percent', lbl: 'Block Share (percent)', cls: 'min' },
-				//				{name: 'coin', lbl: 'Coin name', cls: 'min'},
+				//{name: 'coin', lbl: 'Coin name', cls: 'min'},
 				{ name: 'hash_pay', lbl: 'Block Hash', cls: 'trunc' },
 			]
 		},
@@ -160,7 +160,7 @@ var mde = 'l',
 
 			{
 				q: 'What are the available pool ports?',
-				a: 'This pool supports four PPLNS ports, each can automatically apply the difficulty best suited for your hardware.' +
+				a: 'This pool supports numerous PPLNS ports, each can automatically apply the difficulty best suited for your hardware.' +
 					'<ul>' +
 					'<li>Please see the <a href="#one">Start Mining</a> section for available ports.</li>' +
 					'</ul>'
@@ -168,7 +168,7 @@ var mde = 'l',
 
 			{
 				q: 'Can I mine here using a Tor .onion address?',
-				a: 'Not at the moment, coming soon!<!--Yes! You can mine on our pool using <b>mo2tor2amawhphlrgyaqlrqx7o27jaj7yldnx3t6jip3ow4bujlwz6id.onion</b> Tor address (and usual <b>10001</b>-<b>18192</b> http ports).-->'
+				a: 'Not at the moment, coming soon!'
 			},
 
 
@@ -176,7 +176,7 @@ var mde = 'l',
 
 			{
 				q: 'When do payments happen?',
-				a: 'Payments happen automatically in couple of hours when your total due reaches your payment threshold. The default payment threshold is <b>0.3</b> XMR but your can lower it in the home page miner options.'
+				a: 'Payments happen automatically every 2 hours when your total due reaches your payment threshold. The default payment threshold is 0.3 XMR but your can lower it in the home page miner options.'
 			},
 
 			{
@@ -191,7 +191,7 @@ var mde = 'l',
 
 			{
 				q: 'Is it possible to open the pool home page on a specific XMR address?',
-				a: 'Yup! You can use <b>https://moneromine.co/#/dashboard?addr=&quot;xmr_address&quot;</b>. <!--You can also use the following URL to start web mining immediately without the need to click the button: <b>https://moneromine.co/#/dashboard?addr=&quot;xmr_address&quot;&amp;web_miner</b>.-->'
+				a: 'Yup! You can use <b>https://moneromine.co/#/dashboard?addr=&quot;xmr_address&quot;</b>.'
 			},
 
 			{
@@ -206,7 +206,7 @@ var mde = 'l',
 
 			{
 				q: 'Am I payed only for the coin blocks my rig(s) mine/find?',
-				a: 'Nope! The pool pays you your share from every block we find as a pool. Your pay share is based on the amount of hashes you submitted in the PPLNS window, on the moment s block is found. This means that your are payed even after you stopped mining as long as your shares are within the PPLNS window.'
+				a: 'Nope! The pool pays you your share from every block we find as a pool. Your pay is based on the amount of hashes you submitted in the PPLNS window, on the moment a block is found. This means that your are payed even after you stopped mining as long as your shares are within the PPLNS window.'
 			},
 
 			//			{ q:	'How can I verify my PPLNS reward for a particular XMR block?',
@@ -254,7 +254,7 @@ var mde = 'l',
 
 			{
 				q: 'Why does my miner recieve pool errors about throttled shares?',
-				a: 'This is because you are connecting too many miners with too low difficulty. Either increase miner difficulty or use a mining proxy.'
+				a: 'This is because you are connecting too many miners with too low of difficulty. Either increase miner difficulty or use a mining proxy.'
 			},
 
 			{
@@ -264,7 +264,7 @@ var mde = 'l',
 			},
 			{
 				q: 'Why are some of my worker names replaced by <b>all_other_workers</b> worker?',
-				a: 'This is because of the use of too many worker names. To avoid DB/network channel overloads, all extra miners are joined under the <b>all_other_workers</b> worker name.'
+				a: 'This is because of the use of too many worker names. To avoid DB/network channel overloads, all extra miners are joined under the <b>all_other_workers</b> worker name. You might want to look into using a proxy.'
 			},
 
 			// Fees and donations
@@ -281,12 +281,12 @@ var mde = 'l',
 
 			{
 				q: 'Is this pool software open source?',
-				a: 'Yes. It is powered by the <a href="https://github.com/MoneroOcean/nodejs-pool" target="_blank" class="C3l hov">nodejs-pool</a> and <a href="https://github.com/MoneroOcean/moneroocean-gui" target="_blank" class="C3l hov">moneroocean-gui</a> repositories (with some custom frontend & backend work by MONERMINEco).'
+				a: 'Yes. It is powered by <a href="https://github.com/MoneroOcean/nodejs-pool" target="_blank" class="C3l hov">nodejs-pool</a> and <a href="https://github.com/MoneroOcean/moneroocean-gui" target="_blank" class="C3l hov">moneroocean-gui</a> repositories (with some custom frontend & backend work by MONERMINEco).'
 			},
 
 			{
 				q: 'Are you accepting donations?',
-				a: 'Not at the moment, the withdrawal fee is enough for us to keep things running. If you have some XMR burning a hole in your pocket, please consider donations to the Monero Core Devs or MoneroOcean!'
+				a: 'Yes! Please see our <a href="https://donate.moneromine.co" target="_blank">Donation page</a> for more details. If you have some XMR burning a hole in your pocket, please consider donations to the Monero Core Devs or MoneroOcean as well!'
 			},
 		]
 	};
