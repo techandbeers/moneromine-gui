@@ -4,20 +4,22 @@
 <title>Monero (XMR) Mining Pool - MONEROMINEco</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-<meta name="description" content="Welcome to MONEROMINEco, A Monero XMR Mining Pool & Public Node!">
-<meta name="keywords" content="Monero, XMR, Mining, Pool, Node">
+<meta name="description" content="Welcome to MONEROMINEco, a Monero (XMR) Mining Pool & Public Node! Mine Monero (XMR) with XMRig or XMR-Stak on a stable, feature-rich pool. Join our Discord community for cryptocurrency discussion and events. Follow us on Twitter for pool updates.">
+<meta name="keywords" content="Monero, XMR, Mining, Pool, Node, Crypto">
 <meta name="author" content="MONEROMINEco">
 <meta name="robots" content="index, follow" />
 
-<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" alt="MONEROMINEco" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" alt="MONEROMINEco" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" alt="MONEROMINEco" href="icons/favicon-16x16.png">
 <link rel="manifest" href="icons/site.webmanifest" crossorigin="use-credentials">
-<link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#603cba">
+<link rel="mask-icon" alt="MONEROMINEco" href="icons/safari-pinned-tab.svg" color="#603cba">
 <meta name="msapplication-TileColor" content="#603cba">
 <meta name="theme-color" content="#ffffff">
 
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" href="css/main.css" />
+<link rel="stylesheet" href="css/responsiveStyles.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0"></script>
@@ -26,8 +28,6 @@
 <script src="js/lodash-core.js"></script>
 <script src="js/d3-format.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.7/lottie.min.js" integrity="sha512-HDCfX3BneBQMfloBfluMQe6yio+OfXnbKAbI0SnfcZ4YfZL670nc52Aue1bBhgXa+QdWsBdhMVR2hYROljf+Fg==" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="css/main.css" />
-<link rel="stylesheet" href="css/responsiveStyles.css" />
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SVRD7VG6ND"></script>
@@ -38,83 +38,6 @@
 
   gtag('config', 'G-SVRD7VG6ND');
 </script>
-<style>
-	.miner {
-		display:none;
-	}
-	.coin-marquee-header-signature {
-		display:none;
-	}
-	.coin-marquee-wrapper--dark {
-		border:none !important;
-	}
-	#coinmarketcap-widget-marquee {
-		float:right;
-		width:400px;
-		margin:0 5px 0 0;
-		position:relative;
-		transform: translate(-50%, -50%);
-		top:45%;
-	}
-	.coin-marquee-wrapper coin-marquee-wrapper--dark coin-marquee-wrapper--transparent {
-	
-	}
-	.coin-marquee-item {
-		min-width:150px !important;
-	}
-	.coin-marquee-item-inner {
-		border:none !important;
-	}
-	#News {
-		display:none !important;
-	}
-	.MinerMsg {
-		display:none !important;
-	}
-	.select-point {
-		display:none !important;
-	}
-	#MinerSetupScripts {
-		display:none !important;
-	}
-	#WebMinerBtn {
-		display:none !important;
-	}
-	#PendingPay {
-		display:none !important;
-	}
-	#NetStats hr {
-		margin:0;
-	}
-	.poolStats {
-		background-color:#45558d;
-		margin:0 1px 0 1px;
-		padding:5px;
-		border-radius:5px;
-		display:inline-block;
-		width:16%;
-		min-height:82px;
-		transition: transform 300ms;
-	}
-	.poolStats:hover {
-		transform: translateY(-8px);
-		transition: transform 300ms;
-		box-shadow: 10px 0 10px -4px #333, -10px 0 10px -4px #333;
-	}
-	@media all and (max-width:932px) {
-	.poolStats {
-		width:100%;
-		margin:2px;
-		min-height:50px;
-		}
-	}
-	@media all and (max-width:932px) {
-	.poolStats:hover {
-		transform: translateY(0px);
-		transition: transform 0ms;
-		}
-	}
-</style>
 </head>
 
 <body class="C0bkl">
@@ -142,8 +65,8 @@
 			<div id="meteor-lottie"></div>
 		</div>
 		<!-- <div class="logo"><i class="fas fa-meteor fa-3x"></i></div> -->
-		<a href="https://moneromine.co"><h2>MoneroMine<span style="font-size:14px;">co</span></h2></a>
-		<p>A Monero Mining Pool & Public Node | <a href="https://discord.gg/ZypfV3kkb6" target="_blank" style="border-bottom: none;" title="Join us on Discord"><i class="fab fa-discord"></i></a> <a href="https://twitter.com/moneromineco" target="_blank" style="border-bottom: none;" title="Follow us on Twitter"><i class="fab fa-twitter"></i></a> <a href="mailto:support@moneromine.co" target="_blank" style="border-bottom: none;" title="Shoot us an Email"><i class="fas fa-envelope"></i></a> | <a href="https://wiki.moneromine.co" target="_blank" style="border-bottom: none;" title="View our Wiki"><i class="fas fa-book"></i></a> <a href="https://donate.moneromine.co" target="_blank" style="border-bottom: none;" title="Toss us a Donation and get Perks"><i class="fas fa-donate"></i></a> <a href="https://status.moneromine.co" target="_blank" style="border-bottom: none;" title="View our Infastructure Status"><i class="fas fa-server"></i></a></p>
+		<a href="https://moneromine.co"><h1 style="font-size:40px;margin-bottom:10px;border-bottom:1px solid grey;">MoneroMine<span style="font-size:14px;">co</span></h1></a>
+		<h2 style="font-weight:normal;font-size:20px;border-bottom:none;">A Monero Mining Pool & Public Node | <a href="https://discord.gg/ZypfV3kkb6" target="_blank" style="border-bottom: none;" title="Join us on Discord"><i class="fab fa-discord"></i></a> <a href="https://twitter.com/moneromineco" target="_blank" style="border-bottom: none;" title="Follow us on Twitter"><i class="fab fa-twitter"></i></a> <a href="mailto:support@moneromine.co" target="_blank" style="border-bottom: none;" title="Shoot us an Email"><i class="fas fa-envelope"></i></a> | <a href="https://wiki.moneromine.co" target="_blank" style="border-bottom: none;" title="View our Wiki"><i class="fas fa-book"></i></a> <a href="https://donate.moneromine.co" target="_blank" style="border-bottom: none;" title="Toss us a Donation and get Perks"><i class="fas fa-donate"></i></a> <a href="https://status.moneromine.co" target="_blank" style="border-bottom: none;" title="View our Infastructure Status"><i class="fas fa-server"></i></a></h2>
 
 <!-- Wrapper -->
 <div id="NetStats">
@@ -179,12 +102,13 @@
 </section>
 
 <section id="wrapper">
+
 <!-- One -->
 	<section id="one" class="wrapper spotlight style1">
 		<div class="inner">
-			<a href="#one" class="image hide-sm"><img src="images/monero.webp" alt="Monero XMR Mining" /></a>
+			<a href="#one" class="image hide-sm"><img src="images/monero.webp" alt="Monero XMR Mining Pool" /></a>
 			<div class="content">
-				<h2 class="major">Start Mining</h2>
+				<h3 class="major">Start Mining</h3>
 				<p style="text-align:center;margin-bottom: 1em;"><b>Pool Fee: 0%</b><br /><span style="font-size:14px !important"><i>Please note that there is a small withdrawal tx fee to cover miner payouts.</i></span></p>
 				<table>
 					<tr><th>Location</th><th>Hostname</th></tr>
@@ -211,7 +135,7 @@
 		<div class="inner">
 			<a href="#two" class="image hide-sm"><img src="images/blockchain.webp" alt="Monero XMR Public Node" /></a>
 			<div class="content">
-				<h2 class="major">Public Node</h2>
+				<h3 class="major">Public Node</h3>
 				<p>The <a href="https://getmonero.org/downloads/" target="_blank">Official Monero Wallet</a> requires a connection to the Monero blockchain. Makes sense. Our node allows folks to sync their wallets without having to download the entire blockchain.</p>
 				<table>
 				<tr><th>Address</th><th>Port</th></tr>
@@ -242,6 +166,7 @@
   })
 </script>
 
+<!--Footer-->
 <section id="footer">
 	<div class="inner">
 		<ul class="copyright">
@@ -256,11 +181,11 @@
 <div class="footer C0bkgrdl" style="display:none;">
 	<div class="hbar"></div>
 	<div id="FootL" class="C2">
-		<a href="https://twitter.com/MONEROMINEco" target="_blank"><img src="" width="40px" height="40px" title=""></a>
+		<a href="https://twitter.com/MONEROMINEco" target="_blank"><img src="" width="40px" height="40px" alt="MONEROMINEco Twitter" title="MONEROMINEco Twitter"></a>
 		&nbsp;
-  	        <a href="https://discord.gg/ZypfV3kkb6" target="_blank"><img src="" width="40px" height="40px" title=""></a>
+  	        <a href="https://discord.gg/ZypfV3kkb6" target="_blank"><img src="" width="40px" height="40px" alt="MONEROMINEco Discord" title="MONEROMINEco Discord"></a>
 		&nbsp;
-  	        <a href="http://minerbox.witplex.com/" target="_blank"><img src="" width="40px" height="40px" title=""></a>
+  	        <a href="http://minerbox.witplex.com/" target="_blank"><img src="" width="40px" height="40px" alt="Minerbox" title="Minerbox"></a>
 	</div>
 	<div id="FootR" class="txtmed C2 right"></div>
 	<div class="shim10"></div>

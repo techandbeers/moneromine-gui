@@ -127,15 +127,15 @@ input, select, textarea {
 	body, input, select, textarea {
 		color: #ffffff;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
-		font-size: 16.5pt;
-		font-weight: 300;
+		font-size: 18pt;
+		font-weight: 500;
 		line-height: 1.65;
 	}
 
 		@media screen and (max-width: 1680px) {
 
 			body, input, select, textarea {
-				font-size: 13pt;
+				font-size: 18pt;
 			}
 
 		}
@@ -143,7 +143,7 @@ input, select, textarea {
 		@media screen and (max-width: 1280px) {
 
 			body, input, select, textarea {
-				font-size: 12pt;
+				font-size: 18pt;
 			}
 
 		}
@@ -151,7 +151,7 @@ input, select, textarea {
 		@media screen and (max-width: 980px) {
 
 			body, input, select, textarea {
-				font-size: 12pt;
+				font-size: 18pt;
 			}
 
 		}
@@ -159,7 +159,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			body, input, select, textarea {
-				font-size: 12pt;
+				font-size: 18pt;
 			}
 
 		}
@@ -167,7 +167,7 @@ input, select, textarea {
 		@media screen and (max-width: 480px) {
 
 			body, input, select, textarea {
-				font-size: 12pt;
+				font-size: 18pt;
 			}
 
 		}
@@ -3546,7 +3546,7 @@ input, select, textarea {
 				}
 
 				#banner p {
-					font-size: 0.8em;
+					font-size: 1em;
 				}
 
 		}
@@ -4078,8 +4078,8 @@ input, select, textarea {
 		#footer .inner .copyright {
 			border-top: solid 2px rgba(255, 255, 255, 0.125);
 			list-style: none;
-			margin: 2em 0 2em 0;
-			padding: 2em 0 0 0;
+			margin: 1em 0 1em 0;
+			padding: 1em 0 0 0;
 			width: 100%;
 		}
 
@@ -4190,4 +4190,81 @@ input, select, textarea {
 			padding: 2em 1.5em 0.1em 1.5em ;
 		}
 
+	}
+	
+/* MONEROMINEco CUSTOM*/
+.miner {
+		display:none;
+	}
+	.coin-marquee-header-signature {
+		display:none;
+	}
+	.coin-marquee-wrapper--dark {
+		border:none !important;
+	}
+	#coinmarketcap-widget-marquee {
+		float:right;
+		width:400px;
+		margin:0 5px 0 0;
+		position:relative;
+		transform: translate(-50%, -50%);
+		top:45%;
+	}
+	.coin-marquee-wrapper coin-marquee-wrapper--dark coin-marquee-wrapper--transparent {
+	
+	}
+	.coin-marquee-item {
+		min-width:150px !important;
+	}
+	.coin-marquee-item-inner {
+		border:none !important;
+	}
+	#News {
+		display:none !important;
+	}
+	.MinerMsg {
+		display:none !important;
+	}
+	.select-point {
+		display:none !important;
+	}
+	#MinerSetupScripts {
+		display:none !important;
+	}
+	#WebMinerBtn {
+		display:none !important;
+	}
+	#PendingPay {
+		display:none !important;
+	}
+	#NetStats hr {
+		margin:0;
+	}
+	.poolStats {
+		background-color:#45558d;
+		margin:0 1px 0 1px;
+		padding:5px;
+		border-radius:5px;
+		display:inline-block;
+		width:16%;
+		min-height:82px;
+		transition: transform 300ms;
+	}
+	.poolStats:hover {
+		transform: translateY(-8px);
+		transition: transform 300ms;
+		box-shadow: 10px 0 10px -4px #333, -10px 0 10px -4px #333;
+	}
+	@media all and (max-width:932px) {
+	.poolStats {
+		width:100%;
+		margin:2px;
+		min-height:50px;
+		}
+	}
+	@media all and (max-width:932px) {
+	.poolStats:hover {
+		transform: translateY(0px);
+		transition: transform 0ms;
+		}
 	}
