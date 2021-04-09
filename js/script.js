@@ -44,7 +44,7 @@ var mde = 'l',
 		},
 		page_sizes: [15, 50, 100],
 		hlp: {
-			head: '<div class="bye" style="float:right;padding-left:10px;padding-right:10px;"><iframe src="https://discord.com/widget?id=810555137856503848&theme=dark" width="300" height="480" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>' + '<p style="text-transform:none;line-height:1.5;margin-top:-30px;"><b>Welcome to ' + $Q.pool.nme + '!</b><br />This pool was born out of an obvious interest in blockchain tech, and a true belief that Monero is the best form of crytoCURRENCY. Everything you see here is open source, with credit to the devs in our footer.</p>Pool Features:<br /><ul><li>0% Pool Fee</li><li>Hashrate Capping (25% of global)</li><li>0.003 Minimum Payout</li><li>Block Notify</li><li>Email Notifications</li><li>DDoS Protection</li></ul><p style="text-transform:none;line-height:1.5;margin-bottom:0px;">We try to be as transparent as possible, and hopefully any questions you have about this pool or mining in general can be answered below or on our <a href="https://wiki.moneromine.co/" target="_blank">Wiki</a>. Please feel free to join us on Discord or shoot us an <a href="mailto:support@moneromine.co">email</a> with any questions/issues (and be patient for a response)!</p>',
+			head: 'This page should help get you started on our pool, but please see our <a href="https://wiki.moneromine.co/" target="_blank">Wiki</a> for more information if needed.',
 			text: ''
 		},
 		msg: {
