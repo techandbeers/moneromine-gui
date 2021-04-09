@@ -134,6 +134,9 @@ select,.select-point,.nav,.hov,.C2br_hov,.C2bk_hov,.PagBtn{cursor:pointer}
 #MinerGraph{position:relative}
 #MinerGraph .mchart{height:100px}
 #MinerGraph .MinerMsg{padding-top:25px;text-align:center;display:none !important;}
+.MinerMsg {display:none !important;}
+#MinerSetupScripts {display:none !important;}
+.miner {display:none !important;}
 header{height:80px}
 #HeadLogo{cursor:pointer;height:20px;margin-left:10px;position:absolute;top:15px;width:128px}
 #HeadMenu,#TogMode,#Timer,#TimerRefresh,#TimerLoader{box-sizing:border-box;height:35px;left:100%;padding:5px;position:absolute;top:9px;width:35px}
@@ -147,6 +150,7 @@ header{height:80px}
 #TimerText .C4fl{padding-bottom:1px}
 #TimerRefresh,#TimerLoader{left:0;top:0;z-index:9}
 #TimerLoader{z-index:10}
+#NetStats hr {margin:0;}
 #Addr{margin:19px 0}
 #Addr td{padding:3px;text-align:center}
 #Addr .SplitL{width:calc(100% - 305px)}
@@ -154,6 +158,7 @@ header{height:80px}
 #AddrRecent{position:relative;width:100px}
 #AddrRecent select{padding:1px 11px 1px 3px;width:100%}
 #AddrRecent .select-point{height:8px;right:0;top:5px;width:8px;display:none;}
+.select-point {display:none !important;}
 #AddrFieldCell{height:34px;position:relative}
 #DashPending,#DashPaid{min-width:97px}
 #DashPayBtn{border-radius:50%;box-sizing:border-box;display:inline-block;height:45px;padding:8px;position:relative;width:45px;border:1px solid #999;}
@@ -161,7 +166,7 @@ header{height:80px}
 #Stage{-moz-transition:opacity .4s ease-in;-ms-transition:opacity .4s ease-in;-o-transition:opacity .4s ease-in;-webkit-transition:opacity .4s ease-in;min-height:calc(100% - 312px);opacity:0;position:relative;transition:opacity .4s ease-in;margin-top:10px;}
 #Stage.short{min-height:calc(100% - 140px)}
 .StageFade{opacity:1!important}
-#News{background:linear-gradient(0deg,rgba(19,19,19,0.05) 0%,rgba(19,19,19,0) 50%)}
+#News{background:linear-gradient(0deg,rgba(19,19,19,0.05) 0%,rgba(19,19,19,0) 50%);display:none !important;}
 #NewsCard,#NewsBody{box-sizing:border-box}
 #NewsCard{border:1px solid rgba(0,0,0,.3);border-radius:5px;min-height:40px;padding:9px 38px 9px 10px;margin-bottom:10px}
 #NewsTime{float:right;padding-top:4px}
@@ -169,12 +174,13 @@ header{height:80px}
 #MinerDash{margin-bottom:10px}
 #MinerDash .Spl{display:inline-grid;text-align:center;width:48%;border:1px solid #4C5C96;padding:5px;margin:5px;border-radius:5px;}
 #MinerPayments{border-bottom:1px solid grey;height:0;overflow:hidden;position:relative;transition:height 300ms}
-#MinerPayments.Opened{height:285px}
+#MinerPayments.Opened{height:295px}
 #MinerPayments.OpenedBig{height:550px}
 #MinerPayments .LR85{height:calc(100% - 1px)}
 #MinerPaymentsStage{height:calc(100% - 1px);position:relative}
-#WebMinerBtn{height:25px;width:100%}
+#WebMinerBtn{height:25px;width:100%;display:none !important;}
 #MinerSetupShowBtn,#MinerSetupHideBtn{height:32px;width:60%}
+#PendingPay {display:none !important;}
 #AutoPayFld,#EmailFROM,#EmailTO{border-style:solid;border-width:1px;padding:3px;width:100%}
 #AutoPayBtn .preload{display:inline-block;height:22px;width:22px}
 #MinerPaymentsStage table{border-color:rgba(0,0,0,.1);border-style:solid;border-width:0 1px;padding:3px}
@@ -252,7 +258,7 @@ textarea{resize:none}
 .LR80{left:8%;width:84%}
 .LR85{left:6.5%;width:87%}
 .Split3{padding:6px 0;width:100%!important}
-#MinerPayments.Opened{height:380px}
+#MinerPayments.Opened{height:420px}
 #MinerPayments.OpenedBig{height:620px}
 .Split3L,.Split3R{padding:6px 0;width:50%!important}
 }

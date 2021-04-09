@@ -2273,7 +2273,7 @@ input, select, textarea {
 	input[type="password"],
 	input[type="email"],
 	select {
-		height: 2em;
+		height: 48px;
 	}
 
 	textarea {
@@ -3529,7 +3529,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			#banner {
-				padding: 0em 2em 4.25em 2em ;
+				padding: 0em 1em 4.25em 1em ;
 				margin-bottom: -2.5em;
 			}
 
@@ -3999,7 +3999,7 @@ input, select, textarea {
 				}
 
 				.wrapper .inner {
-					padding: 2em 2em 0.1em 2em ;
+					padding: 2em 1em 0.1em 1em ;
 				}
 
 				.wrapper.spotlight .inner {
@@ -4156,7 +4156,7 @@ input, select, textarea {
 		}
 
 			#footer .inner {
-				padding: 2em 2em 0.1em 2em ;
+				padding: 2em 1em 0.1em 1em ;
 			}
 
 				#footer .inner form {
@@ -4193,22 +4193,19 @@ input, select, textarea {
 	}
 	
 /* MONEROMINEco CUSTOM*/
-.miner {
-		display:none;
-	}
 	.coin-marquee-header-signature {
-		display:none;
+		display:none !important;
 	}
 	.coin-marquee-wrapper--dark {
 		border:none !important;
 	}
 	#coinmarketcap-widget-marquee {
-		float:right;
-		width:400px;
-		margin:0 5px 0 0;
-		position:relative;
-		transform: translate(-50%, -50%);
-		top:45%;
+		float:right !important;
+		width:400px !important;
+		margin:0 5px 0 0 !important;
+		position:relative !important;
+		transform: translate(-50%, -50%) !important;
+		top:45% !important;
 	}
 	.coin-marquee-wrapper coin-marquee-wrapper--dark coin-marquee-wrapper--transparent {
 	
@@ -4218,27 +4215,6 @@ input, select, textarea {
 	}
 	.coin-marquee-item-inner {
 		border:none !important;
-	}
-	#News {
-		display:none !important;
-	}
-	.MinerMsg {
-		display:none !important;
-	}
-	.select-point {
-		display:none !important;
-	}
-	#MinerSetupScripts {
-		display:none !important;
-	}
-	#WebMinerBtn {
-		display:none !important;
-	}
-	#PendingPay {
-		display:none !important;
-	}
-	#NetStats hr {
-		margin:0;
 	}
 	.poolStats {
 		background-color:#45558d;
