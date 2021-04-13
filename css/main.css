@@ -4006,9 +4006,22 @@ input, select, textarea {
 				}
 
 				.wrapper .inner {
-					padding: 2em 1em 0.1em 1em ;
+					padding: 2em 1em 0.1em 1em;
+					width:90%;
 				}
-
+				.wrapper .inner h1 {
+					font-size:40px !important;
+					}
+				.wrapper .inner h2 {
+					font-size:24px !important;
+					}
+				.wrapper .inner h3 {
+					font-size:20px !important;
+					}
+				.wrapper .inner {
+					font-size:18px !important;
+					}
+					
 				.wrapper.spotlight .inner {
 					-moz-align-items: -moz-flex-start;
 					-webkit-align-items: -webkit-flex-start;
@@ -4123,6 +4136,10 @@ input, select, textarea {
 			margin-top: -6.5em;
 			padding-top: 6.5em;
 		}
+		
+		#footer .inner {
+			font-size:18px;
+		}
 
 	}
 
@@ -4163,7 +4180,7 @@ input, select, textarea {
 		}
 
 			#footer .inner {
-				padding: 2em 1em 0.1em 1em ;
+				padding: 2em 1em 0.1em 1em;
 			}
 
 				#footer .inner form {
@@ -4238,14 +4255,14 @@ input, select, textarea {
 		transition: transform 300ms;
 		box-shadow: 10px 0 10px -4px #333, -10px 0 10px -4px #333;
 	}
-	@media all and (max-width:932px) {
+	@media all and (max-width:1210px) {
 	.poolStats {
 		width:100%;
 		margin:2px;
 		min-height:50px;
 		}
 	}
-	@media all and (max-width:932px) {
+	@media all and (max-width:1210px) {
 	.poolStats:hover {
 		transform: translateY(0px);
 		transition: transform 0ms;
