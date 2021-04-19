@@ -69,7 +69,7 @@ var mde = 'l',
 		},
 		sts: function () {
 			return {
-				MinerWorkerCount: '<span style="line-height:1.1em">Individual workers shown below. If you are new to the pool, please allow a few minutes for your workers to show.</span><div id="WebMinerBtn" class="BtnElem C0' + mde + ' txttny C1bk C2bk_hov"></div>',
+				MinerWorkerCount: '<span style="line-height:1.2em">Individual workers shown below. If you are new to the pool, please allow a few minutes for your workers to show.</span><div id="WebMinerBtn" class="BtnElem C0' + mde + ' txttny C1bk C2bk_hov"></div>',
 				MinerHashes: 'Your <select id="HashSelect"></select> Hashrate',
 				MinerShares: 'Shares<br /><br /><br /><br /><span id="TotalHashes">--</span><div class="hbar shim4 o8"></div>Hashes',
 				MinerCalc: '<input type="text" id="MinerCalcHsh" size="3" /><select id="MinerCalcUnit"></select><select id="MinerCalcFld"></select>',
@@ -255,6 +255,11 @@ var mde = 'l',
 			{
 				q: 'Why does my miner recieve pool errors about throttled shares?',
 				a: 'This is because you are connecting too many miners with too low of difficulty. Either increase miner difficulty or use a mining proxy.'
+			},
+			
+			{
+				q: 'Why does my miner stay at 10000 difficulty?',
+				a: 'The minimum difficulty on this pool is currently 10000, so rigs that typically settle under that difficulty will be forced to our minimum. This does not impact your pay.'
 			},
 
 			{
@@ -1115,7 +1120,7 @@ function Dash_init() {
 	u.className = 'FrmElem C0' + mde + ' C1bk';
 	h.className = 'FrmElem C0' + mde + ' C1bk';
 	hs.className = 'FrmElem C0' + mde + ' C1bk';
-	hs.innerHTML = '<option value="raw">Raw</option><option value="pay">Pay</option>';
+	hs.innerHTML = '<option value="pay">Pay</option><option value="raw">Raw</option>';
 }
 function Dash_load(typ) {
 	var m = document.getElementById('MinerGraph'),
