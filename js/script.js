@@ -300,7 +300,7 @@ var COINS = {
 	18081: {
 		name: "XMR",
 		divisor: 1000000000000,
-		url: "https://xmrchain.net",
+		url: "https://explorer.moneromine.co",
 		time: 120,
 	},
 	//	18181: {
