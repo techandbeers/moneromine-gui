@@ -139,12 +139,12 @@ select,.select-point,.nav,.hov,.C2br_hov,.C2bk_hov,.PagBtn{cursor:pointer}
 .miner {display:none !important;}
 header{height:80px}
 #HeadLogo{cursor:pointer;height:20px;margin-left:10px;position:absolute;top:15px;width:128px}
-#HeadMenu,#TogMode,#Timer,#TimerRefresh,#TimerLoader{box-sizing:border-box;height:35px;left:100%;padding:5px;position:absolute;top:9px;width:35px}
-#HeadMenu{border:0;margin-left:-200px;overflow:hidden;text-align:right;top:9px;width:150px;height:100px;}
+#HeadMenu,#TogMode,#Timer,#TimerRefresh,#TimerLoader{box-sizing:border-box;height:35px;left:95.5%;/*padding:5px;*/position:absolute;top:9px;width:35px}
+#HeadMenu{border:0;margin-left:-200px;overflow:hidden;text-align:right;top:9px;width:150px;height:60px;}
 #HeadMenu select{box-sizing:border-box;padding:0 14px 0 5px;background-color:#45558D;}
 #TogMode,#Timer,#TimerRefresh,#TimerLoader,#TimerPie,#TimerDisc{border-radius:50%}
 #TogMode{margin-left:-85px}
-#Timer{margin-left:-44px;padding:3px;margin-top:7px;}
+#Timer{margin-left:-44px;padding:3px;margin-top:3px;}
 #TimerDisc,#TimerText{height:88%;left:6%;position:absolute;top:6%;width:88%}
 #TimerText{line-height:20px;padding-top:1px;text-align:center;z-index:1}
 #TimerText .C4fl{padding-bottom:1px}
@@ -233,15 +233,20 @@ table.noborder{border-width:0!important}
 }
 .glow{-moz-animation:glowing 1500ms infinite;-o-animation:glowing 1500ms infinite;-webkit-animation:glowing 1500ms infinite;animation:glowing 1500ms infinite}
 textarea{resize:none}
+@media all and (max-width:1600px) {
+.bye{display:none;}
+}
 @media all and (max-width:1300px) {
 .WorkerWrap{width:25%}
+}
+@media all and (max-width:1280px) {
+.bye{display:inline-block;}
 }
 @media all and (max-width:1100px) {
 .LR80{left:9%;width:82%}
 .txt{font-size:18px}
 }
 @media all and (max-width:900px) {
-.bye{display:none !important;}
 .txtbig{font-size:24px}
 .txtmed{font-size:18px}
 .txtsmall{font-size:12px;line-height:15px}
