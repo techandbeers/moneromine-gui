@@ -1,4 +1,4 @@
-@import url(fontawesome-all.min.css);
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Raleway:200,700|Source+Sans+Pro:300,600,300italic,600italic");
 
 /*
@@ -2273,7 +2273,7 @@ input, select, textarea {
 	input[type="password"],
 	input[type="email"],
 	select {
-		height: 48px;
+		height: 40px;
 	}
 
 	textarea {
@@ -3410,12 +3410,12 @@ input, select, textarea {
 /* Banner */
 
 	#banner {
-		/*padding: 2em 0 2em 0 ;*/
+		padding: 2em 0 2em 0;
 	}
 
 		#banner .inner {
 			margin: 0 auto;
-			width: 55em;
+			width: 90%;
 		}
 
 		#banner .logo {
@@ -3598,7 +3598,7 @@ input, select, textarea {
 
 		#wrapper > header .inner {
 			margin: 0 auto;
-			width: 55em;
+			width: 90%;
 		}
 
 		#wrapper > header h2 {
@@ -3727,7 +3727,7 @@ input, select, textarea {
 		.wrapper .inner {
 			/*padding: 3em 0 1em 0 ;*/
 			margin: 0 auto;
-			width: 55em;
+			width: 90%;
 		}
 
 		.wrapper.style2 {
@@ -4079,7 +4079,7 @@ input, select, textarea {
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
 		margin: 0 auto;
-		width: 55em;
+		width: 90%;
 	}
 
 		#footer .inner > * {
@@ -4101,6 +4101,7 @@ input, select, textarea {
 			margin: 1em 0 1em 0;
 			padding: 1em 0 0 0;
 			width: 100%;
+			text-align:center;
 		}
 
 			#footer .inner .copyright li {
@@ -4226,10 +4227,10 @@ input, select, textarea {
 	#coinmarketcap-widget-marquee {
 		float:right !important;
 		width:400px !important;
-		margin:0 5px 0 0 !important;
+		/*margin:0 -120px 0 0 !important;*/
 		position:relative !important;
 		transform: translate(-50%, -50%) !important;
-		top:45% !important;
+		top:50% !important;
 	}
 	.coin-marquee-wrapper coin-marquee-wrapper--dark coin-marquee-wrapper--transparent {
 	
@@ -4268,3 +4269,58 @@ input, select, textarea {
 		transition: transform 0ms;
 		}
 	}
+	
+/* Desktop Menu*/
+#mmHeader {
+	padding:10px;
+	height:60px;
+	width:90%;
+	margin:0 auto;
+}
+
+#mmHeader a {
+	text-decoration:none;
+	border:none;
+}
+
+#mmHeader i {
+	font-size:26px;
+	vertical-align: middle;
+}
+
+.mmHeaderInner {
+	display:inline-block;
+}
+
+.mmButton {
+	height:40px;
+	line-height: 2em;
+	font-size: 0.8em;
+	padding: 0 1.25em;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+    white-space: nowrap;
+	box-shadow:inset 0 0 0 2px rgb(255 255 255 / 13%);
+	border:0;
+	border-radius:5px;
+	display:inline-block;
+	margin:0 1px 0 1px;
+	font-weight:bold;
+	text-align:center;
+	background-color: transparent;
+	transition: background-color 0.2s ease-in-out;
+	cursor: pointer;
+}
+
+.mmButton:hover {
+	background-color:#4c5c96;
+	opacity:0.9;
+}
+
+.mmActive {
+	background-color:#45558d;
+}
+
+@media only screen and (max-width:1280px) {
+.mmHeaderInner {display:none;}
+}
