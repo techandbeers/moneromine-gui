@@ -113,15 +113,15 @@
 			<a href="#one" class="image hide-sm"><img src="images/monero.webp" alt="Monero XMR Mining Pool" /></a>
 			<div class="content">
 				<h3 class="major">Start Mining</h3>
-				<p style="text-align:center;margin-bottom: 1em;"><b>Pool Fee: 0%<br />Minimum Payout: 0.003 XMR</b><br /><span style="font-size:16px !important"><i>Please note that there is a small withdrawal tx fee to cover miner payouts.</i></span></p>
+				<h4 style="text-align:center;margin-bottom:0;font-size:24px;text-transform:none !important;"><b>Pool Fee: 0%<br />Minimum Payout: 0.003 XMR</b></h4>
+				<p style="font-size:16px !important;text-align:center;margin-bottom:0;"><i>Please note that there is a small withdrawal tx fee to cover miner payouts.</i></p>
 				<table>
 					<tr><th>Region</th><th>Hostname</th></tr>
 					<tr><td>North America</td><td>na1.moneromine.co</td></tr>
 					<tr><td>Europe</td><td>eu1.moneromine.co</td></tr>
 					<tr><td>Asia</td><td>ap1.moneromine.co</td></tr>
-					<tr><td>Australia</td><td>au1.moneromine.co</td></tr>
 				</table>
-				<p style="text-align:center;margin-bottom: 1em;"><span style="font-size:16px !important"><i>The pool will automatically adjust your miner(s) or proxy difficulty to your hardware's ability.</i></span></p>
+				<p style="text-align:center;margin-bottom:0;"><span style="font-size:16px !important"><i>The pool will automatically adjust your miner(s) or proxy difficulty to your hardware's ability.</i></span></p>
 				<table class="mining-table">
 					<tr class="mining-table-header"><th>Port</th><th>TLS</th><th>Description</th><th>Starting Difficulty</th></tr>
 					<tr class="mining-table-row"><td><span class="small-label">Port: </span>4444</td><td><span class="small-label">TLS: </span>Yes</td><td class="mining-table-desc"><span class="small-label">Description: </span>Common Port</td><td><span class="small-label">Starting Difficulty: </span>256000</td></tr>
@@ -141,11 +141,13 @@
 			<a href="#two" class="image hide-sm"><img src="images/blockchain.webp" alt="Monero XMR Public Node" /></a>
 			<div class="content">
 				<h3 class="major">Public Node</h3>
-				<p>The <a href="https://getmonero.org/downloads/" target="_blank">Official Monero Wallet</a> requires a connection to the Monero blockchain. Makes sense. Our node allows folks to sync their wallets without having to download the entire blockchain.</p>
+				<p>Wallets, including the <a href="https://getmonero.org/downloads/" target="_blank">Official Monero Wallet</a>, require a connection to the Monero blockchain. Makes sense. Our node allows folks to sync their wallets without having to download the entire blockchain. TLS (SSL) is required for our node, and some connection scenarios may require <a href="https://letsencrypt.org/certs/isrgrootx1.pem">Let's Encrypt's ISRG_Root_X1.pem</a> certificate.</p>
 				<table>
-				<tr><th>Address</th><th>Port</th></tr>
-				<tr><td>node.moneromine.co</td><td>18089</td></tr>
+				<tr><th>Address</th><th>Port</th><th>TLS</th></tr>
+				<tr><td>node.moneromine.co</td><td>443</td><td>Yes</td></tr>
 				</table>
+				<h4>Connect with CLI</h4>
+				<code>monero-wallet-cli --daemon-address=node.moneromine.co:443</code><br /><br />
 				<p><b>NOTE:</b><br />
 				It is <i>strongly</i> recommended that you host your own (local) copy of the blockchain. This is the only way to ensure nothing has been tampered with, with the added benefit of helping the network. We promise we're not malicious, but please only use our node if you cannot host your own copy.</p> 
 				<a href="https://getmonero.org/resources/user-guides/remote_node_gui.html" class="special" target="_blank">Learn more</a>
