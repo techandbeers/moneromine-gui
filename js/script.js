@@ -1919,10 +1919,11 @@ function dta_Help() {
 		'<div class="helptitle txtbig">Step 2 - Install Mining Software<div class="btnback">' + $I.arrow + '</div></div>' +
 		'<div class="helpteaser">Install the software needed to mine Monero.</div>' +
 		'<div class="helpcontent hide">' +
-		'<p>Select the miner that best suits your hardware and follow their installation instructions, we recommend XMRig. <!--If you need help, visit <a href="https://discordapp.com/invite/jXaR2kA" class="C1 hov">Discord</a>.--></p>' +
+		'<p>Select the miner that best suits your hardware and follow their installation instructions, we recommend XMRig. If you need help, visit our <a href="https://discord.gg/ZypfV3kkb6" class="C1 hov">Discord</a>.</p>' +
 		'<!--&nbsp;<a href="https://github.com/MoneroOcean/xmrig/releases" class="C1 hov" target="_blank">MO XMRig</a>: for top profit algo switching mining on CPU and GPU (Nvidia, AMD)<br>-->' +
-		'&nbsp;<a href="https://github.com/xmrig/xmrig/releases" class="C1 hov" target="_blank" style="font-size:20px;">XMRig</a>: for mining on CPU and GPU (<a href="https://github.com/xmrig/xmrig-cuda/releases" target="_blank">Nvidia</a>, <a href="https://github.com/xmrig/xmrig-amd/releases" target="_blank">AMD</a>)<br>' +
-		'&nbsp;<a href="https://github.com/fireice-uk/xmr-stak/releases" class="C1 hov" target="_blank" style="font-size:20px;">XMR-Stak/RX</a>: for mining on CPU<br>' +
+		'&nbsp;<a href="https://github.com/xmrig/xmrig/releases" class="C1 hov" target="_blank" style="font-size:20px;">XMRig</a>: for mining with CPU and GPU (<a href="https://github.com/xmrig/xmrig-cuda/releases" target="_blank">Nvidia</a>, <a href="https://github.com/xmrig/xmrig-amd/releases" target="_blank">AMD</a>)<br>' +
+		'&nbsp;<a href="https://github.com/techandbeers/xmrig/releases" class="C1 hov" target="_blank" style="font-size:20px;">XMRig-MMc</a> (dev/donation fee goes to MONEROMINEco; can be set to 0 dev/donation fee) for CPU mining at MONEROMINEco ONLY as a way to donate<br>' +
+		'&nbsp;<a href="https://github.com/fireice-uk/xmr-stak/releases" class="C1 hov" target="_blank" style="font-size:20px;">XMR-Stak/RX</a>: for CPU mining<br>' +
 		'<!--&nbsp;<a href="https://github.com/MoneroOcean/meta-miner" class="C1 hov" target="_blank">mm.js</a>: for algo switching miner wrapper (advanced)<br><br>-->' +
 		'<!--<p>Use <a href="https://github.com/MoneroOcean/xmrig-proxy/releases" class="C1 hov" target="_blank">algo switching mining proxy</a> if you have many miners.</p>-->' +
 		'</div>' +
