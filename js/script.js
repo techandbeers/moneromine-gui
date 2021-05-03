@@ -30,7 +30,7 @@ var mde = 'l',
 		pay: {
 			min_auto: 0.003,											//minimum for automatic threshold
 			def_auto: 0.3,											//minimum for automatic threshold
-			max_fee: 0.0004,											//max fee (for min_auto)
+			max_fee: 0.0001,											//max fee (for min_auto)
 			zero_fee_pay: 4,											//theshold that makes fee to be zero
 			dec_auto: 4											//decimal places for threshold
 		}
