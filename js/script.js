@@ -28,9 +28,9 @@ var mde = 'l',
 			pplns: false,												//show pplns window on chart
 		},
 		pay: {
-			min_auto: 0.003,											//minimum for automatic threshold
+			min_auto: 0.001,											//minimum for automatic threshold
 			def_auto: 0.3,											//minimum for automatic threshold
-			max_fee: 0.0001,											//max fee (for min_auto)
+			max_fee: 0.00005,											//max fee (for min_auto)
 			zero_fee_pay: 4,											//theshold that makes fee to be zero
 			dec_auto: 4											//decimal places for threshold
 		}
