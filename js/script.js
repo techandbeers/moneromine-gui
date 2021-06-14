@@ -32,7 +32,7 @@ var mde = 'l',
 			def_auto: 0.3,											//minimum for automatic threshold
 			max_fee: 0.00005,											//max fee (for min_auto)
 			zero_fee_pay: 4,											//theshold that makes fee to be zero
-			dec_auto: 4											//decimal places for threshold
+			dec_auto: 3											//decimal places for threshold
 		}
 	},
 	$$ = {
@@ -1633,7 +1633,7 @@ function WebMiner() {
 function fee_txt(threshold) {
 	var fee = Math.max(0, $Q.pay.max_fee - ((threshold - $Q.pay.min_auto) * ($Q.pay.max_fee / ($Q.pay.zero_fee_pay - $Q.pay.min_auto))));
 	var percent = 100 * (fee / threshold);
-	return '+' + Rnd(fee, 4, 'txt') + ' (' + Rnd(percent, 2, 'txt') + '%) ' + $Q.cur.sym + ' tx fee';
+	return '+' + Rnd(fee, 5, 'txt') + ' (' + Rnd(percent, 2, 'txt') + '%) ' + $Q.cur.sym + ' tx fee';
 }
 
 function AutoPayCheck() {
